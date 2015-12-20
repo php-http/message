@@ -3,12 +3,11 @@
 namespace Http\Message\Encoding;
 
 use Clue\StreamFilter as Filter;
-use GuzzleHttp\Psr7\StreamDecoratorTrait;
 use Http\Message\Decorator\StreamDecorator;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * A filtered stream has a filter for filtering output and a filter for filtering input made to a underlying stream
+ * A filtered stream has a filter for filtering output and a filter for filtering input made to a underlying stream.
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
@@ -39,7 +38,7 @@ abstract class FilteredStream implements StreamInterface
     protected $writeFilter;
 
     /**
-     * Internal buffer
+     * Internal buffer.
      *
      * @var string
      */
@@ -52,9 +51,9 @@ abstract class FilteredStream implements StreamInterface
      */
     public function __construct(StreamInterface $stream, $readFilterOptions = null, $writeFilterOptions = null)
     {
-        $this->readFilterCallback  = Filter\fun($this->getReadFilter(), $readFilterOptions);
+        $this->readFilterCallback = Filter\fun($this->getReadFilter(), $readFilterOptions);
         $this->writeFilterCallback = Filter\fun($this->getWriteFilter(), $writeFilterOptions);
-        $this->stream              = $stream;
+        $this->stream = $stream;
     }
 
     /**
@@ -80,7 +79,7 @@ abstract class FilteredStream implements StreamInterface
         $this->buffer = '';
         $this->fill();
 
-        return $read . $this->read($length - strlen($read));
+        return $read.$this->read($length - strlen($read));
     }
 
     /**
@@ -88,11 +87,11 @@ abstract class FilteredStream implements StreamInterface
      */
     public function eof()
     {
-        return ($this->stream->eof() && $this->buffer === '');
+        return $this->stream->eof() && $this->buffer === '';
     }
 
     /**
-     * Buffer is filled by reading underlying stream
+     * Buffer is filled by reading underlying stream.
      *
      * Callback is reading once more even if the stream is ended.
      * This allow to get last data in the PHP buffer otherwise this
@@ -129,14 +128,14 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
-     * Return the read filter name
+     * Return the read filter name.
      *
      * @return string
      */
     abstract public function getReadFilter();
 
     /**
-     * Return the write filter name
+     * Return the write filter name.
      *
      * @return mixed
      */

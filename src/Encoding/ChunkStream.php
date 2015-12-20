@@ -3,7 +3,7 @@
 namespace Http\Message\Encoding;
 
 /**
- * Transform a regular stream into a chunked one
+ * Transform a regular stream into a chunked one.
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */

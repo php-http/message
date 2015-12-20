@@ -3,7 +3,7 @@
 namespace Http\Message\Encoding;
 
 /**
- * Decorate a stream which is chunked
+ * Decorate a stream which is chunked.
  *
  * Allow to decode a chunked stream
  *

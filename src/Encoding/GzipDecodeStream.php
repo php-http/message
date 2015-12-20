@@ -5,7 +5,7 @@ namespace Http\Message\Encoding;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Stream for decoding from gzip format (RFC 1952)
+ * Stream for decoding from gzip format (RFC 1952).
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
