@@ -22,6 +22,8 @@ branches:
         - /^analysis-.*$/
 
 matrix:
+    allow_failures:
+        - php: hhvm
     fast_finish: true
     include:
         - php: 5.4
