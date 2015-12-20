@@ -1,0 +1,5 @@
+suites:
+    message_suite:
+        namespace: Http\Message
+        psr4_prefix: Http\Message
+formatter.name: pretty

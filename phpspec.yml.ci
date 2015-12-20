@@ -1,0 +1,10 @@
+suites:
+    message_suite:
+        namespace: Http\Message
+        psr4_prefix: Http\Message
+formatter.name: pretty
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+code_coverage:
+    format: clover
+    output: build/coverage.xml
