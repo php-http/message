@@ -7,7 +7,7 @@ class Chunk extends \php_user_filter
     public function filter($in, $out, &$consumed, $closing)
     {
         while ($bucket = stream_bucket_make_writeable($in)) {
-            $lenbucket = stream_bucket_new($this->stream,  dechex($bucket->datalen)."\r\n");
+            $lenbucket = stream_bucket_new($this->stream, dechex($bucket->datalen)."\r\n");
             stream_bucket_append($out, $lenbucket);
 
             $consumed += $bucket->datalen;

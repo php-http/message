@@ -5,7 +5,7 @@ namespace Http\Message\Encoding;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Stream inflate (RFC 1951)
+ * Stream inflate (RFC 1951).
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */

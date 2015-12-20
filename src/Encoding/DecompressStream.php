@@ -5,7 +5,7 @@ namespace Http\Message\Encoding;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Stream decompress (RFC 1950)
+ * Stream decompress (RFC 1950).
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
