@@ -3,12 +3,17 @@
 namespace spec\Http\Message\Encoding;
 
 use Psr\Http\Message\StreamInterface;
+use PhpSpec\Exception\Example\SkippingException;
 use PhpSpec\ObjectBehavior;
 
 class CompressStreamSpec extends ObjectBehavior
 {
     function let(StreamInterface $stream)
     {
+        if (defined('HHVM_VERSION')) {
+            throw new SkippingException('Skipping test as zlib is not working on hhvm');
+        }
+
         $this->beConstructedWith($stream);
     }
 
