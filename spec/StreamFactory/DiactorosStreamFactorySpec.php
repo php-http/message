@@ -4,7 +4,6 @@ namespace spec\Http\Message\StreamFactory;
 
 use Zend\Diactoros\Stream;
 use PhpSpec\ObjectBehavior;
-use spec\Http\Message\StreamFactoryBehavior;
 
 class DiactorosStreamFactorySpec extends ObjectBehavior
 {

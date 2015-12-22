@@ -4,7 +4,6 @@ namespace spec\Http\Message\StreamFactory;
 
 use GuzzleHttp\Psr7\Stream;
 use PhpSpec\ObjectBehavior;
-use spec\Http\Message\StreamFactoryBehavior;
 
 class GuzzleStreamFactorySpec extends ObjectBehavior
 {
