@@ -8,6 +8,8 @@ use PhpSpec\ObjectBehavior;
 
 class DecompressStreamSpec extends ObjectBehavior
 {
+    use StreamBehavior, ZlibStreamBehavior;
+
     function let(StreamInterface $stream)
     {
         if (defined('HHVM_VERSION')) {
@@ -20,11 +22,6 @@ class DecompressStreamSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\DecompressStream');
-    }
-
-    function it_is_a_stream()
-    {
-        $this->shouldImplement('Psr\Http\Message\StreamInterface');
     }
 
     function it_reads()

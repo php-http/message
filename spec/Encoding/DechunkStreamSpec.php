@@ -8,6 +8,8 @@ use PhpSpec\ObjectBehavior;
 
 class DechunkStreamSpec extends ObjectBehavior
 {
+    use StreamBehavior;
+
     function let(StreamInterface $stream)
     {
         if (defined('HHVM_VERSION')) {
@@ -20,11 +22,6 @@ class DechunkStreamSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\DechunkStream');
-    }
-
-    function it_is_a_stream()
-    {
-        $this->shouldImplement('Psr\Http\Message\StreamInterface');
     }
 
     function it_reads()

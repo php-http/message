@@ -7,6 +7,8 @@ use PhpSpec\ObjectBehavior;
 
 class DeflateStreamSpec extends ObjectBehavior
 {
+    use StreamBehavior;
+
     function let(StreamInterface $stream)
     {
         $this->beConstructedWith($stream);
@@ -15,11 +17,6 @@ class DeflateStreamSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\DeflateStream');
-    }
-
-    function it_is_a_stream()
-    {
-        $this->shouldImplement('Psr\Http\Message\StreamInterface');
     }
 
     function it_reads()

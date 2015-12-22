@@ -8,6 +8,8 @@ use PhpSpec\ObjectBehavior;
 
 class CompressStreamSpec extends ObjectBehavior
 {
+    use StreamBehavior, ZlibStreamBehavior;
+
     function let(StreamInterface $stream)
     {
         if (defined('HHVM_VERSION')) {
@@ -20,11 +22,6 @@ class CompressStreamSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\CompressStream');
-    }
-
-    function it_is_a_stream()
-    {
-        $this->shouldImplement('Psr\Http\Message\StreamInterface');
     }
 
     function it_reads()
