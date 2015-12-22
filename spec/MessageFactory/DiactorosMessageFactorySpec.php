@@ -3,7 +3,6 @@
 namespace spec\Http\Message\MessageFactory;
 
 use PhpSpec\ObjectBehavior;
-use spec\Http\Message\MessageFactoryBehavior;
 
 class DiactorosMessageFactorySpec extends ObjectBehavior
 {

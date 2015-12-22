@@ -4,7 +4,6 @@ namespace spec\Http\Message\UriFactory;
 
 use Psr\Http\Message\UriInterface;
 use PhpSpec\ObjectBehavior;
-use spec\Http\Message\UriFactoryBehavior;
 
 class GuzzleUriFactorySpec extends ObjectBehavior
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Http\Message;
+namespace spec\Http\Message\StreamFactory;
 
 trait StreamFactoryBehavior
 {
