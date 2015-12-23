@@ -24,13 +24,6 @@ class BearerSpec extends ObjectBehavior
         $this->getToken()->shouldReturn('token');
     }
 
-    function it_accepts_a_token()
-    {
-        $this->setToken('another_token');
-
-        $this->getToken()->shouldReturn('another_token');
-    }
-
     function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)
     {
         $request->withHeader('Authorization', 'Bearer token')->willReturn($newRequest);

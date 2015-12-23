@@ -49,16 +49,6 @@ final class Matching implements Authentication
     }
 
     /**
-     * Sets the authentication.
-     *
-     * @param Authentication $authentication
-     */
-    public function setAuthentication(Authentication $authentication)
-    {
-        $this->authentication = $authentication;
-    }
-
-    /**
      * Returns the matcher.
      *
      * @return callable
@@ -66,16 +56,6 @@ final class Matching implements Authentication
     public function getMatcher()
     {
         return $this->matcher;
-    }
-
-    /**
-     * Sets the matcher.
-     *
-     * @param callable $matcher
-     */
-    public function setMatcher(callable $matcher)
-    {
-        $this->matcher = $matcher;
     }
 
     /**

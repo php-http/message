@@ -36,16 +36,6 @@ final class Bearer implements Authentication
     }
 
     /**
-     * Sets the token.
-     *
-     * @param string $token
-     */
-    public function setToken($token)
-    {
-        $this->token = $token;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function authenticate(RequestInterface $request)
