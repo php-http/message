@@ -19,11 +19,6 @@ class BearerSpec extends ObjectBehavior
         $this->shouldHaveType('Http\Message\Authentication\Bearer');
     }
 
-    function it_has_a_token()
-    {
-        $this->getToken()->shouldReturn('token');
-    }
-
     function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)
     {
         $request->withHeader('Authorization', 'Bearer token')->willReturn($newRequest);

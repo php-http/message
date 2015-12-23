@@ -39,26 +39,6 @@ final class Matching implements Authentication
     }
 
     /**
-     * Returns the authentication.
-     *
-     * @return string
-     */
-    public function getAuthentication()
-    {
-        return $this->authentication;
-    }
-
-    /**
-     * Returns the matcher.
-     *
-     * @return callable
-     */
-    public function getMatcher()
-    {
-        return $this->matcher;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function authenticate(RequestInterface $request)

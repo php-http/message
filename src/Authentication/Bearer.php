@@ -26,16 +26,6 @@ final class Bearer implements Authentication
     }
 
     /**
-     * Returns the token.
-     *
-     * @return string
-     */
-    public function getToken()
-    {
-        return $this->token;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function authenticate(RequestInterface $request)
