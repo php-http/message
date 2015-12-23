@@ -24,36 +24,11 @@ class ChainSpec extends ObjectBehavior
         $this->getAuthenticationChain()->shouldReturn($chain);
     }
 
-    function it_sets_the_authentication_chain(Authentication $auth1, Authentication $auth2)
+    function it_throws_an_exception_when_non_authentication_is_passed()
     {
-        // This SHOULD be replaced
-        $this->beConstructedWith([$auth1]);
+        $this->beConstructedWith(['authentication']);
 
-        $this->setAuthenticationChain([$auth2]);
-
-        $this->getAuthenticationChain()->shouldReturn([$auth2]);
-    }
-
-    function it_adds_an_authentication_method(Authentication $auth1, Authentication $auth2)
-    {
-        // This SHOULD NOT be replaced
-        $this->beConstructedWith([$auth1]);
-
-        $this->addAuthentication($auth2);
-
-        $this->getAuthenticationChain()->shouldReturn([$auth1, $auth2]);
-    }
-
-    function it_clears_the_authentication_chain(Authentication $auth1, Authentication $auth2)
-    {
-        // This SHOULD be replaced
-        $this->beConstructedWith([$auth1]);
-
-        $this->clearAuthenticationChain();
-
-        $this->addAuthentication($auth2);
-
-        $this->getAuthenticationChain()->shouldReturn([$auth2]);
+        $this->shouldThrow('InvalidArgumentException')->duringInstantiation();
     }
 
     function it_authenticates_a_request(

@@ -30,16 +30,6 @@ trait UserPasswordPair
     }
 
     /**
-     * Sets the username.
-     *
-     * @param string $username
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
-
-    /**
      * Returns the password.
      *
      * @return string
@@ -47,15 +37,5 @@ trait UserPasswordPair
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * Sets the password.
-     *
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
     }
 }

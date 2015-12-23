@@ -22,19 +22,15 @@ final class Chain implements Authentication
      */
     public function __construct(array $authenticationChain = [])
     {
-        $this->setAuthenticationChain($authenticationChain);
-    }
+        foreach ($authenticationChain as $authentication) {
+            if (!$authentication instanceof Authentication) {
+                throw new \InvalidArgumentException(
+                    'Members of the authentication chain must be of type Http\Message\Authentication'
+                );
+            }
+        }
 
-    /**
-     * Adds an Authentication method to the chain.
-     *
-     * The order of authentication methods SHOULD NOT matter.
-     *
-     * @param Authentication $authentication
-     */
-    public function addAuthentication(Authentication $authentication)
-    {
-        $this->authenticationChain[] = $authentication;
+        $this->authenticationChain = $authenticationChain;
     }
 
     /**
@@ -45,28 +41,6 @@ final class Chain implements Authentication
     public function getAuthenticationChain()
     {
         return $this->authenticationChain;
-    }
-
-    /**
-     * Replaces the current authentication chain.
-     *
-     * @param array $authenticationChain
-     */
-    public function setAuthenticationChain(array $authenticationChain)
-    {
-        $this->clearAuthenticationChain();
-
-        foreach ($authenticationChain as $authentication) {
-            $this->addAuthentication($authentication);
-        }
-    }
-
-    /**
-     * Clears the authentication chain.
-     */
-    public function clearAuthenticationChain()
-    {
-        $this->authenticationChain = [];
     }
 
     /**

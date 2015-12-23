@@ -29,25 +29,9 @@ class MatchingSpec extends ObjectBehavior
         $this->getAuthentication()->shouldReturn($authentication);
     }
 
-    function it_accepts_an_authentication(Authentication $anotherAuthentication)
-    {
-        $this->setAuthentication($anotherAuthentication);
-
-        $this->getAuthentication()->shouldReturn($anotherAuthentication);
-    }
-
     function it_has_a_matcher()
     {
         $this->getMatcher()->shouldReturn($this->matcher);
-    }
-
-    function it_accepts_a_matcher()
-    {
-        $matcher = function($request) { return false; };
-
-        $this->setMatcher($matcher);
-
-        $this->getMatcher()->shouldReturn($matcher);
     }
 
     function it_authenticates_a_request(Authentication $authentication, RequestInterface $request, RequestInterface $newRequest)
@@ -61,7 +45,7 @@ class MatchingSpec extends ObjectBehavior
     {
         $matcher = function($request) { return false; };
 
-        $this->setMatcher($matcher);
+        $this->beConstructedWith($authentication, $matcher);
 
         $authentication->authenticate($request)->shouldNotBeCalled();
 
