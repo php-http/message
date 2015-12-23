@@ -24,16 +24,6 @@ class MatchingSpec extends ObjectBehavior
         $this->shouldHaveType('Http\Message\Authentication\Matching');
     }
 
-    function it_has_an_authentication(Authentication $authentication)
-    {
-        $this->getAuthentication()->shouldReturn($authentication);
-    }
-
-    function it_has_a_matcher()
-    {
-        $this->getMatcher()->shouldReturn($this->matcher);
-    }
-
     function it_authenticates_a_request(Authentication $authentication, RequestInterface $request, RequestInterface $newRequest)
     {
         $authentication->authenticate($request)->willReturn($newRequest);

@@ -12,7 +12,15 @@ use Psr\Http\Message\RequestInterface;
  */
 final class BasicAuth implements Authentication
 {
-    use UserPasswordPair;
+    /**
+     * @var string
+     */
+    private $username;
+
+    /**
+     * @var string
+     */
+    private $password;
 
     /**
      * @param string $username

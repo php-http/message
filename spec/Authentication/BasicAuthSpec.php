@@ -19,16 +19,6 @@ class BasicAuthSpec extends ObjectBehavior
         $this->shouldHaveType('Http\Message\Authentication\BasicAuth');
     }
 
-    function it_has_a_username()
-    {
-        $this->getUsername()->shouldReturn('john.doe');
-    }
-
-    function it_has_a_password()
-    {
-        $this->getPassword()->shouldReturn('secret');
-    }
-
     function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)
     {
         $request->withHeader('Authorization', 'Basic '.base64_encode('john.doe:secret'))->willReturn($newRequest);

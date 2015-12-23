@@ -34,16 +34,6 @@ final class Chain implements Authentication
     }
 
     /**
-     * Returns the current authentication chain.
-     *
-     * @return Authentication[]
-     */
-    public function getAuthenticationChain()
-    {
-        return $this->authenticationChain;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function authenticate(RequestInterface $request)

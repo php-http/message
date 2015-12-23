@@ -15,15 +15,6 @@ class ChainSpec extends ObjectBehavior
         $this->shouldHaveType('Http\Message\Authentication\Chain');
     }
 
-    function it_accepts_an_authentication_chain_in_the_constructor(Authentication $auth1, Authentication $auth2)
-    {
-        $chain = [$auth1, $auth2];
-
-        $this->beConstructedWith($chain);
-
-        $this->getAuthenticationChain()->shouldReturn($chain);
-    }
-
     function it_throws_an_exception_when_non_authentication_is_passed()
     {
         $this->beConstructedWith(['authentication']);
