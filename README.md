@@ -19,7 +19,19 @@ $ composer require php-http/message
 ```
 
 
-## Usage
+## Intro
+
+This package contains various PSR-7 tools which might be useful in an HTTP workflow:
+
+- Authentication method implementations
+- Various Stream encoding tools
+- Message decorators
+- Message factory implementations for Guzzle PSR-7 and Diactoros
+
+
+## Documentation
+
+Please see the [official documentation](http://docs.httplug.io).
 
 
 ## Testing

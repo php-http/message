@@ -2,7 +2,7 @@
     "name": "php-http/message",
     "description": "HTTP Message related tools",
     "license": "MIT",
-    "keywords": ["message", "http"],
+    "keywords": ["message", "http", "psr-7"],
     "homepage": "http://php-http.org",
     "authors": [
         {
