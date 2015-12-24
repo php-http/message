@@ -11,6 +11,10 @@ use Psr\Http\Message\StreamInterface;
  */
 class GzipDecodeStream extends FilteredStream
 {
+    /**
+     * @param StreamInterface $stream
+     * @param int             $level
+     */
     public function __construct(StreamInterface $stream, $level = -1)
     {
         if (!extension_loaded('zlib')) {
@@ -20,11 +24,17 @@ class GzipDecodeStream extends FilteredStream
         parent::__construct($stream, ['window' => 31], ['window' => 31, 'level' => $level]);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getReadFilter()
     {
         return 'zlib.inflate';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getWriteFilter()
     {
         return 'zlib.deflate';

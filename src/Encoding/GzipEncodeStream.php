@@ -11,6 +11,10 @@ use Psr\Http\Message\StreamInterface;
  */
 class GzipEncodeStream extends FilteredStream
 {
+    /**
+     * @param StreamInterface $stream
+     * @param int             $level
+     */
     public function __construct(StreamInterface $stream, $level = -1)
     {
         if (!extension_loaded('zlib')) {

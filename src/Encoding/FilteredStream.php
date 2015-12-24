@@ -46,8 +46,8 @@ abstract class FilteredStream implements StreamInterface
 
     /**
      * @param StreamInterface $stream
-     * @param null            $readFilterOptions
-     * @param null            $writeFilterOptions
+     * @param mixed|null      $readFilterOptions
+     * @param mixed|null      $writeFilterOptions
      */
     public function __construct(StreamInterface $stream, $readFilterOptions = null, $writeFilterOptions = null)
     {
@@ -128,16 +128,16 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
-     * Return the read filter name.
+     * Returns the read filter name.
      *
      * @return string
      */
     abstract public function getReadFilter();
 
     /**
-     * Return the write filter name.
+     * Returns the write filter name.
      *
-     * @return mixed
+     * @return string
      */
     abstract public function getWriteFilter();
 }

@@ -29,6 +29,9 @@ class ChunkStream extends FilteredStream
         return 'dechunk';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function fill()
     {
         parent::fill();
