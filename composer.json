@@ -13,17 +13,20 @@
     "require": {
         "php": ">=5.4",
         "psr/http-message": "^1.0",
-        "php-http/message-factory": "^1.0"
+        "php-http/message-factory": "^1.0",
+        "clue/stream-filter": "^1.3"
     },
     "require-dev": {
         "zendframework/zend-diactoros": "^1.0",
         "guzzlehttp/psr7": "^1.0",
+        "ext-zlib": "*",
         "phpspec/phpspec": "^2.4",
         "henrikbjorn/phpspec-code-coverage" : "^1.0"
     },
     "suggest": {
         "zendframework/zend-diactoros": "Used with Diactoros Factories",
-        "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories"
+        "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+        "ext-zlib": "Used with compressor/decompressor streams"
     },
     "autoload": {
         "psr-4": {
