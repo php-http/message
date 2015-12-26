@@ -17,6 +17,14 @@
                 "depends": "GuzzleHttp\\Psr7\\Request"
             }
         },
+        "253aa08c-d705-46e7-b1d2-e28c97eef792": {
+            "_class": "Puli\\Discovery\\Binding\\ClassBinding",
+            "class": "Http\\Message\\MessageFactory\\GuzzleMessageFactory",
+            "type": "Http\\Message\\RequestFactory",
+            "parameters": {
+                "depends": "GuzzleHttp\\Psr7\\Request"
+            }
+        },
         "273a34f9-62f4-4ba1-9801-b1284d49ff89": {
             "_class": "Puli\\Discovery\\Binding\\ClassBinding",
             "class": "Http\\Message\\StreamFactory\\GuzzleStreamFactory",
@@ -41,12 +49,36 @@
                 "depends": "Zend\\Diactoros\\Uri"
             }
         },
+        "6234e947-d3bd-43eb-97d5-7f9e22e6bb1b": {
+            "_class": "Puli\\Discovery\\Binding\\ClassBinding",
+            "class": "Http\\Message\\MessageFactory\\DiactorosMessageFactory",
+            "type": "Http\\Message\\ResponseFactory",
+            "parameters": {
+                "depends": "Zend\\Diactoros\\Response"
+            }
+        },
         "95c1be8f-39fe-4abd-8351-92cb14379a75": {
             "_class": "Puli\\Discovery\\Binding\\ClassBinding",
             "class": "Http\\Message\\StreamFactory\\DiactorosStreamFactory",
             "type": "Http\\Message\\StreamFactory",
             "parameters": {
                 "depends": "Zend\\Diactoros\\Stream"
+            }
+        },
+        "a018af27-7590-4dcf-83a1-497f95604cd6": {
+            "_class": "Puli\\Discovery\\Binding\\ClassBinding",
+            "class": "Http\\Message\\MessageFactory\\GuzzleMessageFactory",
+            "type": "Http\\Message\\ResponseFactory",
+            "parameters": {
+                "depends": "GuzzleHttp\\Psr7\\Response"
+            }
+        },
+        "c07955b1-de46-43db-923b-d07fae9382cb": {
+            "_class": "Puli\\Discovery\\Binding\\ClassBinding",
+            "class": "Http\\Message\\MessageFactory\\DiactorosMessageFactory",
+            "type": "Http\\Message\\RequestFactory",
+            "parameters": {
+                "depends": "Zend\\Diactoros\\Request"
             }
         }
     }
