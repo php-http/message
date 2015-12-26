@@ -25,7 +25,7 @@ class DechunkStream extends FilteredStream
     public function getWriteFilter()
     {
         if (!array_key_exists('chunk', stream_get_filters())) {
-            stream_filter_register('chunk', 'Http\Encoding\Filter\Chunk');
+            stream_filter_register('chunk', 'Http\Message\Encoding\Filter\Chunk');
         }
 
         return 'chunk';
