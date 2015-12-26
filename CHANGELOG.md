@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+### Added
+
+- Request and response factory bindings
+
 ### Fixed
 
 - Chunk filter namespace in Dechunk stream
