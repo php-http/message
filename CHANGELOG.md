@@ -1,6 +1,13 @@
 # Change Log
 
 
+## Unreleased
+
+### Added
+
+- Autoregistration of stream filters using Composer autoload
+
+
 ## 0.1.2 - 2015-12-26
 
 ### Added

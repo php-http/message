@@ -31,7 +31,10 @@
     "autoload": {
         "psr-4": {
             "Http\\Message\\": "src/"
-        }
+        },
+        "files": [
+            "src/filters.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
