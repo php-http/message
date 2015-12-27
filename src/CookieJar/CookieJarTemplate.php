@@ -43,7 +43,6 @@ trait CookieJarTemplate
             if ($cookie->hasValue()) {
                 $this->cookies->attach($cookie);
             }
-
         }
     }
 
@@ -60,7 +59,7 @@ trait CookieJarTemplate
      */
     public function getCookies()
     {
-        $match = function($matchCookie) {
+        $match = function ($matchCookie) {
             return true;
         };
 
@@ -72,7 +71,7 @@ trait CookieJarTemplate
      */
     public function getMatchingCookies(Cookie $cookie)
     {
-        $match = function($matchCookie) use ($cookie) {
+        $match = function ($matchCookie) use ($cookie) {
             return $matchCookie->match($cookie);
         };
 
@@ -80,7 +79,7 @@ trait CookieJarTemplate
     }
 
     /**
-     * Finds matching cookies based on a callable
+     * Finds matching cookies based on a callable.
      *
      * @param callable $match
      *
@@ -141,7 +140,7 @@ trait CookieJarTemplate
      */
     public function removeMatchingCookies($name = null, $domain = null, $path = null)
     {
-        $match = function($cookie) use ($name, $domain, $path) {
+        $match = function ($cookie) use ($name, $domain, $path) {
             $match = true;
 
             if (isset($name)) {

@@ -10,14 +10,14 @@ use Http\Message\CookieJar;
 interface PersistentCookieJar extends CookieJar
 {
     /**
-     * Loads the cookie jar
+     * Loads the cookie jar.
      *
      * @throws \RuntimeException
      */
     public function load();
 
     /**
-     * Saves the cookie jar
+     * Saves the cookie jar.
      *
      * @throws \RuntimeException
      */

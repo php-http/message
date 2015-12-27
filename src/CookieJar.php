@@ -10,37 +10,37 @@ namespace Http\Message;
 interface CookieJar extends \Countable, \IteratorAggregate
 {
     /**
-     * Checks if there is a cookie
+     * Checks if there is a cookie.
      *
      * @param Cookie $cookie
      *
-     * @return boolean
+     * @return bool
      */
     public function hasCookie(Cookie $cookie);
 
     /**
-     * Adds a cookie
+     * Adds a cookie.
      *
      * @param Cookie $cookie
      */
     public function addCookie(Cookie $cookie);
 
     /**
-     * Removes a cookie
+     * Removes a cookie.
      *
      * @param Cookie $cookie
      */
     public function removeCookie(Cookie $cookie);
 
     /**
-     * Returns the cookies
+     * Returns the cookies.
      *
      * @return Cookie[]
      */
     public function getCookies();
 
     /**
-     * Returns all matching cookies
+     * Returns all matching cookies.
      *
      * @param Cookie $cookie
      *
@@ -49,35 +49,35 @@ interface CookieJar extends \Countable, \IteratorAggregate
     public function getMatchingCookies(Cookie $cookie);
 
     /**
-     * Checks if there are cookies
+     * Checks if there are cookies.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasCookies();
 
     /**
-     * Sets the cookies and removes any previous one
+     * Sets the cookies and removes any previous one.
      *
      * @param Cookie[] $cookies
      */
     public function setCookies(array $cookies);
 
     /**
-     * Adds some cookies
+     * Adds some cookies.
      *
      * @param Cookie[] $cookies
      */
     public function addCookies(array $cookies);
 
     /**
-     * Removes some cookies
+     * Removes some cookies.
      *
      * @param Cookie[] $cookies
      */
     public function removeCookies(array $cookies);
 
     /**
-     * Removes cookies which match the given parameters
+     * Removes cookies which match the given parameters.
      *
      * Null means that parameter should not be matched
      *
@@ -88,7 +88,7 @@ interface CookieJar extends \Countable, \IteratorAggregate
     public function removeMatchingCookies($name = null, $domain = null, $path = null);
 
     /**
-     * Removes all cookies
+     * Removes all cookies.
      */
     public function clear();
 }

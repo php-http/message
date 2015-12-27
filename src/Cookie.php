@@ -22,7 +22,7 @@ final class Cookie
     protected $value;
 
     /**
-     * @var integer|null
+     * @var int|null
      */
     protected $maxAge;
 
@@ -42,23 +42,23 @@ final class Cookie
     protected $path;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $secure;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $httpOnly;
 
     /**
-     * @param string                 $name
-     * @param string|null            $value
-     * @param integer|\DateTime|null $expiration
-     * @param string|null            $domain
-     * @param string|null            $path
-     * @param boolean                $secure
-     * @param boolean                $httpOnly
+     * @param string             $name
+     * @param string|null        $value
+     * @param int|\DateTime|null $expiration
+     * @param string|null        $domain
+     * @param string|null        $path
+     * @param bool               $secure
+     * @param bool               $httpOnly
      *
      * @throws \InvalidArgumentException
      */
@@ -85,7 +85,7 @@ final class Cookie
     }
 
     /**
-     * Returns the name
+     * Returns the name.
      *
      * @return string
      */
@@ -95,7 +95,7 @@ final class Cookie
     }
 
     /**
-     * Returns the value
+     * Returns the value.
      *
      * @return string|null
      */
@@ -105,9 +105,9 @@ final class Cookie
     }
 
     /**
-     * Checks if there is a value
+     * Checks if there is a value.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasValue()
     {
@@ -115,7 +115,7 @@ final class Cookie
     }
 
     /**
-     * Sets the value
+     * Sets the value.
      *
      * @param string|null $value
      *
@@ -132,9 +132,9 @@ final class Cookie
     }
 
     /**
-     * Returns the max age
+     * Returns the max age.
      *
-     * @return integer|null
+     * @return int|null
      */
     public function getMaxAge()
     {
@@ -142,9 +142,9 @@ final class Cookie
     }
 
     /**
-     * Checks if there is a max age
+     * Checks if there is a max age.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasMaxAge()
     {
@@ -152,9 +152,9 @@ final class Cookie
     }
 
     /**
-     * Sets the max age
+     * Sets the max age.
      *
-     * @param integer|null $maxAge
+     * @param int|null $maxAge
      *
      * @return self
      */
@@ -167,9 +167,9 @@ final class Cookie
     }
 
     /**
-     * Sets both the max age and the expires attributes
+     * Sets both the max age and the expires attributes.
      *
-     * @param integer|\DateTime|null $expiration
+     * @param int|\DateTime|null $expiration
      *
      * @return self
      */
@@ -183,7 +183,7 @@ final class Cookie
     }
 
     /**
-     * Returns the expiration time
+     * Returns the expiration time.
      *
      * @return \DateTime|null
      */
@@ -193,9 +193,9 @@ final class Cookie
     }
 
     /**
-     * Checks if there is an expiration time
+     * Checks if there is an expiration time.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasExpires()
     {
@@ -203,7 +203,7 @@ final class Cookie
     }
 
     /**
-     * Sets the expires
+     * Sets the expires.
      *
      * @param \DateTime|null $expires
      *
@@ -218,9 +218,9 @@ final class Cookie
     }
 
     /**
-     * Checks if the cookie is expired
+     * Checks if the cookie is expired.
      *
-     * @return boolean
+     * @return bool
      */
     public function isExpired()
     {
@@ -228,7 +228,7 @@ final class Cookie
     }
 
     /**
-     * Returns the domain
+     * Returns the domain.
      *
      * @return string|null
      */
@@ -238,9 +238,9 @@ final class Cookie
     }
 
     /**
-     * Checks if there is a domain
+     * Checks if there is a domain.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasDomain()
     {
@@ -248,7 +248,7 @@ final class Cookie
     }
 
     /**
-     * Sets the domain
+     * Sets the domain.
      *
      * @param string|null $domain
      *
@@ -263,11 +263,11 @@ final class Cookie
     }
 
     /**
-     * Matches a domain
+     * Matches a domain.
      *
      * @param string $domain
      *
-     * @return boolean
+     * @return bool
      *
      * @see http://tools.ietf.org/html/rfc6265#section-5.1.3
      */
@@ -283,11 +283,11 @@ final class Cookie
             return false;
         }
 
-        return (bool) preg_match('/\b' . preg_quote($this->domain) . '$/i', $domain);
+        return (bool) preg_match('/\b'.preg_quote($this->domain).'$/i', $domain);
     }
 
     /**
-     * Returns the path
+     * Returns the path.
      *
      * @return string
      */
@@ -297,7 +297,7 @@ final class Cookie
     }
 
     /**
-     * Sets the path
+     * Sets the path.
      *
      * @param string|null $path
      *
@@ -312,11 +312,11 @@ final class Cookie
     }
 
     /**
-     * It matches a path
+     * It matches a path.
      *
      * @param string $path
      *
-     * @return boolean
+     * @return bool
      *
      * @see http://tools.ietf.org/html/rfc6265#section-5.1.4
      */
@@ -326,9 +326,9 @@ final class Cookie
     }
 
     /**
-     * Checks if HTTPS is required
+     * Checks if HTTPS is required.
      *
-     * @return boolean
+     * @return bool
      */
     public function isSecure()
     {
@@ -336,9 +336,9 @@ final class Cookie
     }
 
     /**
-     * Sets the secure
+     * Sets the secure.
      *
-     * @param boolean $secure
+     * @param bool $secure
      *
      * @return self
      */
@@ -351,9 +351,9 @@ final class Cookie
     }
 
     /**
-     * Checks if it is HTTP-only
+     * Checks if it is HTTP-only.
      *
-     * @return boolean
+     * @return bool
      */
     public function isHttpOnly()
     {
@@ -361,9 +361,9 @@ final class Cookie
     }
 
     /**
-     * Sets the HTTP Only
+     * Sets the HTTP Only.
      *
-     * @param boolean $httpOnly
+     * @param bool $httpOnly
      *
      * @return self
      */
@@ -376,11 +376,11 @@ final class Cookie
     }
 
     /**
-     * Checks if it matches with another cookie
+     * Checks if it matches with another cookie.
      *
      * @param Cookie $cookie
      *
-     * @return boolean
+     * @return bool
      */
     public function match(Cookie $cookie)
     {
@@ -388,7 +388,7 @@ final class Cookie
     }
 
     /**
-     * Validates the name attribute
+     * Validates the name attribute.
      *
      * @param string $name
      *
@@ -409,7 +409,7 @@ final class Cookie
     }
 
     /**
-     * Validates a value
+     * Validates a value.
      *
      * @param string|null $value
      *
@@ -427,9 +427,9 @@ final class Cookie
     }
 
     /**
-     * Normalizes the expiration value
+     * Normalizes the expiration value.
      *
-     * @param integer|\DateTime|null $expiration
+     * @param int|\DateTime|null $expiration
      *
      * @return \DateTime|null
      */
@@ -452,7 +452,7 @@ final class Cookie
     }
 
     /**
-     * Remove the leading '.' and lowercase the domain as per spec in RFC 6265
+     * Remove the leading '.' and lowercase the domain as per spec in RFC 6265.
      *
      * @param string|null $domain
      *
@@ -472,7 +472,7 @@ final class Cookie
     }
 
     /**
-     * Processes path as per spec in RFC 6265
+     * Processes path as per spec in RFC 6265.
      *
      * @param string|null $path
      *
