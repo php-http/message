@@ -6,6 +6,7 @@
 ### Added
 
 - Autoregistration of stream filters using Composer autoload
+- Cookie
 
 
 ## 0.1.2 - 2015-12-26

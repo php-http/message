@@ -5,6 +5,7 @@ suites:
 formatter.name: pretty
 extensions:
     - PhpSpec\Extension\CodeCoverageExtension
+    - Coduo\PhpSpec\DataProvider\DataProviderExtension
 code_coverage:
     format: clover
     output: build/coverage.xml

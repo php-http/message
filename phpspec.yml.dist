@@ -3,3 +3,5 @@ suites:
         namespace: Http\Message
         psr4_prefix: Http\Message
 formatter.name: pretty
+extensions:
+    - Coduo\PhpSpec\DataProvider\DataProviderExtension
