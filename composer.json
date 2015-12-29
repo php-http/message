@@ -21,7 +21,8 @@
         "guzzlehttp/psr7": "^1.0",
         "ext-zlib": "*",
         "phpspec/phpspec": "^2.4",
-        "henrikbjorn/phpspec-code-coverage" : "^1.0"
+        "henrikbjorn/phpspec-code-coverage" : "^1.0",
+        "coduo/phpspec-data-provider-extension": "^1.0"
     },
     "suggest": {
         "zendframework/zend-diactoros": "Used with Diactoros Factories",
