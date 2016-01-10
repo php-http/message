@@ -1,5 +1,6 @@
 {
     "version": "1.0",
+    "name": "php-http/message",
     "bindings": {
         "064d003d-78a1-48c4-8f3b-1f92ff25da69": {
             "_class": "Puli\\Discovery\\Binding\\ClassBinding",
