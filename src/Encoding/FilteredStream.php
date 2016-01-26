@@ -13,7 +13,7 @@ use Psr\Http\Message\StreamInterface;
  */
 abstract class FilteredStream implements StreamInterface
 {
-    const BUFFER_SIZE = 65536;
+    const BUFFER_SIZE = 8192;
 
     use StreamDecorator;
 
@@ -115,7 +115,7 @@ abstract class FilteredStream implements StreamInterface
         $buffer = '';
 
         while (!$this->eof()) {
-            $buf = $this->read(1048576);
+            $buf = $this->read(self::BUFFER_SIZE);
             // Using a loose equality here to match on '' and false.
             if ($buf == null) {
                 break;
