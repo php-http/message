@@ -110,6 +110,7 @@ class ResponseBuilder
         }
 
         $this->setHeadersFromArray(explode("\r\n", $headers));
+
         return $this;
     }
 }
