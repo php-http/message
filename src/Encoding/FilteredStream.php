@@ -128,6 +128,14 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->getContents();
+    }
+
+    /**
      * Returns the read filter name.
      *
      * @return string
