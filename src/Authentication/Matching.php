@@ -6,7 +6,7 @@ use Http\Message\Authentication;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * Authenticate a PSR-7 Request if the reuqest is matching.
+ * Authenticate a PSR-7 Request if the request is matching.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
