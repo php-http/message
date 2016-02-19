@@ -1,5 +1,11 @@
 # Change Log
 
+## Unreleased
+
+### Added
+
+- Add a request matcher interface and regex implementation
+
 
 ## 1.0.0 - 2016-01-27
 
