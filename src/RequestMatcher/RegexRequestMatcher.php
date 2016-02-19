@@ -10,7 +10,7 @@ use Psr\Http\Message\RequestInterface;
  *
  * @author Joel Wurtz <joel.wurtz@gmail.com>
  */
-class RegexRequestMatcher implements RequestMatcher
+final class RegexRequestMatcher implements RequestMatcher
 {
     /**
      * Matching regex.
