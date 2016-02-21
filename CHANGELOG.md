@@ -2,8 +2,12 @@
 
 ## Unreleased
 
+### Added
 
-## 1.1.0
+- New RequestConditional authentication method using request matchers (deprecates Matching auth method)
+
+
+## 1.1.0 - 2016-02-25
 
 ### Added
 
@@ -13,7 +17,8 @@
 
 ### Fixed
 
- - Fix casting string on a FilteredStream not filtering the output 
+ - Fix casting string on a FilteredStream not filtering the output
+
 
 ## 1.0.0 - 2016-01-27
 
