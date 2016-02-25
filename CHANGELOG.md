@@ -2,10 +2,18 @@
 
 ## Unreleased
 
+
+## 1.1.0
+
 ### Added
 
-- Add a request matcher interface and regex implementation
+ - Add a request matcher interface and regex implementation
+ - Add a callback request matcher implementation
+ - Add a ResponseBuilder, to create PSR7 Response from a string
 
+### Fixed
+
+ - Fix casting string on a FilteredStream not filtering the output 
 
 ## 1.0.0 - 2016-01-27
 
