@@ -26,31 +26,31 @@ final class RegexRequestMatcher implements RequestMatcher
     /**
      * @var array
      */
-    private $methods = array();
+    private $methods = [];
 
     /**
      * @var string
      */
-    private $ips = array();
+    private $ips = [];
 
     /**
      * @var array
      */
-    private $attributes = array();
+    private $attributes = [];
 
     /**
      * @var string[]
      */
-    private $schemes = array();
+    private $schemes = [];
 
     /**
      * The regular expressions used for path or host must be specified without delimiter.
      * You do not need to escape the forward slash / to match it.
      *
-     * @param string|null          $path       Regular expression for the path
-     * @param string|null          $host       Regular expression for the hostname
-     * @param string|string[]|null $methods    Method or list of methods to match
-     * @param string|string[]|null $schemes    Scheme or list of schemes to match (e.g. http or https)
+     * @param string|null          $path    Regular expression for the path
+     * @param string|null          $host    Regular expression for the hostname
+     * @param string|string[]|null $methods Method or list of methods to match
+     * @param string|string[]|null $schemes Scheme or list of schemes to match (e.g. http or https)
      */
     public function __construct($path = null, $host = null, $methods = [], $schemes = [])
     {
@@ -76,7 +76,6 @@ final class RegexRequestMatcher implements RequestMatcher
         }
 
         if (null !== $this->path && !preg_match('{'.$this->path.'}', rawurldecode($request->getUri()->getPath()))) {
-
             return false;
         }
 
