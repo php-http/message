@@ -6,12 +6,14 @@ use Http\Message\Authentication;
 use Http\Message\RequestMatcher\CallbackRequestMatcher;
 use Psr\Http\Message\RequestInterface;
 
+@trigger_error('The '.__NAMESPACE__.'\Matching class is deprecated since version 1.2 and will be removed in 2.0. Use Http\Message\Authentication\RequestConditional instead.', E_USER_DEPRECATED);
+
 /**
  * Authenticate a PSR-7 Request if the request is matching.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  *
- * @deprecated since since version 1.1, to be removed in 2.0. Use {@link RequestConditional} instead.
+ * @deprecated since since version 1.2, and will be removed in 2.0. Use {@link RequestConditional} instead.
  */
 final class Matching implements Authentication
 {
