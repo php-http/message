@@ -3,12 +3,15 @@
 namespace Http\Message\Authentication;
 
 use Http\Message\Authentication;
+use Http\Message\RequestMatcher\CallbackRequestMatcher;
 use Psr\Http\Message\RequestInterface;
 
 /**
  * Authenticate a PSR-7 Request if the request is matching.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
+ *
+ * @deprecated since since version 1.1, to be removed in 2.0. Use {@link RequestConditional} instead.
  */
 final class Matching implements Authentication
 {
@@ -18,7 +21,7 @@ final class Matching implements Authentication
     private $authentication;
 
     /**
-     * @var callable
+     * @var CallbackRequestMatcher
      */
     private $matcher;
 
@@ -35,7 +38,7 @@ final class Matching implements Authentication
         }
 
         $this->authentication = $authentication;
-        $this->matcher = $matcher;
+        $this->matcher = new CallbackRequestMatcher($matcher);
     }
 
     /**
@@ -43,11 +46,11 @@ final class Matching implements Authentication
      */
     public function authenticate(RequestInterface $request)
     {
-        if (!call_user_func($this->matcher, $request)) {
-            return $request;
+        if ($this->matcher->matches($request)) {
+            return $this->authentication->authenticate($request);
         }
 
-        return $this->authentication->authenticate($request);
+        return $request;
     }
 
     /**
@@ -60,7 +63,7 @@ final class Matching implements Authentication
      */
     public static function createUrlMatcher(Authentication $authentication, $url)
     {
-        $matcher = function ($request) use ($url) {
+        $matcher = function (RequestInterface $request) use ($url) {
             return preg_match($url, $request->getRequestTarget());
         };
 
