@@ -8,8 +8,6 @@ use Prophecy\Argument;
 
 class WsseSpec extends ObjectBehavior
 {
-    use AuthenticationBehavior;
-
     function let()
     {
         $this->beConstructedWith('john.doe', 'secret');
@@ -18,6 +16,11 @@ class WsseSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\Wsse');
+    }
+
+    function it_is_an_authentication()
+    {
+        $this->shouldImplement('Http\Message\Authentication');
     }
 
     function it_authenticates_a_request(

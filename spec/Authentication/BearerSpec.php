@@ -7,8 +7,6 @@ use PhpSpec\ObjectBehavior;
 
 class BearerSpec extends ObjectBehavior
 {
-    use AuthenticationBehavior;
-
     function let()
     {
         $this->beConstructedWith('token');
@@ -17,6 +15,11 @@ class BearerSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\Bearer');
+    }
+
+    function it_is_an_authentication()
+    {
+        $this->shouldImplement('Http\Message\Authentication');
     }
 
     function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)

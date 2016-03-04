@@ -8,11 +8,14 @@ use PhpSpec\ObjectBehavior;
 
 class ChainSpec extends ObjectBehavior
 {
-    use AuthenticationBehavior;
-
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\Chain');
+    }
+
+    function it_is_an_authentication()
+    {
+        $this->shouldImplement('Http\Message\Authentication');
     }
 
     function it_throws_an_exception_when_non_authentication_is_passed()
