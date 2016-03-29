@@ -48,6 +48,9 @@ class ResponseBuilder
      */
     public function setHeadersFromArray(array $headers)
     {
+        $status = array_shift($headers);
+        $this->setStatus($status);
+
         foreach ($headers as $headerLine) {
             $headerLine = trim($headerLine);
             if ('' === $headerLine) {
@@ -90,43 +93,55 @@ class ResponseBuilder
     }
 
     /**
+     * Set response status from a status string.
+     *
+     * @param string $statusLine Response status as a string.
+     *
+     * @return $this
+     *
+     * @ throws \UnexpectedValueException For invalid header values.
+     * @throws \InvalidArgumentException For invalid status line.
+     */
+    public function setStatus($statusLine)
+    {
+        $parts = explode(' ', $statusLine, 3);
+        if (count($parts) < 2 || strpos(strtolower($parts[0]), 'http/') !== 0) {
+            throw new \InvalidArgumentException(
+                sprintf('"%s" is not a valid HTTP status line', $statusLine)
+            );
+        }
+
+        $reasonPhrase = count($parts) > 2 ? $parts[2] : '';
+        $this->response = $this->response
+            ->withStatus((int) $parts[1], $reasonPhrase)
+            ->withProtocolVersion(substr($parts[0], 5));
+
+        return $this;
+    }
+
+    /**
      * Add header represented by a string.
      *
      * @param string $headerLine Response header as a string.
      *
      * @return $this
      *
-     * @throws \UnexpectedValueException For invalid header values.
      * @throws \InvalidArgumentException For invalid header names or values.
      */
     public function addHeader($headerLine)
     {
-        if (strpos(strtolower($headerLine), 'http/') === 0) {
-            $parts = explode(' ', $headerLine, 3);
-            if (count($parts) < 2) {
-                throw new \UnexpectedValueException(
-                    sprintf('"%s" is not a valid HTTP status line', $headerLine)
-                );
-            }
-
-            $reasonPhrase = count($parts) > 2 ? $parts[2] : '';
-            $this->response = $this->response
-                ->withStatus((int) $parts[1], $reasonPhrase)
-                ->withProtocolVersion(substr($parts[0], 5));
+        $parts = explode(':', $headerLine, 2);
+        if (count($parts) !== 2) {
+            throw new \InvalidArgumentException(
+                sprintf('"%s" is not a valid HTTP header line', $headerLine)
+            );
+        }
+        $name = trim(urldecode($parts[0]));
+        $value = trim(urldecode($parts[1]));
+        if ($this->response->hasHeader($name)) {
+            $this->response = $this->response->withAddedHeader($name, $value);
         } else {
-            $parts = explode(':', $headerLine, 2);
-            if (count($parts) !== 2) {
-                throw new \UnexpectedValueException(
-                    sprintf('"%s" is not a valid HTTP header line', $headerLine)
-                );
-            }
-            $name = trim(urldecode($parts[0]));
-            $value = trim(urldecode($parts[1]));
-            if ($this->response->hasHeader($name)) {
-                $this->response = $this->response->withAddedHeader($name, $value);
-            } else {
-                $this->response = $this->response->withHeader($name, $value);
-            }
+            $this->response = $this->response->withHeader($name, $value);
         }
 
         return $this;
