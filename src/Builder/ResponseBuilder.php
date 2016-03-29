@@ -99,7 +99,6 @@ class ResponseBuilder
      *
      * @return $this
      *
-     * @ throws \UnexpectedValueException For invalid header values.
      * @throws \InvalidArgumentException For invalid status line.
      */
     public function setStatus($statusLine)
