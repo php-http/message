@@ -6,8 +6,14 @@
 
 - The RequestMatcher is built after the Symfony RequestMatcher and separates
    scheme, host and path expressions and provides an option to filter on the
-   method. The RegexRequestMatcher is deprecated and will be removed in 2.0.
-- New RequestConditional authentication method using request matchers (deprecates Matching auth method)
+   method
+- New RequestConditional authentication method using request matchers
+- Add automatic basic auth info detection based on the URL
+
+### Deprecated
+
+- RegexRequestMatcher, use RequestMatcher instead
+- Matching authenitcation method, use RequestConditional instead
 
 
 ## 1.1.0 - 2016-02-25
