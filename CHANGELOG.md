@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 1.2.0 - 2016-03-29
 
 ### Added
 
@@ -9,6 +9,10 @@
    method
 - New RequestConditional authentication method using request matchers
 - Add automatic basic auth info detection based on the URL
+
+### Changed
+
+- Improved ResponseBuilder
 
 ### Deprecated
 
