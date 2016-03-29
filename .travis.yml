@@ -4,7 +4,7 @@ sudo: false
 
 cache:
     directories:
-        - $HOME/.composer/cache
+        - $HOME/.composer/cache/files
 
 php:
     - 5.4
@@ -31,7 +31,7 @@ before_install:
     - travis_retry composer self-update
 
 install:
-    - travis_retry composer update ${COMPOSER_FLAGS} --prefer-source --no-interaction
+    - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
 
 script:
     - $TEST_COMMAND
