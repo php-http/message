@@ -8,20 +8,21 @@ use PhpSpec\ObjectBehavior;
 
 class MatchingSpec extends ObjectBehavior
 {
-    use AuthenticationBehavior;
-
-    private $matcher;
-
     function let(Authentication $authentication)
     {
-        $this->matcher = function($request) { return true; };
+        $matcher = function($request) { return true; };
 
-        $this->beConstructedWith($authentication, $this->matcher);
+        $this->beConstructedWith($authentication, $matcher);
     }
 
     function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\Matching');
+    }
+
+    function it_is_an_authentication()
+    {
+        $this->shouldImplement('Http\Message\Authentication');
     }
 
     function it_authenticates_a_request(Authentication $authentication, RequestInterface $request, RequestInterface $newRequest)
