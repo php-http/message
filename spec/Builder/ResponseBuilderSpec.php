@@ -32,4 +32,17 @@ class ResponseBuilderSpec extends ObjectBehavior
         $this->beConstructedWith($response);
         $this->setHeadersFromString("HTTP/1.1 200 OK\r\nContent-type: text/html\r\n");
     }
+
+    /**
+     * @link https://github.com/php-http/message/issues/41
+     */
+    function it_not_broke_headers(ResponseInterface $response)
+    {
+        $response->withStatus(200, 'OK')->willReturn($response);
+        $response->withProtocolVersion('1.1')->willReturn($response);
+        $response->hasHeader('Content-type')->willReturn(false);
+        $response->withHeader('Content-type', 'application/xml+atom')->willReturn($response);
+        $this->beConstructedWith($response);
+        $this->setHeadersFromString("HTTP/1.1 200 OK\r\nContent-type: application/xml+atom\r\n");
+    }
 }
