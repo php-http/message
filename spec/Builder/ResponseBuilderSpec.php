@@ -23,13 +23,16 @@ class ResponseBuilderSpec extends ObjectBehavior
         $this->setHeadersFromArray(['HTTP/1.1 200 OK', 'Content-type: text/html']);
     }
 
-    function it_reads_headers_from_string(ResponseInterface $response)
+    /**
+     * @link https://github.com/php-http/message/issues/41
+     */
+    function it_splits_headers_correctly(ResponseInterface $response)
     {
         $response->withStatus(200, 'OK')->willReturn($response);
         $response->withProtocolVersion('1.1')->willReturn($response);
         $response->hasHeader('Content-type')->willReturn(false);
-        $response->withHeader('Content-type', 'text/html')->willReturn($response);
+        $response->withHeader('Content-type', 'application/xml+atom')->willReturn($response);
         $this->beConstructedWith($response);
-        $this->setHeadersFromString("HTTP/1.1 200 OK\r\nContent-type: text/html\r\n");
+        $this->setHeadersFromString("HTTP/1.1 200 OK\r\nContent-type: application/xml+atom\r\n");
     }
 }

@@ -135,8 +135,8 @@ class ResponseBuilder
                 sprintf('"%s" is not a valid HTTP header line', $headerLine)
             );
         }
-        $name = trim(urldecode($parts[0]));
-        $value = trim(urldecode($parts[1]));
+        $name = trim($parts[0]);
+        $value = trim($parts[1]);
         if ($this->response->hasHeader($name)) {
             $this->response = $this->response->withAddedHeader($name, $value);
         } else {
