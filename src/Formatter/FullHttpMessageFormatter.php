@@ -18,14 +18,14 @@ class FullHttpMessageFormatter implements Formatter
      *
      * @var int
      */
-    private $maxBodyLendth;
+    private $maxBodyLength;
 
     /**
-     * @param int $maxBodyLendth number of chars.
+     * @param int $maxBodyLength
      */
-    public function __construct($maxBodyLendth = 1000)
+    public function __construct($maxBodyLength = 1000)
     {
-        $this->maxBodyLendth = $maxBodyLendth;
+        $this->maxBodyLength = $maxBodyLength;
     }
 
     /**
@@ -44,7 +44,7 @@ class FullHttpMessageFormatter implements Formatter
             $message .= $name.': '.implode(', ', $values)."\n";
         }
 
-        $message .= "\n".mb_substr($request->getBody()->__toString(), 0, $this->maxBodyLendth);
+        $message .= "\n".mb_substr($request->getBody()->__toString(), 0, $this->maxBodyLength);
 
         return $message;
     }
@@ -65,7 +65,7 @@ class FullHttpMessageFormatter implements Formatter
             $message .= $name.': '.implode(', ', $values)."\n";
         }
 
-        $message .= "\n".mb_substr($response->getBody()->__toString(), 0, $this->maxBodyLendth);
+        $message .= "\n".mb_substr($response->getBody()->__toString(), 0, $this->maxBodyLength);
 
         return $message;
     }
