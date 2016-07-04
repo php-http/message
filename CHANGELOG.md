@@ -1,14 +1,16 @@
 # Change Log
 
+
 ## Unreleased
 
 ### Added
 
-- The FullHttpMessageFormatter was added
+- FullHttpMessageFormatter to include headers and body in the formatted message
 
 ### Fixed
  
 - #41: Response builder broke header value
+
 
 ## 1.2.0 - 2016-03-29
 
