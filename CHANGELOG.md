@@ -2,10 +2,13 @@
 
 ## Unreleased
 
+### Added
+
+- The FullHttpMessageFormatter was added
+
 ### Fixed
  
 - #41: Response builder broke header value
-
 
 ## 1.2.0 - 2016-03-29
 
