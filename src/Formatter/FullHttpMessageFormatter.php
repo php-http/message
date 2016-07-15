@@ -3,6 +3,7 @@
 namespace Http\Message\Formatter;
 
 use Http\Message\Formatter;
+use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -44,9 +45,7 @@ class FullHttpMessageFormatter implements Formatter
             $message .= $name.': '.implode(', ', $values)."\n";
         }
 
-        $message .= "\n".mb_substr($request->getBody()->__toString(), 0, $this->maxBodyLength);
-
-        return $message;
+        return $this->addBody($request, $message);
     }
 
     /**
@@ -65,7 +64,27 @@ class FullHttpMessageFormatter implements Formatter
             $message .= $name.': '.implode(', ', $values)."\n";
         }
 
-        $message .= "\n".mb_substr($response->getBody()->__toString(), 0, $this->maxBodyLength);
+        return $this->addBody($response, $message);
+    }
+
+    /**
+     * Add the message body if the stream is seekable.
+     *
+     * @param MessageInterface $request
+     * @param string $message
+     *
+     * @return string
+     */
+    private function addBody(MessageInterface $request, $message)
+    {
+        $stream = $request->getBody();
+        if (!$stream->isSeekable() || $this->maxBodyLength === 0) {
+            // Do not read the stream
+            $message .= "\n";
+        } else {
+            $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
+            $stream->rewind();
+        }
 
         return $message;
     }
