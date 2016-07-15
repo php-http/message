@@ -1,7 +1,7 @@
-/.editorconfig    export-ignore
-/.gitattributes   export-ignore
+.editorconfig     export-ignore
+.gitattributes    export-ignore
 /.github/         export-ignore
-/.gitignore       export-ignore
+.gitignore        export-ignore
 /.php_cs          export-ignore
 /.scrutinizer.yml export-ignore
 /.styleci.yml     export-ignore
