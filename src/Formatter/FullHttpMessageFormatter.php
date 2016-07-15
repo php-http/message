@@ -71,7 +71,7 @@ class FullHttpMessageFormatter implements Formatter
      * Add the message body if the stream is seekable.
      *
      * @param MessageInterface $request
-     * @param string $message
+     * @param string           $message
      *
      * @return string
      */
