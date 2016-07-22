@@ -2,7 +2,6 @@
 
 namespace spec\Http\Message;
 
-use Http\Message\MemoryClonedStream;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Psr\Http\Message\MessageInterface;
@@ -19,7 +18,7 @@ class MessageClonerSpec extends ObjectBehavior
     {
         $stream = new MemoryStream('test');
         $message->getBody()->willReturn($stream);
-        $message->withBody(Argument::type(MemoryClonedStream::class))->willReturn($messageCloned);
+        $message->withBody(Argument::type('Http\Message\MemoryClonedStream'))->willReturn($messageCloned);
 
         $this->cloneMessage($message)->shouldEqual($messageCloned);
     }
