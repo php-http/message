@@ -33,7 +33,7 @@ class CurlCommandFormatter implements Formatter
 
         $body = $request->getBody()->__toString();
         if (!empty($body)) {
-            $command .= sprintf(' --data \'%s\'', $body);
+            $command .= sprintf(' --data \'%s\'', escapeshellarg($body));
         }
 
         return $command;
