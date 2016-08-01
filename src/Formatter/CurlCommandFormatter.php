@@ -18,7 +18,7 @@ class CurlCommandFormatter implements Formatter
      */
     public function formatRequest(RequestInterface $request)
     {
-        $command = sprintf('curl \'%s\'', $request->getUri());
+        $command = sprintf('curl %s', escapeshellarg($request->getUri()));
         if ($request->getProtocolVersion() === '1.0') {
             $command .= ' --http1.0';
         } elseif ($request->getProtocolVersion() === '2.0') {
@@ -28,7 +28,7 @@ class CurlCommandFormatter implements Formatter
         $command .= ' --request '.$request->getMethod();
 
         foreach ($request->getHeaders() as $name => $values) {
-            $command .= sprintf(' -H \'%s: %s\'', $name, $request->getHeaderLine($name));
+            $command .= sprintf(' -H %s', escapeshellarg($name.': '.$request->getHeaderLine($name)));
         }
 
         $body = $request->getBody();
