@@ -40,7 +40,7 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getUri()->willReturn($uri);
         $request->getBody()->willReturn($body);
 
-        $body->__toString()->willReturn('body data');
+        $body->__toString()->willReturn('body " data'." test' bar");
 
         $uri->__toString()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
@@ -48,7 +48,7 @@ class CurlCommandFormatterSpec extends ObjectBehavior
 
         $request->getHeaders()->willReturn([]);
 
-        $this->formatRequest($request)->shouldReturn('curl \'http://foo.com/bar\' --http2 --request POST --data \'body data\'');
+        $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --http2 --request POST --data 'body \" data test'\'' bar'");
     }
 
     function it_does_nothing_for_response(ResponseInterface $response)
