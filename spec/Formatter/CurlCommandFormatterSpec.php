@@ -41,6 +41,9 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getBody()->willReturn($body);
 
         $body->__toString()->willReturn('body " data'." test' bar");
+        $body->getSize()->willReturn(1);
+        $body->isSeekable()->willReturn(true);
+        $body->rewind()->willReturn(true);
 
         $uri->__toString()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
