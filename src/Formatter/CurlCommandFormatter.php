@@ -31,9 +31,13 @@ class CurlCommandFormatter implements Formatter
             $command .= sprintf(' -H \'%s: %s\'', $name, $request->getHeaderLine($name));
         }
 
-        $body = $request->getBody()->__toString();
-        if (!empty($body)) {
-            $command .= sprintf(' --data \'%s\'', escapeshellarg($body));
+        $body = $request->getBody();
+        if ($body->getSize() > 0) {
+            if (!$body->isSeekable()) {
+                throw new \RuntimeException('Cannot take data from a stream that is not seekable');
+            }
+            $command .= sprintf(' --data %s', escapeshellarg($body->__toString()));
+            $body->rewind();
         }
 
         return $command;
