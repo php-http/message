@@ -25,14 +25,14 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getUri()->willReturn($uri);
         $request->getBody()->willReturn($body);
 
-        $uri->__toString()->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('GET');
         $request->getProtocolVersion()->willReturn('1.1');
 
         $request->getHeaders()->willReturn(['foo'=>['bar', 'baz']]);
         $request->getHeaderLine('foo')->willReturn('bar, baz');
 
-        $this->formatRequest($request)->shouldReturn('curl \'http://foo.com/bar\' --request GET -H \'foo: bar, baz\'');
+        $this->formatRequest($request)->shouldReturn('curl \'http://foo.com/bar\' -H \'foo: bar, baz\'');
     }
 
     function it_formats_post_request(RequestInterface $request, UriInterface $uri, StreamInterface $body)
@@ -45,7 +45,7 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $body->isSeekable()->willReturn(true);
         $body->rewind()->willReturn(true);
 
-        $uri->__toString()->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('2.0');
 
