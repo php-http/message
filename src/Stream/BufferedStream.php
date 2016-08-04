@@ -15,7 +15,7 @@ class BufferedStream implements StreamInterface
     /** @var resource The buffered resource used to seek previous data */
     private $resource;
 
-    /** @var integer size of the stream if available */
+    /** @var int size of the stream if available */
     private $size;
 
     /** @var StreamInterface The underlying stream decorated by this class */
@@ -75,7 +75,7 @@ class BufferedStream implements StreamInterface
     public function detach()
     {
         if (null === $this->resource) {
-            return null;
+            return;
         }
 
         // Force reading the remaining data of the stream
@@ -95,7 +95,7 @@ class BufferedStream implements StreamInterface
     {
         if (null === $this->size && $this->stream->eof()) {
             if (null === $this->resource) {
-                return null;
+                return;
             }
 
             return $this->writed;
@@ -186,7 +186,7 @@ class BufferedStream implements StreamInterface
      */
     public function isReadable()
     {
-        return (null !== $this->resource);
+        return null !== $this->resource;
     }
 
     /**
@@ -198,7 +198,7 @@ class BufferedStream implements StreamInterface
             throw new \RuntimeException('Cannot read on a detached stream');
         }
 
-        $read = "";
+        $read = '';
 
         // First read from the resource
         if (ftell($this->resource) !== $this->writed) {
@@ -227,9 +227,9 @@ class BufferedStream implements StreamInterface
             throw new \RuntimeException('Cannot read on a detached stream');
         }
 
-        $read = "";
+        $read = '';
 
-        while (!$this->stream->eof()) {
+        while (!$this->eof()) {
             $read .= $this->read(8192);
         }
 
@@ -246,7 +246,7 @@ class BufferedStream implements StreamInterface
                 return [];
             }
 
-            return null;
+            return;
         }
 
         $metadata = stream_get_meta_data($this->resource);
@@ -256,7 +256,7 @@ class BufferedStream implements StreamInterface
         }
 
         if (!array_key_exists($key, $metadata)) {
-            return null;
+            return;
         }
 
         return $metadata[$key];
