@@ -60,7 +60,7 @@ class BufferedStream implements StreamInterface
             return $this->getContents();
         } catch (\Throwable $throwable) {
             return '';
-        } catch (\Exception $exception) {
+        } catch (\Exception $exception) { // Layer to be BC with PHP 5, remove this when we only support PHP 7+
             return '';
         }
     }
