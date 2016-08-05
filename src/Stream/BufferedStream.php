@@ -5,10 +5,12 @@ namespace Http\Message\Stream;
 use Psr\Http\Message\StreamInterface;
 
 /**
- * A buffered stream allow to buffer over an existing.
+ * Decorator to make any stream seekable.
  *
- * You should use this decorator when you want to seek over a not seekable stream.
- * This stream is however read-only.
+ * Internally it buffers an existing StreamInterface into a php://temp resource (or memory). By default it will use
+ * 2 megabytes of memory before writing to a temporary disk file.
+ *
+ * Due to this, very large stream can suffer performance issue (i/o slowdown).
  */
 class BufferedStream implements StreamInterface
 {
@@ -22,8 +24,15 @@ class BufferedStream implements StreamInterface
     private $stream;
 
     /** @var int How many bytes were written */
-    private $writed = 0;
+    private $written = 0;
 
+    /**
+     * @param StreamInterface $stream        Decorated stream
+     * @param bool            $useFileBuffer Whether to use a file buffer (write to a file, if data exceed a certain size)
+     *                                       by default, set this to false to only use memory
+     * @param int             $memoryBuffer  In conjunction with using file buffer, limit (in bytes) from which it begins to buffer
+     *                                       the data in a file
+     */
     public function __construct(StreamInterface $stream, $useFileBuffer = true, $memoryBuffer = 2097152)
     {
         $this->stream = $stream;
@@ -82,6 +91,7 @@ class BufferedStream implements StreamInterface
         $this->getContents();
 
         $resource = $this->resource;
+        $this->stream->close();
         $this->stream = null;
         $this->resource = null;
 
@@ -93,12 +103,12 @@ class BufferedStream implements StreamInterface
      */
     public function getSize()
     {
-        if (null === $this->size && $this->stream->eof()) {
-            if (null === $this->resource) {
-                return;
-            }
+        if (null === $this->resource) {
+            return;
+        }
 
-            return $this->writed;
+        if (null === $this->size && $this->stream->eof()) {
+            return $this->written;
         }
 
         return $this->size;
@@ -126,7 +136,7 @@ class BufferedStream implements StreamInterface
         }
 
         // We are at the end only when both our resource and underlying stream are at eof
-        return $this->stream->eof() && (ftell($this->resource) === $this->writed);
+        return $this->stream->eof() && (ftell($this->resource) === $this->written);
     }
 
     /**
@@ -134,11 +144,7 @@ class BufferedStream implements StreamInterface
      */
     public function isSeekable()
     {
-        if (null === $this->resource) {
-            return false;
-        }
-
-        return true;
+        return null !== $this->resource;
     }
 
     /**
@@ -201,7 +207,7 @@ class BufferedStream implements StreamInterface
         $read = '';
 
         // First read from the resource
-        if (ftell($this->resource) !== $this->writed) {
+        if (ftell($this->resource) !== $this->written) {
             $read = fread($this->resource, $length);
         }
 
@@ -211,7 +217,7 @@ class BufferedStream implements StreamInterface
             $streamRead = $this->stream->read($length - $bytesRead);
 
             // Write on the underlying stream what we read
-            $this->writed += fwrite($this->resource, $streamRead);
+            $this->written += fwrite($this->resource, $streamRead);
             $read .= $streamRead;
         }
 

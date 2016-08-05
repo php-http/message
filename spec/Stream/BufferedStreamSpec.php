@@ -30,6 +30,7 @@ class BufferedStreamSpec extends ObjectBehavior
     {
         $stream->eof()->willReturn(true);
         $stream->read(8192)->willReturn('');
+        $stream->close()->shouldBeCalled();
 
         $this->detach()->shouldBeResource();
         $this->detach()->shouldBeNull();
