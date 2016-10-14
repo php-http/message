@@ -29,7 +29,7 @@
     "suggest": {
         "zendframework/zend-diactoros": "Used with Diactoros Factories",
         "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
-        "slim/slim": "Used with Slim Factories",
+        "slim/slim": "Used with Slim Framework PSR-7 implementation",
         "ext-zlib": "Used with compressor/decompressor streams"
     },
     "autoload": {
