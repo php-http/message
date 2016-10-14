@@ -1,5 +1,10 @@
 # Change Log
 
+## Unreleased
+
+### Added
+
+- Message, stream and URI factories for [Slim Framework](https://github.com/slimphp/Slim)
 
 ## 1.3.1 - 2016-07-15
 
