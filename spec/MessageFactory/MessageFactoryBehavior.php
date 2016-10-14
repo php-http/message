@@ -11,11 +11,13 @@ trait MessageFactoryBehavior
 
     function it_creates_a_request()
     {
-        $request = $this->createRequest('GET', '/');
+        $request = $this->createRequest('GET', '/', array('X-hello' => 'world'), 'lorem');
 
         $request->shouldHaveType('Psr\Http\Message\RequestInterface');
         $request->getMethod()->shouldReturn('GET');
         $request->getRequestTarget()->shouldReturn('/');
+        $request->getBody()->__toString()->shouldReturn('lorem');
+        $request->getHeaderLine('X-hello')->shouldReturn('world');
     }
 
     function it_creates_a_response()
