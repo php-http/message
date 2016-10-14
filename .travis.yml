@@ -30,6 +30,7 @@ matrix:
 
 before_install:
     - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
+    - if [[ "${TRAVIS_PHP_VERSION}" == "5.4" ]]; then composer remove slim/slim --dev --no-update; fi
     - travis_retry composer self-update
 
 install:

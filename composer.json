@@ -22,11 +22,14 @@
         "ext-zlib": "*",
         "phpspec/phpspec": "^2.4",
         "henrikbjorn/phpspec-code-coverage" : "^1.0",
-        "coduo/phpspec-data-provider-extension": "^1.0"
+        "coduo/phpspec-data-provider-extension": "^1.0",
+        "akeneo/phpspec-skip-example-extension": "^1.0",
+        "slim/slim": "^3.5"
     },
     "suggest": {
         "zendframework/zend-diactoros": "Used with Diactoros Factories",
         "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+        "slim/slim": "Used with Slim Framework PSR-7 implementation",
         "ext-zlib": "Used with compressor/decompressor streams"
     },
     "autoload": {
