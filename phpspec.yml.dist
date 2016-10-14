@@ -5,3 +5,4 @@ suites:
 formatter.name: pretty
 extensions:
     - Coduo\PhpSpec\DataProvider\DataProviderExtension
+    - Akeneo\SkipExampleExtension

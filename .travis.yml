@@ -35,6 +35,9 @@ before_install:
 install:
     - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
 
+before_script:
+    - if [[ "${TRAVIS_PHP_VERSION}" == "5.4" ]]; then composer remove slim/slim; fi
+
 script:
     - $TEST_COMMAND
 

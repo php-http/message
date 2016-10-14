@@ -5,6 +5,9 @@ namespace spec\Http\Message\UriFactory;
 use Psr\Http\Message\UriInterface;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @require Slim\Http\Uri
+ */
 class SlimUriFactorySpec extends ObjectBehavior
 {
     use UriFactoryBehavior;

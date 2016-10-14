@@ -4,6 +4,9 @@ namespace spec\Http\Message\MessageFactory;
 
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @require Slim\Http\Request
+ */
 class SlimMessageFactorySpec extends ObjectBehavior
 {
     use MessageFactoryBehavior;
