@@ -100,7 +100,7 @@ abstract class FilteredStream implements StreamInterface
     protected function fill()
     {
         $readFilterCallback = $this->readFilterCallback;
-        $this->buffer      .= $readFilterCallback($this->stream->read(self::BUFFER_SIZE));
+        $this->buffer .= $readFilterCallback($this->stream->read(self::BUFFER_SIZE));
 
         if ($this->stream->eof()) {
             $this->buffer .= $readFilterCallback();
