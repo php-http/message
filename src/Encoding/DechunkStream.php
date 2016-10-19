@@ -14,7 +14,7 @@ class DechunkStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getReadFilter()
+    protected function readFilter()
     {
         return 'dechunk';
     }
@@ -22,7 +22,7 @@ class DechunkStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getWriteFilter()
+    protected function writeFilter()
     {
         return 'chunk';
     }
