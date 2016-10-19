@@ -141,6 +141,14 @@ abstract class FilteredStream implements StreamInterface
     /**
      * {@inheritdoc}
      */
+    public function getSize()
+    {
+        return;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return $this->getContents();

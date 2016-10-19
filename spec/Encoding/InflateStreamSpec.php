@@ -36,4 +36,12 @@ class InflateStreamSpec extends ObjectBehavior
 
         $this->getContents()->shouldReturn('This is a test stream');
     }
+
+    function it_does_not_know_the_content_size()
+    {
+        $stream = new MemoryStream(gzdeflate('This stream is a test stream'));
+        $this->beConstructedWith($stream);
+
+        $this->getSize()->shouldReturn(null);
+    }
 }

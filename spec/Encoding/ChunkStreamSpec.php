@@ -39,4 +39,12 @@ class ChunkStreamSpec extends ObjectBehavior
 
         $this->getContents()->shouldReturn("6\r\nThis i\r\n6\r\ns a st\r\n4\r\nream\r\n0\r\n\r\n");
     }
+
+    function it_does_not_know_the_content_size()
+    {
+        $stream = new MemoryStream('This is a stream');
+        $this->beConstructedWith($stream, 6);
+
+        $this->getSize()->shouldReturn(null);
+    }
 }

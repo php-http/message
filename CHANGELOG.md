@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## Fixed
+
+ - FilteredStream::getSize returns null because the contents size is unknown.
+
 ### Deprecated
 
  - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
