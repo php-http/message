@@ -27,7 +27,7 @@ class DecompressStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getReadFilter()
+    protected function readFilter()
     {
         return 'zlib.inflate';
     }
@@ -35,7 +35,7 @@ class DecompressStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getWriteFilter()
+    protected function writeFilter()
     {
         return 'zlib.deflate';
     }

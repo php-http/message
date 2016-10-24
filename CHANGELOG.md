@@ -1,5 +1,12 @@
 # Change Log
 
+## Unreleased
+
+### Deprecated
+
+ - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
+ - FilteredStream::getWriteFilter We did not implement writing to the streams at all. And if we do, the filter is an internal information and should not be used by consuming code.
+
 ## 1.4.0 - 2016-10-20
 
 ### Added

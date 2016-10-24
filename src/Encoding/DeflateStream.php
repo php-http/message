@@ -23,7 +23,7 @@ class DeflateStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getReadFilter()
+    protected function readFilter()
     {
         return 'zlib.deflate';
     }
@@ -31,7 +31,7 @@ class DeflateStream extends FilteredStream
     /**
      * {@inheritdoc}
      */
-    public function getWriteFilter()
+    protected function writeFilter()
     {
         return 'zlib.inflate';
     }

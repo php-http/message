@@ -24,16 +24,22 @@ abstract class FilteredStream implements StreamInterface
 
     /**
      * @var resource
+     *
+     * @deprecated since version 1.5, will be removed in 2.0
      */
     protected $readFilter;
 
     /**
      * @var callable
+     *
+     * @deprecated since version 1.5, will be removed in 2.0
      */
     protected $writeFilterCallback;
 
     /**
      * @var resource
+     *
+     * @deprecated since version 1.5, will be removed in 2.0
      */
     protected $writeFilter;
 
@@ -47,12 +53,17 @@ abstract class FilteredStream implements StreamInterface
     /**
      * @param StreamInterface $stream
      * @param mixed|null      $readFilterOptions
-     * @param mixed|null      $writeFilterOptions
+     * @param mixed|null      $writeFilterOptions deprecated since 1.5, will be removed in 2.0
      */
     public function __construct(StreamInterface $stream, $readFilterOptions = null, $writeFilterOptions = null)
     {
-        $this->readFilterCallback = Filter\fun($this->getReadFilter(), $readFilterOptions);
-        $this->writeFilterCallback = Filter\fun($this->getWriteFilter(), $writeFilterOptions);
+        $this->readFilterCallback = Filter\fun($this->readFilter(), $readFilterOptions);
+        $this->writeFilterCallback = Filter\fun($this->writeFilter(), $writeFilterOptions);
+
+        if (null !== $writeFilterOptions) {
+            @trigger_error('The $writeFilterOptions argument is deprecated since version 1.5 and will be removed in 2.0.', E_USER_DEPRECATED);
+        }
+
         $this->stream = $stream;
     }
 
@@ -139,13 +150,41 @@ abstract class FilteredStream implements StreamInterface
      * Returns the read filter name.
      *
      * @return string
+     *
+     * @deprecated since version 1.5, will be removed in 2.0
      */
-    abstract public function getReadFilter();
+    public function getReadFilter()
+    {
+        @trigger_error('The '.__CLASS__.'::'.__METHOD__.' method is deprecated since version 1.5 and will be removed in 2.0.', E_USER_DEPRECATED);
+
+        return $this->readFilter();
+    }
 
     /**
      * Returns the write filter name.
      *
      * @return string
      */
-    abstract public function getWriteFilter();
+    abstract protected function readFilter();
+
+    /**
+     * Returns the write filter name.
+     *
+     * @return string
+     *
+     * @deprecated since version 1.5, will be removed in 2.0
+     */
+    public function getWriteFilter()
+    {
+        @trigger_error('The '.__CLASS__.'::'.__METHOD__.' method is deprecated since version 1.5 and will be removed in 2.0.', E_USER_DEPRECATED);
+
+        return $this->writeFilter();
+    }
+
+    /**
+     * Returns the write filter name.
+     *
+     * @return string
+     */
+    abstract protected function writeFilter();
 }
