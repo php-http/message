@@ -313,7 +313,7 @@ final class Cookie
      */
     public function matchPath($path)
     {
-        return $this->path === $path || (strpos($path, $this->path.'/') === 0);
+        return $this->path === $path || (strpos($path, rtrim($this->path, '/').'/') === 0);
     }
 
     /**
