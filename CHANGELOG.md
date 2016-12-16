@@ -1,11 +1,20 @@
 # Change Log
 
+
 ## Unreleased
 
 ### Deprecated
 
  - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
  - FilteredStream::getWriteFilter We did not implement writing to the streams at all. And if we do, the filter is an internal information and should not be used by consuming code.
+
+
+## 1.4.1 - 2016-12-16
+
+### Fixed
+
+- Cookie::matchPath Cookie with root path (`/`) will not match sub path (e.g. `/cookie`).
+
 
 ## 1.4.0 - 2016-10-20
 
@@ -14,6 +23,7 @@
 - Message, stream and URI factories for [Slim Framework](https://github.com/slimphp/Slim)
 - BufferedStream that allow you to decorate a non-seekable stream with a seekable one.
 - cUrlFormatter to be able to redo the request with a cURL command
+
 
 ## 1.3.1 - 2016-07-15
 
