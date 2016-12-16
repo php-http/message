@@ -1,5 +1,13 @@
 # Change Log
 
+
+## Unreleased
+
+### Fixed
+
+- Cookie::matchPath Cookie with root path (`/`) will not match sub path (e.g. `/cookie`).
+
+
 ## 1.4.0 - 2016-10-20
 
 ### Added
