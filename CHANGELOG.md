@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+### Fixed
+
+- Cookie::matchPath Cookie with root path (`/`) will not match sub path (e.g. `/cookie`).
+
 ### Deprecated
 
  - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
