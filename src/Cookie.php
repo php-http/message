@@ -54,6 +54,13 @@ final class Cookie
     private $expires;
 
     /**
+     * Validation state.
+     *
+     * @var bool
+     */
+    private $valid;
+
+    /**
      * @param string         $name
      * @param string|null    $value
      * @param int            $maxAge
@@ -61,9 +68,10 @@ final class Cookie
      * @param string|null    $path
      * @param bool           $secure
      * @param bool           $httpOnly
-     * @param \DateTime|null $expires  Expires attribute is HTTP 1.0 only and should be avoided.
+     * @param \DateTime|null $expires           Expires attribute is HTTP 1.0 only and should be avoided.
+     * @param bool           $requireValidation deprecated since version 1.5. Will be removed in 2.0
      *
-     * @throws \InvalidArgumentException If name, value or max age is not valid.
+     * @throws \InvalidArgumentException If name, value or max age is not valid. Attributes validation during instantiation is deprecated since 1.5 and will be removed in 2.0.
      */
     public function __construct(
         $name,
@@ -73,11 +81,16 @@ final class Cookie
         $path = null,
         $secure = false,
         $httpOnly = false,
-        \DateTime $expires = null
+        \DateTime $expires = null,
+        $requireValidation = true
     ) {
-        $this->validateName($name);
-        $this->validateValue($value);
-        $this->validateMaxAge($maxAge);
+        if ($requireValidation) {
+            @trigger_error('Attributes validation during instantiation is deprecated since 1.5 and will be removed in 2.0', E_USER_DEPRECATED);
+            $this->validateName($name);
+            $this->validateValue($value);
+            $this->validateMaxAge($maxAge);
+            $this->valid = true;
+        }
 
         $this->name = $name;
         $this->value = $value;
@@ -87,6 +100,19 @@ final class Cookie
         $this->path = $this->normalizePath($path);
         $this->secure = (bool) $secure;
         $this->httpOnly = (bool) $httpOnly;
+    }
+
+    public static function createWithoutValidation(
+        $name,
+        $value = null,
+        $maxAge = null,
+        $domain = null,
+        $path = null,
+        $secure = false,
+        $httpOnly = false,
+        \DateTime $expires = null
+    ) {
+        return new self($name, $value, $maxAge, $domain, $path, $secure, $httpOnly, $expires, false);
     }
 
     /**
@@ -378,6 +404,27 @@ final class Cookie
     public function match(Cookie $cookie)
     {
         return $this->name === $cookie->name && $this->domain === $cookie->domain and $this->path === $cookie->path;
+    }
+
+    /**
+     * Validates cookie attributes.
+     *
+     * @return bool
+     */
+    public function isValid()
+    {
+        if (null === $this->valid) {
+            try {
+                $this->validateName($this->name);
+                $this->validateValue($this->value);
+                $this->validateMaxAge($this->maxAge);
+                $this->valid = true;
+            } catch (\InvalidArgumentException $e) {
+                $this->valid = false;
+            }
+        }
+
+        return $this->valid;
     }
 
     /**
