@@ -36,4 +36,12 @@ class DeflateStreamSpec extends ObjectBehavior
         $stream->rewind();
         $this->getContents()->shouldReturn(gzdeflate('This is a test stream'));
     }
+
+    function it_does_not_know_the_content_size()
+    {
+        $stream = new MemoryStream('This stream is a test stream');
+        $this->beConstructedWith($stream);
+
+        $this->getSize()->shouldReturn(null);
+    }
 }

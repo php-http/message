@@ -41,4 +41,13 @@ class GzipEncodeStreamSpec extends ObjectBehavior
         $stream->rewind();
         $this->getContents()->shouldReturn(gzencode('This is a test stream'));
     }
+
+    function it_does_not_know_the_content_size()
+    {
+        $stream = new MemoryStream('This is a test stream');
+        $this->beConstructedWith($stream);
+
+        $stream->rewind();
+        $this->getSize()->shouldReturn(null);
+    }
 }
