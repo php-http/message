@@ -28,9 +28,11 @@ final class SlimStreamFactory implements StreamFactory
             $resource = fopen('php://memory', 'r+');
             $stream = new Stream($resource);
 
-            if (null !== $body || '' !== $body) {
-                $stream->write((string) $body);
+            if (null === $body || '' === $body) {
+                return $stream;
             }
+
+            $stream->write((string) $body);
         }
 
         $stream->rewind();
