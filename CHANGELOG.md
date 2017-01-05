@@ -17,7 +17,6 @@
 
 - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
 - FilteredStream::getWriteFilter We did not implement writing to the streams at all. And if we do, the filter is an internal information and should not be used by consuming code.
-- Attributes validation during Cookie instantiation is deprecated and will be removed in 2.0. Use the new `Cookie::isValid` to check if attributes are valid.
 
 
 ## 1.4.1 - 2016-12-16

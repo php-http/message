@@ -63,7 +63,7 @@ final class Cookie
      * @param bool           $httpOnly
      * @param \DateTime|null $expires  Expires attribute is HTTP 1.0 only and should be avoided.
      *
-     * @throws \InvalidArgumentException If name, value or max age is not valid. Attributes validation during instantiation is deprecated since 1.5 and will be removed in 2.0.
+     * @throws \InvalidArgumentException If name, value or max age is not valid.
      */
     public function __construct(
         $name,
@@ -75,14 +75,9 @@ final class Cookie
         $httpOnly = false,
         \DateTime $expires = null
     ) {
-        try {
-            $this->validateName($name);
-            $this->validateValue($value);
-            $this->validateMaxAge($maxAge);
-        } catch (\InvalidArgumentException $e) {
-            @trigger_error('Attributes validation during instantiation is deprecated since 1.5 and will be removed in 2.0', E_USER_DEPRECATED);
-            throw $e;
-        }
+        $this->validateName($name);
+        $this->validateValue($value);
+        $this->validateMaxAge($maxAge);
 
         $this->name = $name;
         $this->value = $value;
