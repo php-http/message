@@ -89,6 +89,18 @@ final class Cookie
         $this->httpOnly = (bool) $httpOnly;
     }
 
+    /**
+     * Creates a new cookie without any attribute validation.
+     *
+     * @param string         $name
+     * @param string|null    $value
+     * @param int            $maxAge
+     * @param string|null    $domain
+     * @param string|null    $path
+     * @param bool           $secure
+     * @param bool           $httpOnly
+     * @param \DateTime|null $expires  Expires attribute is HTTP 1.0 only and should be avoided.
+     */
     public static function createWithoutValidation(
         $name,
         $value = null,
