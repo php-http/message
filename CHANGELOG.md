@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+## Added
+
+- Check for empty string in Stream factories
+
 ## Fixed
 
  - FilteredStream::getSize returns null because the contents size is unknown.
