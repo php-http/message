@@ -34,7 +34,9 @@ final class DiactorosStreamFactory implements StreamFactory
             }
         }
 
-        $body->rewind();
+        if ($body->isSeekable()) {
+            $body->rewind();
+        }
 
         return $body;
     }

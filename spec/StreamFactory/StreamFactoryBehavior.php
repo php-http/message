@@ -24,4 +24,12 @@ trait StreamFactoryBehavior
     {
         $this->createStream(null)->shouldHaveType('Psr\Http\Message\StreamInterface');
     }
+
+    function it_creates_a_stream_from_non_seekable_resource()
+    {
+        $url = 'https://raw.githubusercontent.com/php-http/multipart-stream-builder/master/tests/Resources/httplug.png';
+        $resource = fopen($url, 'r');
+        $this->createStream($resource)
+            ->shouldHaveType('Psr\Http\Message\StreamInterface');
+    }
 }

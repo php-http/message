@@ -35,7 +35,9 @@ final class SlimStreamFactory implements StreamFactory
             $stream->write((string) $body);
         }
 
-        $stream->rewind();
+        if ($stream->isSeekable()) {
+            $stream->rewind();
+        }
 
         return $stream;
     }
