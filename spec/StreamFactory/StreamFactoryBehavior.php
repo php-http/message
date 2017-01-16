@@ -36,24 +36,24 @@ trait StreamFactoryBehavior
             ->shouldHaveType('Psr\Http\Message\StreamInterface');
     }
 
-    function it_rewinds_existing_stream()
+    function it_does_not_rewind_existing_stream()
     {
         $stream = new Stream(fopen('php://memory', 'rw'));
         $stream->write('abcdef');
-        $stream->read(3);
+        $stream->seek(3);
 
         $this->createStream($stream)
-            ->shouldHaveContent('abcdef');
+            ->shouldHaveContent('def');
     }
 
-    function it_rewinds_existing_resource()
+    function it_does_not_rewind_existing_resource()
     {
         $resource = fopen('php://memory', 'rw');
         fwrite($resource, 'abcdef');
-        fread($resource, 3);
+        fseek($resource, 3);
 
         $this->createStream($resource)
-            ->shouldHaveContent('abcdef');
+            ->shouldHaveContent('def');
     }
 
     public function getMatchers()
