@@ -2,6 +2,9 @@
 
 namespace spec\Http\Message\StreamFactory;
 
+use GuzzleHttp\Psr7\Stream;
+use Psr\Http\Message\StreamInterface;
+
 trait StreamFactoryBehavior
 {
     function it_is_a_stream_factory()
@@ -31,5 +34,34 @@ trait StreamFactoryBehavior
         $resource = fopen($url, 'r');
         $this->createStream($resource)
             ->shouldHaveType('Psr\Http\Message\StreamInterface');
+    }
+
+    function it_rewinds_existing_stream()
+    {
+        $stream = new Stream(fopen('php://memory', 'rw'));
+        $stream->write('abcdef');
+        $stream->read(3);
+
+        $this->createStream($stream)
+            ->shouldHaveContent('abcdef');
+    }
+
+    function it_rewinds_existing_resource()
+    {
+        $resource = fopen('php://memory', 'rw');
+        fwrite($resource, 'abcdef');
+        fread($resource, 3);
+
+        $this->createStream($resource)
+            ->shouldHaveContent('abcdef');
+    }
+
+    public function getMatchers()
+    {
+        return [
+            'haveContent' => function (StreamInterface $subject, $key) {
+                return $subject->getContents() === $key;
+            },
+        ];
     }
 }
