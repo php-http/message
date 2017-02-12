@@ -18,26 +18,19 @@ final class DiactorosStreamFactory implements StreamFactory
      */
     public function createStream($body = null)
     {
-        if (!$body instanceof StreamInterface) {
-            if (is_resource($body)) {
-                $body = new Stream($body);
-            } else {
-                $stream = new Stream('php://memory', 'rw');
-
-                if (null === $body || '' === $body) {
-                    return $stream;
-                }
-
-                $stream->write((string) $body);
-
-                $body = $stream;
-            }
+        if ($body instanceof StreamInterface) {
+            return $body;
         }
 
-        if ($body->isSeekable()) {
-            $body->rewind();
+        if (is_resource($body)) {
+            return new Stream($body);
         }
 
-        return $body;
+        $stream = new Stream('php://memory', 'rw');
+        if (null !== $body && '' !== $body) {
+            $stream->write((string) $body);
+        }
+
+        return $stream;
     }
 }
