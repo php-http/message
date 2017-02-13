@@ -90,6 +90,36 @@ final class Cookie
     }
 
     /**
+     * Creates a new cookie without any attribute validation.
+     *
+     * @param string         $name
+     * @param string|null    $value
+     * @param int            $maxAge
+     * @param string|null    $domain
+     * @param string|null    $path
+     * @param bool           $secure
+     * @param bool           $httpOnly
+     * @param \DateTime|null $expires  Expires attribute is HTTP 1.0 only and should be avoided.
+     */
+    public static function createWithoutValidation(
+        $name,
+        $value = null,
+        $maxAge = null,
+        $domain = null,
+        $path = null,
+        $secure = false,
+        $httpOnly = false,
+        \DateTime $expires = null
+    ) {
+        $cookie = new self('name', null, null, $domain, $path, $secure, $httpOnly, $expires);
+        $cookie->name = $name;
+        $cookie->value = $value;
+        $cookie->maxAge = $maxAge;
+
+        return $cookie;
+    }
+
+    /**
      * Returns the name.
      *
      * @return string
@@ -378,6 +408,24 @@ final class Cookie
     public function match(Cookie $cookie)
     {
         return $this->name === $cookie->name && $this->domain === $cookie->domain and $this->path === $cookie->path;
+    }
+
+    /**
+     * Validates cookie attributes.
+     *
+     * @return bool
+     */
+    public function isValid()
+    {
+        try {
+            $this->validateName($this->name);
+            $this->validateValue($this->value);
+            $this->validateMaxAge($this->maxAge);
+        } catch (\InvalidArgumentException $e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

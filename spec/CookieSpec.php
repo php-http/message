@@ -239,6 +239,32 @@ class CookieSpec extends ObjectBehavior
         $this->match($notMatches)->shouldReturn(false);
     }
 
+    function it_validates_itself()
+    {
+        $this->isValid()->shouldReturn(true);
+    }
+
+    function it_can_be_constructed_without_name_validation()
+    {
+        $this->beConstructedThrough('createWithoutValidation', ["\x20"]);
+
+        $this->isValid()->shouldReturn(false);
+    }
+
+    function it_can_be_constructed_without_value_validation()
+    {
+        $this->beConstructedThrough('createWithoutValidation', ['name', "\x20"]);
+
+        $this->isValid()->shouldReturn(false);
+    }
+
+    function it_can_be_constructed_without_max_age_validation()
+    {
+        $this->beConstructedThrough('createWithoutValidation', ['name', 'value', '-1']);
+
+        $this->isValid()->shouldReturn(false);
+    }
+
     /**
      * Provides examples for invalid characers in names and values.
      *

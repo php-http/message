@@ -3,18 +3,20 @@
 
 ## Unreleased
 
-## Added
+### Added
 
 - Check for empty string in Stream factories
+- Cookie::createWithoutValidation Static constructor to create a cookie. Will not perform any attribute validation during instantiation.
+- Cookie::isValid Method to check if cookie attributes are valid.
 
-## Fixed
+### Fixed
 
- - FilteredStream::getSize returns null because the contents size is unknown.
+- FilteredStream::getSize returns null because the contents size is unknown.
 
 ### Deprecated
 
- - FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
- - FilteredStream::getWriteFilter We did not implement writing to the streams at all. And if we do, the filter is an internal information and should not be used by consuming code.
+- FilteredStream::getReadFilter The read filter is internal and should never be used by consuming code.
+- FilteredStream::getWriteFilter We did not implement writing to the streams at all. And if we do, the filter is an internal information and should not be used by consuming code.
 
 
 ## 1.4.1 - 2016-12-16
