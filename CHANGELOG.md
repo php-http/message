@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 1.5.0 - 2017-02-14
+
 ### Added
 
 - Check for empty string in Stream factories
@@ -12,6 +14,7 @@
 ### Fixed
 
 - FilteredStream::getSize returns null because the contents size is unknown.
+- Stream factories does not rewinds streams. The previous behavior was not coherent between factories and inputs. 
 
 ### Deprecated
 
