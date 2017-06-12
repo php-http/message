@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+### Added
+
+- CookieUtil::parseDate to create a date from cookie date string
+
 ## 1.5.0 - 2017-02-14
 
 ### Added
