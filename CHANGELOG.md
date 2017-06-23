@@ -7,6 +7,11 @@
 
 - CookieUtil::parseDate to create a date from cookie date string
 
+### Fixed
+
+- Normalize the `$writeFilterOptions` argument of the constructor of the FilteredStream class to prevent triggering
+  of a deprecated error message with some false positive cases.
+
 ## 1.5.0 - 2017-02-14
 
 ### Added
