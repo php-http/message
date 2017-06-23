@@ -57,10 +57,22 @@ abstract class FilteredStream implements StreamInterface
      */
     public function __construct(StreamInterface $stream, $readFilterOptions = null, $writeFilterOptions = null)
     {
+        $triggerDeprecationNotice = null !== $writeFilterOptions;
+
+        if (null === $readFilterOptions && in_array($this->readFilter(), ['convert.base64-encode', 'convert.base64-decode', 'convert.quoted-printable-encode', 'zlib.deflate', 'zlib.inflate'/*, 'bzip2.compress', 'bzip2.decompress'*/], true)) {
+            $readFilterOptions = [];
+        }
+
+        if (null === $writeFilterOptions && in_array($this->writeFilter(), ['convert.base64-encode', 'convert.base64-decode', 'convert.quoted-printable-encode', 'zlib.deflate', 'zlib.inflate'/*, 'bzip2.compress', 'bzip2.decompress'*/], true)) {
+            $writeFilterOptions = [];
+
+            $triggerDeprecationNotice = false;
+        }
+
         $this->readFilterCallback = Filter\fun($this->readFilter(), $readFilterOptions);
         $this->writeFilterCallback = Filter\fun($this->writeFilter(), $writeFilterOptions);
 
-        if (null !== $writeFilterOptions) {
+        if ($triggerDeprecationNotice) {
             @trigger_error('The $writeFilterOptions argument is deprecated since version 1.5 and will be removed in 2.0.', E_USER_DEPRECATED);
         }
 
