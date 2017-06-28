@@ -58,4 +58,18 @@ class CurlCommandFormatterSpec extends ObjectBehavior
     {
         $this->formatResponse($response)->shouldReturn('');
     }
+
+    function it_formats_the_request_with_user_agent(RequestInterface $request, UriInterface $uri, StreamInterface $body)
+    {
+        $request->getUri()->willReturn($uri);
+        $request->getBody()->willReturn($body);
+
+        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
+        $request->getMethod()->willReturn('GET');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
+        $request->getHeaders()->willReturn(['user-agent'=>['foobar-browser']]);
+
+        $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' -A 'foobar-browser'");
+    }
 }

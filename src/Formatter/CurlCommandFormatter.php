@@ -68,7 +68,7 @@ class CurlCommandFormatter implements Formatter
             }
 
             if ('user-agent' === strtolower($name)) {
-                $command .= sprintf('-A %s', escapeshellarg($values[0]));
+                $command .= sprintf(' -A %s', escapeshellarg($values[0]));
                 continue;
             }
 
