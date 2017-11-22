@@ -295,7 +295,7 @@ final class Cookie
     public function matchDomain($domain)
     {
         // Domain is not set or exact match
-        if (!$this->hasDomain() || strcasecmp($domain, $this->domain) === 0) {
+        if (!$this->hasDomain() || 0 === strcasecmp($domain, $this->domain)) {
             return true;
         }
 
@@ -343,7 +343,7 @@ final class Cookie
      */
     public function matchPath($path)
     {
-        return $this->path === $path || (strpos($path, rtrim($this->path, '/').'/') === 0);
+        return $this->path === $path || (0 === strpos($path, rtrim($this->path, '/').'/'));
     }
 
     /**
@@ -405,7 +405,7 @@ final class Cookie
      *
      * @return bool
      */
-    public function match(Cookie $cookie)
+    public function match(self $cookie)
     {
         return $this->name === $cookie->name && $this->domain === $cookie->domain and $this->path === $cookie->path;
     }
@@ -517,7 +517,7 @@ final class Cookie
     {
         $path = rtrim($path, '/');
 
-        if (empty($path) or substr($path, 0, 1) !== '/') {
+        if (empty($path) or '/' !== substr($path, 0, 1)) {
             $path = '/';
         }
 
