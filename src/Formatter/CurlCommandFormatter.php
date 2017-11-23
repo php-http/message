@@ -19,9 +19,9 @@ class CurlCommandFormatter implements Formatter
     public function formatRequest(RequestInterface $request)
     {
         $command = sprintf('curl %s', escapeshellarg((string) $request->getUri()->withFragment('')));
-        if ($request->getProtocolVersion() === '1.0') {
+        if ('1.0' === $request->getProtocolVersion()) {
             $command .= ' --http1.0';
-        } elseif ($request->getProtocolVersion() === '2.0') {
+        } elseif ('2.0' === $request->getProtocolVersion()) {
             $command .= ' --http2';
         }
 
@@ -69,6 +69,7 @@ class CurlCommandFormatter implements Formatter
 
             if ('user-agent' === strtolower($name)) {
                 $command .= sprintf(' -A %s', escapeshellarg($values[0]));
+
                 continue;
             }
 
