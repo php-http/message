@@ -104,7 +104,7 @@ class ResponseBuilder
     public function setStatus($statusLine)
     {
         $parts = explode(' ', $statusLine, 3);
-        if (count($parts) < 2 || strpos(strtolower($parts[0]), 'http/') !== 0) {
+        if (count($parts) < 2 || 0 !== strpos(strtolower($parts[0]), 'http/')) {
             throw new \InvalidArgumentException(
                 sprintf('"%s" is not a valid HTTP status line', $statusLine)
             );
@@ -130,7 +130,7 @@ class ResponseBuilder
     public function addHeader($headerLine)
     {
         $parts = explode(':', $headerLine, 2);
-        if (count($parts) !== 2) {
+        if (2 !== count($parts)) {
             throw new \InvalidArgumentException(
                 sprintf('"%s" is not a valid HTTP header line', $headerLine)
             );

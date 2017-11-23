@@ -98,7 +98,7 @@ abstract class FilteredStream implements StreamInterface
      */
     public function eof()
     {
-        return $this->stream->eof() && $this->buffer === '';
+        return $this->stream->eof() && '' === $this->buffer;
     }
 
     /**
@@ -128,7 +128,7 @@ abstract class FilteredStream implements StreamInterface
         while (!$this->eof()) {
             $buf = $this->read(self::BUFFER_SIZE);
             // Using a loose equality here to match on '' and false.
-            if ($buf == null) {
+            if (null == $buf) {
                 break;
             }
 

@@ -78,7 +78,7 @@ class FullHttpMessageFormatter implements Formatter
     private function addBody(MessageInterface $request, $message)
     {
         $stream = $request->getBody();
-        if (!$stream->isSeekable() || $this->maxBodyLength === 0) {
+        if (!$stream->isSeekable() || 0 === $this->maxBodyLength) {
             // Do not read the stream
             $message .= "\n";
         } else {
