@@ -47,7 +47,7 @@ $ composer test
 
 Please see our [contributing guide](http://docs.php-http.org/en/latest/development/contributing.html).
 
-## Cretids
+## Credits
 
 Thanks to [Cuzzle](https://github.com/namshi/cuzzle) for inpiration for the `CurlCommandFormatter`.
 
