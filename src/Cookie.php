@@ -56,7 +56,7 @@ final class Cookie
     /**
      * @param string         $name
      * @param string|null    $value
-     * @param int            $maxAge
+     * @param int|null       $maxAge
      * @param string|null    $domain
      * @param string|null    $path
      * @param bool           $secure
