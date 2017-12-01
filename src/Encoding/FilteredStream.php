@@ -57,26 +57,18 @@ abstract class FilteredStream implements StreamInterface
      */
     public function __construct(StreamInterface $stream, $readFilterOptions = null, $writeFilterOptions = null)
     {
-        switch (func_num_args()) {
-            case 1:
-                $this->readFilterCallback = Filter\fun($this->readFilter());
-                $this->writeFilterCallback = Filter\fun($this->writeFilter());
-
-                break;
-            case 2:
-                $this->readFilterCallback = Filter\fun($this->readFilter(), $readFilterOptions);
-                $this->writeFilterCallback = Filter\fun($this->writeFilter());
-
-                break;
-            default:
-                $this->readFilterCallback = Filter\fun($this->readFilter(), $readFilterOptions);
-                $this->writeFilterCallback = Filter\fun($this->writeFilter(), $writeFilterOptions);
-
-                break;
+        if (null !== $readFilterOptions) {
+            $this->readFilterCallback = Filter\fun($this->readFilter(), $readFilterOptions);
+        } else {
+            $this->readFilterCallback = Filter\fun($this->readFilter());
         }
 
         if (null !== $writeFilterOptions) {
+            $this->writeFilterCallback = Filter\fun($this->writeFilter(), $writeFilterOptions);
+
             @trigger_error('The $writeFilterOptions argument is deprecated since version 1.5 and will be removed in 2.0.', E_USER_DEPRECATED);
+        } else {
+            $this->writeFilterCallback = Filter\fun($this->writeFilter());
         }
 
         $this->stream = $stream;
