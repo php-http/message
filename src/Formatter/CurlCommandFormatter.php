@@ -36,11 +36,16 @@ class CurlCommandFormatter implements Formatter
 
         $body = $request->getBody();
         if ($body->getSize() > 0) {
-            if (!$body->isSeekable()) {
-                return 'Cant format Request as cUrl command if body stream is not seekable.';
+            if ($body->isSeekable()) {
+                $data = $body->__toString();
+                $body->rewind();
+                if (preg_match('/[\x00-\x1F\x7F]/', $data)) {
+                    $data = '[binary stream omitted]';
+                }
+            } else {
+                $data = '[non-seekable stream omitted]';
             }
-            $command .= sprintf(' --data %s', escapeshellarg($body->__toString()));
-            $body->rewind();
+            $command .= sprintf(' --data %s', escapeshellarg($data));
         }
 
         return $command;

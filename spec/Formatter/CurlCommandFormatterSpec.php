@@ -72,4 +72,40 @@ class CurlCommandFormatterSpec extends ObjectBehavior
 
         $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' -A 'foobar-browser'");
     }
+
+    function it_formats_requests_with_null_bytes(RequestInterface $request, UriInterface $uri, StreamInterface $body)
+    {
+        $request->getUri()->willReturn($uri);
+        $request->getBody()->willReturn($body);
+
+        $body->__toString()->willReturn("\0");
+        $body->getSize()->willReturn(1);
+        $body->isSeekable()->willReturn(true);
+        $body->rewind()->willReturn(true);
+
+        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $request->getMethod()->willReturn('POST');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $request->getHeaders()->willReturn([]);
+
+        $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --request POST --data '[binary stream omitted]'");
+    }
+
+    function it_formats_requests_with_nonseekable_body(RequestInterface $request, UriInterface $uri, StreamInterface $body)
+    {
+        $request->getUri()->willReturn($uri);
+        $request->getBody()->willReturn($body);
+
+        $body->getSize()->willReturn(1);
+        $body->isSeekable()->willReturn(false);
+        $body->__toString()->shouldNotBeCalled();
+        $body->rewind()->shouldNotBeCalled();
+
+        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $request->getMethod()->willReturn('POST');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $request->getHeaders()->willReturn([]);
+
+        $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --request POST --data '[non-seekable stream omitted]'");
+    }
 }
