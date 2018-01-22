@@ -1,6 +1,13 @@
 # Change Log
 
 
+## Unreleased
+
+### Fixed
+
+- Fix CurlCommandFormatter for binary request payloads
+
+
 ## 1.6.0 - 2017-07-05
 
 ### Added
