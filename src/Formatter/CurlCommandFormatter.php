@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * A formatter that prints a cURL command for HTTP requests.
+ *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
 class CurlCommandFormatter implements Formatter
@@ -17,7 +18,7 @@ class CurlCommandFormatter implements Formatter
      */
     public function formatRequest(RequestInterface $request)
     {
-        $command = sprintf('curl %s', escapeshellarg((string)$request->getUri()->withFragment('')));
+        $command = sprintf('curl %s', escapeshellarg((string) $request->getUri()->withFragment('')));
         if ('1.0' === $request->getProtocolVersion()) {
             $command .= ' --http1.0';
         } elseif ('2.0' === $request->getProtocolVersion()) {
