@@ -51,7 +51,6 @@ class CurlCommandFormatter implements Formatter
                 throw new \InvalidArgumentException($php_errormsg);
             }
             $command .= sprintf(' --data %s', $escapedData);
-
         }
 
         return $command;
