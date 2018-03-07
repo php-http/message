@@ -28,7 +28,7 @@ class CurlCommandFormatter implements Formatter
         if ('HEAD' === $method) {
             $command .= ' --head';
         } elseif ('GET' !== $method) {
-            $command .= ' --request ' . $method;
+            $command .= ' --request '.$method;
         }
 
         $command .= $this->getHeadersAsCommandOptions($request);
@@ -83,7 +83,7 @@ class CurlCommandFormatter implements Formatter
                 continue;
             }
 
-            $command .= sprintf(' -H %s', escapeshellarg($name . ': ' . $request->getHeaderLine($name)));
+            $command .= sprintf(' -H %s', escapeshellarg($name.': '.$request->getHeaderLine($name)));
         }
 
         return $command;
