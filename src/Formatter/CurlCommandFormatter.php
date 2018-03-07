@@ -3,10 +3,8 @@
 namespace Http\Message\Formatter;
 
 use Http\Message\Formatter;
-use PhpSpec\Exception\Exception;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Http\Message\Exception\EmptyStringException;
 
 /**
  * A formatter that prints a cURL command for HTTP requests.
