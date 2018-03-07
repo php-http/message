@@ -47,7 +47,7 @@ class CurlCommandFormatter implements Formatter
             }
 
             $escapedData = @escapeshellarg($data) or
-                die("We couldn't not escape the data properly: error was '$php_errormsg'");
+                $escapedData = "We couldn't not escape the data properly";
 
             $command .= sprintf(' --data %s', $escapedData);
         }
