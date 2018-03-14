@@ -151,6 +151,9 @@ abstract class FilteredStream implements StreamInterface
      */
     public function __toString()
     {
+        if ($this->stream->isSeekable()) {
+            $this->stream->rewind();
+        }
         return $this->getContents();
     }
 
