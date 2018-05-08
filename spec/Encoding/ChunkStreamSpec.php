@@ -12,10 +12,6 @@ class ChunkStreamSpec extends ObjectBehavior
 
     function let(StreamInterface $stream)
     {
-        if (defined('HHVM_VERSION')) {
-            throw new SkippingException('Skipping test as there is no dechunk filter on hhvm');
-        }
-
         $this->beConstructedWith($stream);
     }
 

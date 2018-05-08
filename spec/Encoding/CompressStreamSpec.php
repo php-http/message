@@ -12,10 +12,6 @@ class CompressStreamSpec extends ObjectBehavior
 
     function let(StreamInterface $stream)
     {
-        if (defined('HHVM_VERSION')) {
-            throw new SkippingException('Skipping test as zlib is not working on hhvm');
-        }
-
         $this->beConstructedWith($stream);
     }
 
