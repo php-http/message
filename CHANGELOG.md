@@ -6,6 +6,7 @@
 ### Fixed
 
 - Fix CurlCommandFormatter for binary request payloads
+- Fix QueryParam authentication to assemble proper URL regardless of PHP `arg_separator.output` directive
 
 
 ## 1.6.0 - 2017-07-05
