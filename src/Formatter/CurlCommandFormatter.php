@@ -45,7 +45,12 @@ class CurlCommandFormatter implements Formatter
             } else {
                 $data = '[non-seekable stream omitted]';
             }
-            $command .= sprintf(' --data %s', escapeshellarg($data));
+            $escapedData = @escapeshellarg($data);
+            if (empty($escapedData)) {
+                $escapedData = 'We couldn\'t not escape the data properly';
+            }
+
+            $command .= sprintf(' --data %s', $escapedData);
         }
 
         return $command;
