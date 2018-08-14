@@ -3,11 +3,17 @@
 
 ## Unreleased
 
+## 1.7.0 - 2018-08-15
+
 ### Fixed
 
 - Fix CurlCommandFormatter for binary request payloads
 - Fix QueryParam authentication to assemble proper URL regardless of PHP `arg_separator.output` directive
+- Do not pass `null` parameters to `Clue\StreamFilter\fun`
 
+### Changed
+
+- Dropped tests on HHVM
 
 ## 1.6.0 - 2017-07-05
 
