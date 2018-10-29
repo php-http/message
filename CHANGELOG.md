@@ -3,6 +3,14 @@
 
 ## Unreleased
 
+
+## 1.7.1 - 2018-10-29
+
+### Fixed
+
+- FilteredStream is not actually seekable
+
+
 ## 1.7.0 - 2018-08-15
 
 ### Fixed
@@ -15,6 +23,7 @@
 
 - Dropped tests on HHVM
 
+
 ## 1.6.0 - 2017-07-05
 
 ### Added
@@ -23,7 +32,8 @@
 
 ### Fixed
 
-- Fix curl command of CurlFormatter when there is an user-agent header   
+- Fix curl command of CurlFormatter when there is an user-agent header
+
 
 ## 1.5.0 - 2017-02-14
 
@@ -36,7 +46,7 @@
 ### Fixed
 
 - FilteredStream::getSize returns null because the contents size is unknown.
-- Stream factories does not rewinds streams. The previous behavior was not coherent between factories and inputs. 
+- Stream factories does not rewinds streams. The previous behavior was not coherent between factories and inputs.
 
 ### Deprecated
 
