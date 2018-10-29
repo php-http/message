@@ -162,6 +162,30 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isSeekable()
+    {
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rewind()
+    {
+        throw new \RuntimeException('Cannot rewind a filtered stream');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function seek($offset, $whence = SEEK_SET)
+    {
+        throw new \RuntimeException('Cannot seek a filtered stream');
+    }
+
+    /**
      * Returns the read filter name.
      *
      * @return string
