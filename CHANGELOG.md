@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.7.2] - 2018-10-30
+
+### Fixed
+
+- FilteredStream uses `@trigger_error` instead of throwing exceptions to not
+  break careless users. You still need to fix your stream code to respect
+  `isSeekable`. Seeking does not work as expected, and we will add exceptions
+  in version 2.
 
 ## [1.7.1] - 2018-10-29
 
