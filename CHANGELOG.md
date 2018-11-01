@@ -177,7 +177,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Message factory (Guzzle, Diactoros)
 
 
-[Unreleased]: https://github.com/php-http/message/compare/v1.7.1...HEAD
+[Unreleased]: https://github.com/php-http/message/compare/1.7.2...HEAD
+[1.7.2]: https://github.com/php-http/message/compare/v1.7.1...1.7.2
 [1.7.1]: https://github.com/php-http/message/compare/1.7.0...v1.7.1
 [1.7.0]: https://github.com/php-http/message/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/php-http/message/compare/1.5.0...1.6.0
