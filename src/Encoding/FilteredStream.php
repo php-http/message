@@ -15,7 +15,10 @@ abstract class FilteredStream implements StreamInterface
 {
     const BUFFER_SIZE = 8192;
 
-    use StreamDecorator;
+    use StreamDecorator {
+        rewind as private doRewind;
+        seek as private doSeek;
+    }
 
     /**
      * @var callable
@@ -146,11 +149,11 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Always returns null because we can't tell the size of a stream when we filter.
      */
     public function getSize()
     {
-        return;
+        return null;
     }
 
     /**
@@ -162,7 +165,9 @@ abstract class FilteredStream implements StreamInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Filtered streams are not seekable.
+     *
+     * We would need to buffer and process everything to allow seeking.
      */
     public function isSeekable()
     {
@@ -174,7 +179,8 @@ abstract class FilteredStream implements StreamInterface
      */
     public function rewind()
     {
-        throw new \RuntimeException('Cannot rewind a filtered stream');
+        @trigger_error('Filtered streams are not seekable. This method will start raising an exception in the next major version', E_USER_DEPRECATED);
+        $this->doRewind();
     }
 
     /**
@@ -182,7 +188,8 @@ abstract class FilteredStream implements StreamInterface
      */
     public function seek($offset, $whence = SEEK_SET)
     {
-        throw new \RuntimeException('Cannot seek a filtered stream');
+        @trigger_error('Filtered streams are not seekable. This method will start raising an exception in the next major version', E_USER_DEPRECATED);
+        $this->doSeek($offset, $whence);
     }
 
     /**
