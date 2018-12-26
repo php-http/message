@@ -10,6 +10,7 @@ use Http\Message\MessageFactory;
  * Creates Guzzle messages.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
+ * @deprecated This will be removed in 2.0. Consider using the official Guzzle PSR-17 factory
  */
 final class GuzzleMessageFactory implements MessageFactory
 {

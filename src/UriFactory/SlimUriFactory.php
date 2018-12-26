@@ -10,6 +10,7 @@ use Slim\Http\Uri;
  * Creates Slim 3 URI.
  *
  * @author Mika Tuupola <tuupola@appelsiini.net>
+ * @deprecated This will be removed in 2.0. Consider using the official Slim PSR-17 factory
  */
 final class SlimUriFactory implements UriFactory
 {
