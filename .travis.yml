@@ -19,10 +19,6 @@ env:
     global:
         - TEST_COMMAND="composer test"
 
-branches:
-    except:
-        - /^analysis-.*$/
-
 matrix:
     fast_finish: true
     include:
