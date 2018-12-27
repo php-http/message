@@ -10,6 +10,7 @@ use Zend\Diactoros\Stream;
  * Creates Diactoros streams.
  *
  * @author Михаил Красильников <m.krasilnikov@yandex.ru>
+ *
  * @deprecated This will be removed in 2.0. Consider using the official Diactoros PSR-17 factory
  */
 final class DiactorosStreamFactory implements StreamFactory
