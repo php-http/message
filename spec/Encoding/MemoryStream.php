@@ -10,7 +10,9 @@ class MemoryStream implements StreamInterface
 
     private $size = 0;
 
-    public function __construct($body = "", $chunkSize = null)
+    private $chunkSize;
+
+    public function __construct($body = "", $chunkSize = 8192)
     {
         $this->size = strlen($body);
         $this->resource = fopen('php://memory', 'rw+');
@@ -22,6 +24,8 @@ class MemoryStream implements StreamInterface
 
         fwrite($this->resource, $body);
         fseek($this->resource, 0);
+
+        $this->chunkSize = $chunkSize;
     }
 
     public function __toString()
@@ -89,7 +93,7 @@ class MemoryStream implements StreamInterface
 
     public function read($length)
     {
-        return fread($this->resource, $length);
+        return fread($this->resource, min($this->chunkSize, $length));
     }
 
     public function getContents()
