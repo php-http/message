@@ -80,11 +80,11 @@ class FullHttpMessageFormatter implements Formatter
         $stream = $request->getBody();
         if (!$stream->isSeekable() || 0 === $this->maxBodyLength) {
             // Do not read the stream
-            $message .= "\n";
-        } else {
-            $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
-            $stream->rewind();
+            return $message."\n";
         }
+
+        $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
+        $stream->rewind();
 
         return $message;
     }
