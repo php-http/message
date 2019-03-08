@@ -17,12 +17,12 @@ class FullHttpMessageFormatter implements Formatter
     /**
      * The maximum length of the body.
      *
-     * @var int
+     * @var int|null
      */
     private $maxBodyLength;
 
     /**
-     * @param int $maxBodyLength
+     * @param int|null $maxBodyLength
      */
     public function __construct($maxBodyLength = 1000)
     {
@@ -83,7 +83,12 @@ class FullHttpMessageFormatter implements Formatter
             return $message."\n";
         }
 
-        $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
+        if (null === $this->maxBodyLength) {
+            $message .= "\n".$stream->__toString();
+        } else {
+            $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
+        }
+
         $stream->rewind();
 
         return $message;
