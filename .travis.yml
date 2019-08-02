@@ -7,10 +7,6 @@ cache:
         - $HOME/.composer/cache/files
 
 php:
-    - 5.4
-    - 5.5
-    - 5.6
-    - 7.0
     - 7.1
     - 7.2
     - 7.3
@@ -22,12 +18,11 @@ env:
 matrix:
     fast_finish: true
     include:
-        - php: 5.4
+        - php: 7.1
           env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest" COVERAGE=true TEST_COMMAND="composer test-ci"
 
 before_install:
     - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
-    - if [[ "${TRAVIS_PHP_VERSION}" == "5.4" ]]; then composer remove slim/slim --dev --no-update; fi
 
 install:
     - composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
