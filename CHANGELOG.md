@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+
+- Fixed Fatal error on `CurlCommandFormatter` when body is larger than `escapeshellarg` allowed length.   
+
 ## [1.7.2] - 2018-10-30
 
 ### Fixed

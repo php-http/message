@@ -36,10 +36,8 @@ class CurlCommandFormatter implements Formatter
 
         $body = $request->getBody();
         if ($body->getSize() > 0) {
-            // escapeshellarg argument max length
-            $argMaxLength = '\\' === DIRECTORY_SEPARATOR ? 8192 : 2097152;
-
-            if ($body->getSize() > $argMaxLength) {
+            // escapeshellarg argument max length on Windows, but impractical to use either way
+            if ($body->getSize() > 8192) {
                 $data = '[too long stream omitted]';
             } elseif ($body->isSeekable()) {
                 $data = $body->__toString();
