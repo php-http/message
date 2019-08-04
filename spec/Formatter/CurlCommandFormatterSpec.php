@@ -108,4 +108,22 @@ class CurlCommandFormatterSpec extends ObjectBehavior
 
         $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --request POST --data '[non-seekable stream omitted]'");
     }
+
+    function it_formats_requests_with_long_body(RequestInterface $request, UriInterface $uri, StreamInterface $body)
+    {
+        $request->getUri()->willReturn($uri);
+        $request->getBody()->willReturn($body);
+
+        $body->__toString()->willReturn('a very long body');
+        $body->getSize()->willReturn(2097153);
+        $body->isSeekable()->willReturn(true);
+        $body->rewind()->willReturn(true);
+
+        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $request->getMethod()->willReturn('POST');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $request->getHeaders()->willReturn([]);
+
+        $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --request POST --data '[too long stream omitted]'");
+    }
 }
