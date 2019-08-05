@@ -9,9 +9,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## [1.8.0] - 2019-08-05
+
+### Changed
+
+- Raised minimum PHP version to 7.1
+
 ### Fixed
 
-- Fixed Fatal error on `CurlCommandFormatter` when body is larger than `escapeshellarg` allowed length.   
+- Fatal error on `CurlCommandFormatter` when body is larger than `escapeshellarg` allowed length.
+- Do not read stream in message formatter if stream is not seekable.
 
 ## [1.7.2] - 2018-10-30
 
