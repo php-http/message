@@ -24,7 +24,8 @@
         "akeneo/phpspec-skip-example-extension": "^1.0",
         "coduo/phpspec-data-provider-extension": "^1.0",
         "guzzlehttp/psr7": "^1.0",
-        "henrikbjorn/phpspec-code-coverage" : "^1.0",
+        "henrikbjorn/phpspec-code-coverage": "^1.0",
+        "localheinz/composer-normalize": "^1.2.0",
         "phpspec/phpspec": "^2.4",
         "slim/slim": "^3.0",
         "zendframework/zend-diactoros": "^1.0"
