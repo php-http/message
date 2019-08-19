@@ -28,6 +28,8 @@ install:
     - composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
 
 script:
+    - composer validate
+    - composer normalize --dry-run
     - $TEST_COMMAND
 
 after_success:

@@ -1,9 +1,13 @@
 {
     "name": "php-http/message",
     "description": "HTTP Message related tools",
-    "license": "MIT",
-    "keywords": ["message", "http", "psr-7"],
+    "keywords": [
+        "message",
+        "http",
+        "psr-7"
+    ],
     "homepage": "http://php-http.org",
+    "license": "MIT",
     "authors": [
         {
             "name": "Márk Sági-Kazár",
@@ -24,16 +28,25 @@
         "akeneo/phpspec-skip-example-extension": "^1.0",
         "coduo/phpspec-data-provider-extension": "^1.0",
         "guzzlehttp/psr7": "^1.0",
-        "henrikbjorn/phpspec-code-coverage" : "^1.0",
+        "henrikbjorn/phpspec-code-coverage": "^1.0",
+        "localheinz/composer-normalize": "^1.2.0",
         "phpspec/phpspec": "^2.4",
         "slim/slim": "^3.0",
         "zendframework/zend-diactoros": "^1.0"
     },
     "suggest": {
-        "zendframework/zend-diactoros": "Used with Diactoros Factories",
+        "ext-zlib": "Used with compressor/decompressor streams",
         "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
         "slim/slim": "Used with Slim Framework PSR-7 implementation",
-        "ext-zlib": "Used with compressor/decompressor streams"
+        "zendframework/zend-diactoros": "Used with Diactoros Factories"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.8-dev"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -51,13 +64,5 @@
     "scripts": {
         "test": "vendor/bin/phpspec run",
         "test-ci": "vendor/bin/phpspec run -c phpspec.ci.yml"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.8-dev"
-        }
-    },
-    "config": {
-        "sort-packages": true
     }
 }
