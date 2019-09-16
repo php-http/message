@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Added
+
+- New Header authentication method for arbitrary header authentication.
+
 ## [1.8.0] - 2019-08-05
 
 ### Changed
