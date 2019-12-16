@@ -11,7 +11,7 @@ use Zend\Diactoros\Uri;
  *
  * @author David de Boer <david@ddeboer.nl>
  *
- * @deprecated This will be removed in 2.0. Consider using the official Diactoros PSR-17 factory
+ * @deprecated This will be removed in php-http/message2.0. Consider using the official Diactoros PSR-17 factory
  */
 final class DiactorosUriFactory implements UriFactory
 {

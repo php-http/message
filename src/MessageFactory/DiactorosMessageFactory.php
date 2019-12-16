@@ -12,7 +12,7 @@ use Zend\Diactoros\Response;
  *
  * @author GeLo <geloen.eric@gmail.com>
  *
- * @deprecated This will be removed in 2.0. Consider using the official Diactoros PSR-17 factory
+ * @deprecated This will be removed in php-http/message2.0. Consider using the official Diactoros PSR-17 factory
  */
 final class DiactorosMessageFactory implements MessageFactory
 {

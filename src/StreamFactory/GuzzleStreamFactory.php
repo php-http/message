@@ -9,7 +9,7 @@ use Http\Message\StreamFactory;
  *
  * @author Михаил Красильников <m.krasilnikov@yandex.ru>
  *
- * @deprecated This will be removed in 2.0. Consider using the official Guzzle PSR-17 factory
+ * @deprecated This will be removed in php-http/message2.0. Consider using the official Guzzle PSR-17 factory
  */
 final class GuzzleStreamFactory implements StreamFactory
 {
