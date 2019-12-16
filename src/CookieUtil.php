@@ -45,9 +45,6 @@ final class CookieUtil
             return $date;
         }
 
-        throw new UnexpectedValueException(sprintf(
-            'Unparseable cookie date string "%s"',
-            $dateValue
-        ));
+        throw new UnexpectedValueException(sprintf('Unparseable cookie date string "%s"', $dateValue));
     }
 }

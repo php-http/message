@@ -24,9 +24,7 @@ final class Chain implements Authentication
     {
         foreach ($authenticationChain as $authentication) {
             if (!$authentication instanceof Authentication) {
-                throw new \InvalidArgumentException(
-                    'Members of the authentication chain must be of type Http\Message\Authentication'
-                );
+                throw new \InvalidArgumentException('Members of the authentication chain must be of type Http\Message\Authentication');
             }
         }
 

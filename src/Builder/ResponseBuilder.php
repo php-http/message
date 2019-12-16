@@ -78,13 +78,7 @@ class ResponseBuilder
         if (!(is_string($headers)
             || (is_object($headers) && method_exists($headers, '__toString')))
         ) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    '%s expects parameter 1 to be a string, %s given',
-                    __METHOD__,
-                    is_object($headers) ? get_class($headers) : gettype($headers)
-                )
-            );
+            throw new \InvalidArgumentException(sprintf('%s expects parameter 1 to be a string, %s given', __METHOD__, is_object($headers) ? get_class($headers) : gettype($headers)));
         }
 
         $this->setHeadersFromArray(explode("\r\n", $headers));
@@ -105,9 +99,7 @@ class ResponseBuilder
     {
         $parts = explode(' ', $statusLine, 3);
         if (count($parts) < 2 || 0 !== strpos(strtolower($parts[0]), 'http/')) {
-            throw new \InvalidArgumentException(
-                sprintf('"%s" is not a valid HTTP status line', $statusLine)
-            );
+            throw new \InvalidArgumentException(sprintf('"%s" is not a valid HTTP status line', $statusLine));
         }
 
         $reasonPhrase = count($parts) > 2 ? $parts[2] : '';
@@ -131,9 +123,7 @@ class ResponseBuilder
     {
         $parts = explode(':', $headerLine, 2);
         if (2 !== count($parts)) {
-            throw new \InvalidArgumentException(
-                sprintf('"%s" is not a valid HTTP header line', $headerLine)
-            );
+            throw new \InvalidArgumentException(sprintf('"%s" is not a valid HTTP header line', $headerLine));
         }
         $name = trim($parts[0]);
         $value = trim($parts[1]);
