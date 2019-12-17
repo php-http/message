@@ -10,6 +10,8 @@ use Zend\Diactoros\Stream;
  * Creates Diactoros streams.
  *
  * @author Михаил Красильников <m.krasilnikov@yandex.ru>
+ *
+ * @deprecated This will be removed in php-http/message2.0. Consider using the official Diactoros PSR-17 factory
  */
 final class DiactorosStreamFactory implements StreamFactory
 {
