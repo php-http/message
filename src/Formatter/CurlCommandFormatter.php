@@ -68,8 +68,6 @@ class CurlCommandFormatter implements Formatter
     }
 
     /**
-     * @param RequestInterface $request
-     *
      * @return string
      */
     private function getHeadersAsCommandOptions(RequestInterface $request)
