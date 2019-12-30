@@ -1,7 +1,7 @@
 # HTTP Message
 
 [![Latest Version](https://img.shields.io/github/release/php-http/message.svg?style=flat-square)](https://github.com/php-http/message/releases)
-[![Build Status](https://img.shields.io/travis/php-http/message.svg?style=flat-square)](https://travis-ci.org/php-http/message)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/php-http/message/CI?style=flat-square)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/php-http/message.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/message)
 [![Quality Score](https://img.shields.io/scrutinizer/g/php-http/message.svg?style=flat-square)](https://scrutinizer-ci.com/g/php-http/message)
 [![Total Downloads](https://img.shields.io/packagist/dt/php-http/message.svg?style=flat-square)](https://packagist.org/packages/php-http/message)
