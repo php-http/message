@@ -43,17 +43,9 @@ $ composer test
 ```
 
 
-## Contributing
-
-Please see our [contributing guide](http://docs.php-http.org/en/latest/development/contributing.html).
-
 ## Credits
 
 Thanks to [Cuzzle](https://github.com/namshi/cuzzle) for inpiration for the `CurlCommandFormatter`.
-
-## Security
-
-If you discover any security related issues, please contact us at [security@php-http.org](mailto:security@php-http.org).
 
 
 ## License
