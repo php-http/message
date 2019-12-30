@@ -1,0 +1,337 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property Http\\\\Message\\\\Authentication\\\\Header\\:\\:\\$value type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Authentication/Header.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Authentication\\\\Header\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			count: 1
+			path: src/Authentication/Header.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\Authentication\\\\QueryParam\\:\\:\\$params type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Authentication/QueryParam.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Authentication\\\\QueryParam\\:\\:__construct\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Authentication/QueryParam.php
+
+		-
+			message: "#^Parameter \\#2 \\$prefix of function http_build_query expects string, null given\\.$#"
+			count: 1
+			path: src/Authentication/QueryParam.php
+
+		-
+			message: "#^Parameter \\#1 \\$statusLine of method Http\\\\Message\\\\Builder\\\\ResponseBuilder\\:\\:setStatus\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Builder/ResponseBuilder.php
+
+		-
+			message: "#^Result of \\|\\| is always true\\.$#"
+			count: 1
+			path: src/Builder/ResponseBuilder.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/Builder/ResponseBuilder.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:createWithoutValidation\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Parameter \\#2 \\$str2 of function strcasecmp expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function preg_quote expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateValue\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateMaxAge\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:normalizeDomain\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function rtrim expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Cookie.php
+
+		-
+			message: "#^Class Http\\\\Message\\\\CookieJar implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookie\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookie\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:findMatchingCookies\\(\\) should return array\\<Http\\\\Message\\\\Cookie\\> but returns array\\<int, object\\>\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:setCookies\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookies\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookies\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeMatchingCookies\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Left side of && is always true\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:clear\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:count\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
+			count: 1
+			path: src/CookieJar.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\CookieUtil\\:\\:\\$dateFormats type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/CookieUtil.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:getSize\\(\\) has no return typehint specified\\.$#"
+			count: 2
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:isSeekable\\(\\) has no return typehint specified\\.$#"
+			count: 2
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
+			count: 2
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
+			count: 2
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/ChunkStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$closing with no typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$consumed with no typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$in with no typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$out with no typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Access to an undefined property Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:\\$stream\\.$#"
+			count: 2
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$datalen\\.$#"
+			count: 2
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Parameter \\#2 \\$bucket of function stream_bucket_append expects object, resource given\\.$#"
+			count: 2
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\DiactorosMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/DiactorosMessageFactory.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\DiactorosMessageFactory\\:\\:createResponse\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/DiactorosMessageFactory.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\GuzzleMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/GuzzleMessageFactory.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\GuzzleMessageFactory\\:\\:createResponse\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/GuzzleMessageFactory.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\SlimMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/SlimMessageFactory.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\SlimMessageFactory\\:\\:createResponse\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/MessageFactory/SlimMessageFactory.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\RequestMatcher\\\\RequestMatcher\\:\\:\\$methods type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RequestMatcher/RequestMatcher.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\RequestMatcher\\\\RequestMatcher\\:\\:\\$path \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/RequestMatcher/RequestMatcher.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\RequestMatcher\\\\RequestMatcher\\:\\:\\$host \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/RequestMatcher/RequestMatcher.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$size \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$resource \\(resource\\) does not accept resource\\|false\\.$#"
+			count: 2
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Dead catch \\- Exception is already caught by Throwable above\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:detach\\(\\) should return resource\\|null but empty return statement found\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$stream \\(Psr\\\\Http\\\\Message\\\\StreamInterface\\) does not accept null\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$resource \\(resource\\) does not accept null\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:getSize\\(\\) should return int\\|null but empty return statement found\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:tell\\(\\) should return int but returns int\\|false\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/Stream/BufferedStream.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of class Slim\\\\Http\\\\Stream constructor expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: src/StreamFactory/SlimStreamFactory.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: src/UriFactory/SlimUriFactory.php
+

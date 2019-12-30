@@ -3,5 +3,6 @@
 /build/
 /composer.lock
 /phpspec.yml
+/phpstan.neon
 /phpunit.xml
 /vendor/
