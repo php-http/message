@@ -27,7 +27,7 @@
         "ext-zlib": "*",
         "akeneo/phpspec-skip-example-extension": "^1.0",
         "coduo/phpspec-data-provider-extension": "^1.0",
-        "ergebnis/composer-normalize": "^2.1.1",
+        "ergebnis/composer-normalize": "^2.1",
         "guzzlehttp/psr7": "^1.0",
         "henrikbjorn/phpspec-code-coverage": "^1.0",
         "phpspec/phpspec": "^2.4",

@@ -2,8 +2,8 @@
 
 namespace Http\Message\MessageFactory;
 
-use Http\Message\StreamFactory\DiactorosStreamFactory;
 use Http\Message\MessageFactory;
+use Http\Message\StreamFactory\DiactorosStreamFactory;
 use Zend\Diactoros\Request;
 use Zend\Diactoros\Response;
 

@@ -2,12 +2,12 @@
 
 namespace Http\Message\MessageFactory;
 
+use Http\Message\MessageFactory;
 use Http\Message\StreamFactory\SlimStreamFactory;
 use Http\Message\UriFactory\SlimUriFactory;
-use Http\Message\MessageFactory;
+use Slim\Http\Headers;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Slim\Http\Headers;
 
 /**
  * Creates Slim 3 messages.
