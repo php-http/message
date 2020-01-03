@@ -13,17 +13,18 @@ jobs:
 
     steps:
       - name: Set up PHP
-        uses: shivammathur/setup-php@1.6.2
+        uses: shivammathur/setup-php@1.7.0
         with:
           php-version: '7.1'
           coverage: xdebug
           extensions: mbstring
+          tools: prestissimo
 
       - name: Setup Problem Matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Download dependencies
         run: composer update --prefer-stable --prefer-dist --no-interaction --no-progress --no-suggest --prefer-lowest
@@ -41,16 +42,17 @@ jobs:
 
     steps:
       - name: Set up PHP
-        uses: shivammathur/setup-php@1.6.2
+        uses: shivammathur/setup-php@1.7.0
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring
+          tools: prestissimo
 
       - name: Setup Problem Matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Download dependencies
         run: composer update --prefer-stable --prefer-dist --no-interaction --no-progress --no-suggest
