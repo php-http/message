@@ -76,20 +76,24 @@ class FullHttpMessageFormatter implements Formatter
      */
     private function addBody(MessageInterface $request, $message)
     {
+        $message .= "\n";
         $stream = $request->getBody();
         if (!$stream->isSeekable() || 0 === $this->maxBodyLength) {
             // Do not read the stream
-            return $message."\n";
+            return $message;
+        }
+
+        $data = $stream->__toString();
+        $stream->rewind();
+
+        if (preg_match('/[\x00-\x1F\x7F]/', $data)) {
+            return $message.'[binary stream omitted]';
         }
 
         if (null === $this->maxBodyLength) {
-            $message .= "\n".$stream->__toString();
-        } else {
-            $message .= "\n".mb_substr($stream->__toString(), 0, $this->maxBodyLength);
+            return $message.$data;
         }
 
-        $stream->rewind();
-
-        return $message;
+        return $message.mb_substr($data, 0, $this->maxBodyLength);
     }
 }
