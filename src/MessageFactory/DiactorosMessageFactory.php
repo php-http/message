@@ -4,8 +4,8 @@ namespace Http\Message\MessageFactory;
 
 use Http\Message\MessageFactory;
 use Http\Message\StreamFactory\DiactorosStreamFactory;
-use Zend\Diactoros\Request;
-use Zend\Diactoros\Response;
+use Laminas\Diactoros\Request;
+use Laminas\Diactoros\Response;
 
 /**
  * Creates Diactoros messages.

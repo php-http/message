@@ -3,8 +3,8 @@
 namespace Http\Message\UriFactory;
 
 use Http\Message\UriFactory;
+use Laminas\Diactoros\Uri;
 use Psr\Http\Message\UriInterface;
-use Zend\Diactoros\Uri;
 
 /**
  * Creates Diactoros URI.

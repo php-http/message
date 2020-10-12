@@ -3,8 +3,8 @@
 namespace Http\Message\StreamFactory;
 
 use Http\Message\StreamFactory;
+use Laminas\Diactoros\Stream;
 use Psr\Http\Message\StreamInterface;
-use Zend\Diactoros\Stream;
 
 /**
  * Creates Diactoros streams.

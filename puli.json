@@ -7,7 +7,7 @@
             "class": "Http\\Message\\MessageFactory\\DiactorosMessageFactory",
             "type": "Http\\Message\\MessageFactory",
             "parameters": {
-                "depends": "Zend\\Diactoros\\Request"
+                "depends": "Laminas\\Diactoros\\Request"
             }
         },
         "0836751e-6558-4d1b-8993-4a52012947c3": {
@@ -57,7 +57,7 @@
             "class": "Http\\Message\\UriFactory\\DiactorosUriFactory",
             "type": "Http\\Message\\UriFactory",
             "parameters": {
-                "depends": "Zend\\Diactoros\\Uri"
+                "depends": "Laminas\\Diactoros\\Uri"
             }
         },
         "4672a6ee-ad9e-4109-a5d1-b7d46f26c7a1": {
@@ -70,7 +70,7 @@
             "class": "Http\\Message\\MessageFactory\\DiactorosMessageFactory",
             "type": "Http\\Message\\ResponseFactory",
             "parameters": {
-                "depends": "Zend\\Diactoros\\Response"
+                "depends": "Laminas\\Diactoros\\Response"
             }
         },
         "6a9ad6ce-d82c-470f-8e30-60f21d9d95bf": {
@@ -88,7 +88,7 @@
             "class": "Http\\Message\\StreamFactory\\DiactorosStreamFactory",
             "type": "Http\\Message\\StreamFactory",
             "parameters": {
-                "depends": "Zend\\Diactoros\\Stream"
+                "depends": "Laminas\\Diactoros\\Stream"
             }
         },
         "a018af27-7590-4dcf-83a1-497f95604cd6": {
@@ -104,7 +104,7 @@
             "class": "Http\\Message\\MessageFactory\\DiactorosMessageFactory",
             "type": "Http\\Message\\RequestFactory",
             "parameters": {
-                "depends": "Zend\\Diactoros\\Request"
+                "depends": "Laminas\\Diactoros\\Request"
             }
         }
     }
