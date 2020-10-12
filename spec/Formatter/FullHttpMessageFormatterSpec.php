@@ -248,4 +248,26 @@ GET /foo HTTP/1.1
 STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
+
+    function it_omits_body_with_line_break(RequestInterface $request, StreamInterface $stream)
+    {
+        $this->beConstructedWith(7);
+
+        $stream->isSeekable()->willReturn(true);
+        $stream->rewind()->shouldBeCalled();
+        $stream->__toString()->willReturn("foo\nbar");
+        $request->getBody()->willReturn($stream);
+        $request->getMethod()->willReturn('GET');
+        $request->getRequestTarget()->willReturn('/foo');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $request->getHeaders()->willReturn([]);
+
+        $expectedMessage = <<<STR
+GET /foo HTTP/1.1
+
+foo
+bar
+STR;
+        $this->formatRequest($request)->shouldReturn($expectedMessage);
+    }
 }
