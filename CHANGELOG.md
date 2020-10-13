@@ -6,10 +6,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.9.1] - 2020-10-13
+
+- Improved detection of binary stream to not consider newlines, carriage return or tabs as binary.
 
 ## [1.9.0] - 2020-08-17
 
-- Omitted binary body in FullHttpMessageFormatter. `[binary stream omitted]` will be shown instead.
+- Omitted binary body in FullHttpMessageFormatter and CurlCommandFormatter.
+  `[binary stream omitted]` will be shown instead.
 
 ### Added
 
