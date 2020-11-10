@@ -133,7 +133,7 @@ class StreamDecoratorSpec extends ObjectBehavior
         $this->getMetadata('key2')->shouldReturn(null);
     }
 
-    function getMatchers()
+    function getMatchers(): array
     {
         return [
             'useTrait' => function ($subject, $trait) {

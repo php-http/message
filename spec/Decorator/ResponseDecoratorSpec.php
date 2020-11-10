@@ -63,7 +63,7 @@ class ResponseDecoratorSpec extends ObjectBehavior
         $this->getReasonPhrase()->shouldReturn('OK');
     }
 
-    function getMatchers()
+    function getMatchers(): array
     {
         return [
             'useTrait' => function ($subject, $trait) {

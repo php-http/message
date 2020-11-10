@@ -56,7 +56,7 @@ trait StreamFactoryBehavior
             ->shouldHaveContent('def');
     }
 
-    public function getMatchers()
+    public function getMatchers(): array
     {
         return [
             'haveContent' => function (StreamInterface $subject, $key) {

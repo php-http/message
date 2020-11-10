@@ -25,17 +25,20 @@ class CookieSpec extends ObjectBehavior
     /**
      * @dataProvider invalidCharacterExamples
      */
-    function it_throws_an_exception_when_the_name_contains_invalid_character($name, $shouldThrow)
+    function it_throws_an_exception_when_the_name_contains_invalid_character()
     {
-        $this->beConstructedWith($name);
+        foreach (self::invalidCharacterExamples() as $example) {
+            $this->beConstructedWith($example[0]);
 
-        if ($shouldThrow) {
-            $expectation = $this->shouldThrow('InvalidArgumentException');
-        } else {
-            $expectation = $this->shouldNotThrow('InvalidArgumentException');
+            if ($example[1]) {
+                $expectation = $this->shouldThrow('InvalidArgumentException');
+            } else {
+                $expectation = $this->shouldNotThrow('InvalidArgumentException');
+            }
+
+            $expectation->duringInstantiation();
         }
 
-        $expectation->duringInstantiation();
     }
 
     function it_throws_an_expection_when_name_is_empty()
@@ -51,20 +54,19 @@ class CookieSpec extends ObjectBehavior
         $this->hasValue()->shouldReturn(true);
     }
 
-    /**
-     * @dataProvider invalidCharacterExamples
-     */
-    function it_throws_an_exception_when_the_value_contains_invalid_character($value, $shouldThrow)
+    function it_throws_an_exception_when_the_value_contains_invalid_character()
     {
-        $this->beConstructedWith('name', $value);
+        foreach (self::invalidCharacterExamples() as $example) {
+            $this->beConstructedWith('name', $example[0]);
 
-        if ($shouldThrow) {
-            $expectation = $this->shouldThrow('InvalidArgumentException');
-        } else {
-            $expectation = $this->shouldNotThrow('InvalidArgumentException');
+            if ($example[1]) {
+                $expectation = $this->shouldThrow('InvalidArgumentException');
+            } else {
+                $expectation = $this->shouldNotThrow('InvalidArgumentException');
+            }
+
+            $expectation->duringInstantiation();
         }
-
-        $expectation->duringInstantiation();
     }
 
     function it_accepts_a_value()
@@ -75,18 +77,17 @@ class CookieSpec extends ObjectBehavior
         $cookie->getValue()->shouldReturn('value2');
     }
 
-    /**
-     * @dataProvider invalidCharacterExamples
-     */
-    function it_throws_an_exception_when_the_new_value_contains_invalid_character($value, $shouldThrow)
+    function it_throws_an_exception_when_the_new_value_contains_invalid_character()
     {
-        if ($shouldThrow) {
-            $expectation = $this->shouldThrow('InvalidArgumentException');
-        } else {
-            $expectation = $this->shouldNotThrow('InvalidArgumentException');
-        }
+        foreach (self::invalidCharacterExamples() as $example) {
+            if ($example[1]) {
+                $expectation = $this->shouldThrow('InvalidArgumentException');
+            } else {
+                $expectation = $this->shouldNotThrow('InvalidArgumentException');
+            }
 
-        $expectation->duringWithValue($value);
+            $expectation->duringWithValue($example[0]);
+        }
     }
 
     function it_has_a_max_age_time()
@@ -270,7 +271,7 @@ class CookieSpec extends ObjectBehavior
      *
      * @return array
      */
-    public function invalidCharacterExamples()
+    private static function invalidCharacterExamples()
     {
         return [
             ['a', false],

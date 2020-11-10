@@ -87,7 +87,7 @@ class RequestDecoratorSpec extends ObjectBehavior
         $new->getMessage()->shouldReturn($newRequest);
     }
 
-    function getMatchers()
+    function getMatchers(): array
     {
         return [
             'useTrait' => function ($subject, $trait) {

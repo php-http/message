@@ -161,7 +161,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->count()->shouldReturn(0);
     }
 
-    public function getMatchers()
+    public function getMatchers(): array
     {
         return [
             'beAnArrayOfInstance' => function ($subject, $instance) {

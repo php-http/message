@@ -4,9 +4,8 @@ suites:
         psr4_prefix: Http\Message
 formatter.name: pretty
 extensions:
-    - PhpSpec\Extension\CodeCoverageExtension
-    - Coduo\PhpSpec\DataProvider\DataProviderExtension
-    - Akeneo\SkipExampleExtension
+    FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 code_coverage:
     format: clover
     output: build/coverage.xml
+runner.maintainers.errors.level: 16383
