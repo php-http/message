@@ -203,10 +203,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 
 [Unreleased]: https://github.com/php-http/message/compare/1.10.0...HEAD
-[1.10.0]: https://github.com/php-http/message/compare/v1.9.1...1.10.0
-[1.9.1]: https://github.com/php-http/message/compare/v1.9.0...1.9.1
-[1.9.0]: https://github.com/php-http/message/compare/v1.8.0...1.9.0
-[1.8.0]: https://github.com/php-http/message/compare/v1.7.2...1.8.0
+[1.10.0]: https://github.com/php-http/message/compare/1.9.1...1.10.0
+[1.9.1]: https://github.com/php-http/message/compare/1.9.0...1.9.1
+[1.9.0]: https://github.com/php-http/message/compare/1.8.0...1.9.0
+[1.8.0]: https://github.com/php-http/message/compare/1.7.2...1.8.0
 [1.7.2]: https://github.com/php-http/message/compare/v1.7.1...1.7.2
 [1.7.1]: https://github.com/php-http/message/compare/1.7.0...v1.7.1
 [1.7.0]: https://github.com/php-http/message/compare/1.6.0...1.7.0
