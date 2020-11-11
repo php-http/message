@@ -121,7 +121,7 @@ class MessageDecoratorSpec extends ObjectBehavior
         $new->getMessage()->shouldReturn($newMessage);
     }
 
-    function getMatchers()
+    function getMatchers(): array
     {
         return [
             'useTrait' => function ($subject, $trait) {

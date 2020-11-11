@@ -12,14 +12,22 @@ class FilteredStreamStubSpec extends ObjectBehavior
     {
         $this->beAnInstanceOf('spec\Http\Message\Encoding\FilteredStreamStub');
         $this->beConstructedWith($stream, 'foo');
-        $this->shouldThrow('RuntimeException')->duringInstantiation();
+        if (\PHP_MAJOR_VERSION < 8) {
+            $this->shouldThrow('RuntimeException')->duringInstantiation();
+        } else {
+            $this->shouldThrow('PhpSpec\Exception\Example\ErrorException')->duringInstantiation();
+        }
     }
 
     function it_throws_during_instantiation_with_invalid_write_filter_options(StreamInterface $stream)
     {
         $this->beAnInstanceOf('spec\Http\Message\Encoding\FilteredStreamStub');
         $this->beConstructedWith($stream, null, 'foo');
-        $this->shouldThrow('RuntimeException')->duringInstantiation();
+        if (\PHP_MAJOR_VERSION < 8) {
+            $this->shouldThrow('RuntimeException')->duringInstantiation();
+        } else {
+            $this->shouldThrow('PhpSpec\Exception\Example\ErrorException')->duringInstantiation();
+        }
     }
 
     function let(StreamInterface $stream)

@@ -131,11 +131,6 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:count\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/CookieJar.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
 			count: 1
 			path: src/CookieJar.php
@@ -146,57 +141,12 @@ parameters:
 			path: src/CookieUtil.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:getSize\\(\\) has no return typehint specified\\.$#"
-			count: 2
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:isSeekable\\(\\) has no return typehint specified\\.$#"
-			count: 2
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
-			count: 2
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
-			count: 2
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/FilteredStream.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Encoding/ChunkStream.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$closing with no typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$consumed with no typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$in with no typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$out with no typehint specified\\.$#"
 			count: 1
 			path: src/Encoding/Filter/Chunk.php
 
@@ -219,6 +169,21 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Encoding/Filter/Chunk.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/FilteredStream.php
+
+		-
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Encoding/FilteredStream.php
 
 		-
 			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\DiactorosMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"

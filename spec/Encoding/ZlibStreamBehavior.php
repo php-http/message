@@ -2,9 +2,6 @@
 
 namespace spec\Http\Message\Encoding {
 
-    use Psr\Http\Message\StreamInterface;
-    use PhpSpec\Exception\Example\SkippingException;
-
     trait ZlibStreamBehavior
     {
         function it_throws_an_exception_when_zlib_is_not_enabled()

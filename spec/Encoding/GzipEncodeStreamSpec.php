@@ -3,7 +3,6 @@
 namespace spec\Http\Message\Encoding;
 
 use Psr\Http\Message\StreamInterface;
-use PhpSpec\Exception\Example\SkippingException;
 use PhpSpec\ObjectBehavior;
 
 class GzipEncodeStreamSpec extends ObjectBehavior
