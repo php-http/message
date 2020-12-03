@@ -29,13 +29,13 @@
         "guzzlehttp/psr7": "^1.0",
         "phpspec/phpspec": "^5.1 || ^6.3",
         "slim/slim": "^3.0",
-        "zendframework/zend-diactoros": "^1.0"
+        "laminas/laminas-diactoros": "^2.0"
     },
     "suggest": {
         "ext-zlib": "Used with compressor/decompressor streams",
         "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
-        "slim/slim": "Used with Slim Framework PSR-7 implementation",
-        "zendframework/zend-diactoros": "Used with Diactoros Factories"
+        "laminas/laminas-diactoros": "Used with Diactoros Factories",
+        "slim/slim": "Used with Slim Framework PSR-7 implementation"
     },
     "config": {
         "sort-packages": true

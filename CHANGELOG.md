@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+- Migrated from `zendframework/zend-diactoros` to `laminas/laminas-diactoros`.
+   Users are encouraged to update their dependencies by simply replacing the Zend package with the Laminas package.
+   Due to the [laminas-zendframework-brige](https://github.com/laminas/laminas-zendframework-bridge), BC changes
+   are not expected and legacy code does not need to be refactored (though it is
+   [recommended and simple](https://docs.laminas.dev/migration/)).
+- The diactoros factories of `php-http/message` will return objects from the `Laminas\Diactoros\` namespace, if
+   the respective classes are available via autoloading, but continue to return objects from `Zend\Diactoros\`
+   namespace otherwise.
+
 ## [1.10.0] - 2020-11-11
 
 - Added support for PHP 8.0.

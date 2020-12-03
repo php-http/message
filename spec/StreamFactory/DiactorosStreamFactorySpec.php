@@ -2,7 +2,7 @@
 
 namespace spec\Http\Message\StreamFactory;
 
-use Zend\Diactoros\Stream;
+use Laminas\Diactoros\Stream;
 use PhpSpec\ObjectBehavior;
 
 class DiactorosStreamFactorySpec extends ObjectBehavior
