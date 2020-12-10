@@ -6,6 +6,7 @@ $config = PhpCsFixer\Config::create()
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
         'single_line_throw' => false,
+        'protected_to_private' => false,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
