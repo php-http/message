@@ -1,6 +1,7 @@
 # HTTP Message
 
 [![Latest Version](https://img.shields.io/github/release/php-http/message.svg?style=flat-square)](https://github.com/php-http/message/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/php-http/message/CI?style=flat-square)](https://github.com/php-http/message/actions?query=workflow%3ACI+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/php-http/message.svg?style=flat-square)](https://packagist.org/packages/php-http/message)
 
