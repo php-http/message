@@ -12,7 +12,7 @@ final class CookieJar implements \Countable, \IteratorAggregate
     /**
      * @var \SplObjectStorage<object, mixed>
      */
-    protected $cookies;
+    private $cookies;
 
     public function __construct()
     {
@@ -92,7 +92,7 @@ final class CookieJar implements \Countable, \IteratorAggregate
      *
      * @return Cookie[]
      */
-    protected function findMatchingCookies(callable $match)
+    private function findMatchingCookies(callable $match)
     {
         $cookies = [];
 
