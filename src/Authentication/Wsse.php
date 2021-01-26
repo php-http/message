@@ -29,11 +29,6 @@ final class Wsse implements Authentication
     private $hashAlgorithm;
 
     /**
-     * @var array<string>
-     */
-    private $acceptedHashAlgos = ['sha1', 'sha512', 'sha384', 'sha3-384', 'sha3-512'];
-
-    /**
      * @param string $username
      * @param string $password
      * @param string $hashAlgorithm To use a better hashing algorithm than the weak sha1, pass the algorithm to use, e.g. "sha512"
@@ -42,6 +37,9 @@ final class Wsse implements Authentication
     {
         $this->username = $username;
         $this->password = $password;
+        if (false === in_array($hashAlgorithm, hash_algos())) {
+            throw new InvalidArgumentException(sprintf('Unaccepted hashing algorithm: %s', $hashAlgorithm));
+        }
         $this->hashAlgorithm = $hashAlgorithm;
     }
 
@@ -52,9 +50,6 @@ final class Wsse implements Authentication
     {
         $nonce = substr(md5(uniqid(uniqid().'_', true)), 0, 16);
         $created = date('c');
-        if (false === in_array($this->hashAlgorithm, $this->acceptedHashAlgos)) {
-            throw new InvalidArgumentException(sprintf('Unaccepted hashing algorithm: %s', $this->hashAlgorithm));
-        }
         $digest = base64_encode(hash($this->hashAlgorithm, base64_decode($nonce).$created.$this->password, true));
 
         $wsse = sprintf(
