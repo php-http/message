@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
    the respective classes are available via autoloading, but continue to return objects from `Zend\Diactoros\`
    namespace otherwise.
 
+## [1.11.0] - unreleased
+
+- Allow to specify the hashing algorithm for WSSE authentication.
+
 ## [1.10.0] - 2020-11-11
 
 - Added support for PHP 8.0.

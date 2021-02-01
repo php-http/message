@@ -13,12 +13,11 @@ use Psr\Http\Message\StreamInterface;
  */
 abstract class FilteredStream implements StreamInterface
 {
-    const BUFFER_SIZE = 8192;
-
     use StreamDecorator {
         rewind as private doRewind;
         seek as private doSeek;
     }
+    const BUFFER_SIZE = 8192;
 
     /**
      * @var callable

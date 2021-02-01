@@ -10,7 +10,7 @@ namespace Http\Message;
 final class CookieJar implements \Countable, \IteratorAggregate
 {
     /**
-     * @var \SplObjectStorage
+     * @var \SplObjectStorage<object, mixed>
      */
     private $cookies;
 
