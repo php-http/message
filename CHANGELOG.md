@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.11.0] - 2020-02-01
 
 - Migrated from `zendframework/zend-diactoros` to `laminas/laminas-diactoros`.
    Users are encouraged to update their dependencies by simply replacing the Zend package with the Laminas package.
@@ -16,8 +16,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The diactoros factories of `php-http/message` will return objects from the `Laminas\Diactoros\` namespace, if
    the respective classes are available via autoloading, but continue to return objects from `Zend\Diactoros\`
    namespace otherwise.
-
-## [1.11.0] - unreleased
 
 - Allow to specify the hashing algorithm for WSSE authentication.
 
