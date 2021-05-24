@@ -11,17 +11,17 @@ parameters:
 			path: src/Authentication/Header.php
 
 		-
+			message: "#The Http\\\\Message\\\\Authentication\\\\Matching class is deprecated since version 1.2 and will be removed in 2.0.#"
+			count: 1
+			path: src/Authentication/Matching.php
+
+		-
 			message: "#^Property Http\\\\Message\\\\Authentication\\\\QueryParam\\:\\:\\$params type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Authentication/QueryParam.php
 
 		-
 			message: "#^Method Http\\\\Message\\\\Authentication\\\\QueryParam\\:\\:__construct\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Authentication/QueryParam.php
-
-		-
-			message: "#^Parameter \\#2 \\$prefix of function http_build_query expects string, null given\\.$#"
 			count: 1
 			path: src/Authentication/QueryParam.php
 
@@ -46,7 +46,7 @@ parameters:
 			path: src/Cookie.php
 
 		-
-			message: "#^Parameter \\#2 \\$str2 of function strcasecmp expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Cookie.php
 
@@ -76,7 +76,7 @@ parameters:
 			path: src/Cookie.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function rtrim expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function rtrim expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Cookie.php
 
@@ -161,16 +161,6 @@ parameters:
 			path: src/Encoding/Filter/Chunk.php
 
 		-
-			message: "#^Parameter \\#2 \\$bucket of function stream_bucket_append expects object, resource given\\.$#"
-			count: 2
-			path: src/Encoding/Filter/Chunk.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Encoding/FilteredStream.php
@@ -214,6 +204,11 @@ parameters:
 			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\SlimMessageFactory\\:\\:createResponse\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/MessageFactory/SlimMessageFactory.php
+
+		-
+			message: "#The Http\\\\Message\\\\RequestMatcher\\\\RegexRequestMatcher class is deprecated since version 1.2 and will be removed in 2.0.#"
+			count: 1
+			path: src/RequestMatcher/RegexRequestMatcher.php
 
 		-
 			message: "#^Property Http\\\\Message\\\\RequestMatcher\\\\RequestMatcher\\:\\:\\$methods type has no value type specified in iterable type array\\.$#"
