@@ -3,7 +3,6 @@
 namespace Http\Message\StreamFactory;
 
 use Http\Message\StreamFactory;
-use function GuzzleHttp\Psr7\uri_for;
 use GuzzleHttp\Psr7\Utils;
 
 /**
