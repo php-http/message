@@ -3,6 +3,8 @@
 namespace Http\Message\StreamFactory;
 
 use Http\Message\StreamFactory;
+use function GuzzleHttp\Psr7\uri_for;
+use GuzzleHttp\Psr7\Utils;
 
 /**
  * Creates Guzzle streams.
@@ -18,6 +20,10 @@ final class GuzzleStreamFactory implements StreamFactory
      */
     public function createStream($body = null)
     {
+        if (class_exists(Utils::class)) {
+            return Utils::streamFor($body);
+        }
+
         return \GuzzleHttp\Psr7\stream_for($body);
     }
 }
