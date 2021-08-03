@@ -2,8 +2,8 @@
 
 namespace Http\Message\StreamFactory;
 
-use Http\Message\StreamFactory;
 use GuzzleHttp\Psr7\Utils;
+use Http\Message\StreamFactory;
 
 /**
  * Creates Guzzle streams.
