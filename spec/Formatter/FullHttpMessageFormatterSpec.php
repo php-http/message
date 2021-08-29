@@ -249,6 +249,27 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
+    function it_allows_to_change_binary_detection(RequestInterface $request, StreamInterface $stream)
+    {
+        $this->beConstructedWith(1, '/\x01/');
+
+        $stream->isSeekable()->willReturn(true);
+        $stream->rewind()->shouldBeCalled();
+        $stream->__toString()->willReturn("\0");
+        $request->getBody()->willReturn($stream);
+        $request->getMethod()->willReturn('GET');
+        $request->getRequestTarget()->willReturn('/foo');
+        $request->getProtocolVersion()->willReturn('1.1');
+        $request->getHeaders()->willReturn([]);
+
+        $expectedMessage = <<<STR
+GET /foo HTTP/1.1
+
+\x0
+STR;
+        $this->formatRequest($request)->shouldReturn($expectedMessage);
+    }
+
     function it_omits_body_with_line_break(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(7);
