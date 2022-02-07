@@ -39,4 +39,12 @@ class SimpleFormatter implements Formatter
             $response->getProtocolVersion()
         );
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function formatResponseForRequest(ResponseInterface $response, RequestInterface $request)
+    {
+        return $this->formatResponse($response);
+    }
 }

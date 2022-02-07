@@ -54,9 +54,10 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' --http2 --request POST --data 'body \" data test'\'' bar'");
     }
 
-    function it_does_nothing_for_response(ResponseInterface $response)
+    function it_does_nothing_for_response(ResponseInterface $response, RequestInterface $request)
     {
         $this->formatResponse($response)->shouldReturn('');
+        $this->formatResponseForRequest($response, $request)->shouldReturn('');
     }
 
     function it_formats_the_request_with_user_agent(RequestInterface $request, UriInterface $uri, StreamInterface $body)

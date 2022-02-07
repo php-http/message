@@ -9,6 +9,8 @@ use Psr\Http\Message\ResponseInterface;
  * Formats a request and/or a response as a string.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
+ * 
+ * @method string formatResponseForRequest(ResponseInterface $response, RequestInterface $request) Formats a response in context of its request.
  */
 interface Formatter
 {
