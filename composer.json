@@ -38,7 +38,10 @@
         "slim/slim": "Used with Slim Framework PSR-7 implementation"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
     },
     "extra": {
         "branch-alias": {

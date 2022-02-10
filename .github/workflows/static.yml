@@ -15,6 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install legacy zend diactoros as we reference that as well
+        run: composer require "zendframework/zend-diactoros:2.2.1" --no-interaction --no-update
+
       - name: PHPStan
         uses: docker://oskarstark/phpstan-ga
         env:
