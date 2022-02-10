@@ -75,6 +75,14 @@ class FullHttpMessageFormatter implements Formatter
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function formatResponseForRequest(ResponseInterface $response, RequestInterface $request)
+    {
+        return $this->formatResponse($response);
+    }
+
+    /**
      * Add the message body if the stream is seekable.
      *
      * @param string $message

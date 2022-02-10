@@ -29,12 +29,13 @@ class SimpleFormatterSpec extends ObjectBehavior
         $this->formatRequest($request)->shouldReturn('GET http://foo.com/bar 1.1');
     }
 
-    function it_formats_the_response(ResponseInterface $response)
+    function it_formats_the_response(ResponseInterface $response, RequestInterface $request)
     {
         $response->getReasonPhrase()->willReturn('OK');
         $response->getProtocolVersion()->willReturn('1.1');
         $response->getStatusCode()->willReturn('200');
 
         $this->formatResponse($response)->shouldReturn('200 OK 1.1');
+        $this->formatResponseForRequest($response, $request)->shouldReturn('200 OK 1.1');
     }
 }

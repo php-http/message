@@ -126,7 +126,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_formats_the_response_with_size_limit(ResponseInterface $response, StreamInterface $stream)
+    function it_formats_the_response_with_size_limit(ResponseInterface $response, StreamInterface $stream, RequestInterface $request)
     {
         $this->beConstructedWith(18);
 
@@ -150,6 +150,7 @@ X-Param-Bar: bar
 This is an HTML st
 STR;
         $this->formatResponse($response)->shouldReturn($expectedMessage);
+        $this->formatResponseForRequest($response, $request)->shouldReturn($expectedMessage);
     }
 
     function it_formats_the_response_without_size_limit(ResponseInterface $response, StreamInterface $stream)
