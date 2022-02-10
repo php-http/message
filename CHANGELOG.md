@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.13.0] - tomorrow
 
 - Added `Formatter::formatResponseForRequest()`
+- Deprecated `Formatter::formatResponse()`
 
 ## [1.12.0] - 2021-08-29
 
