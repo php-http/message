@@ -1,21 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property Http\\\\Message\\\\Authentication\\\\Header\\:\\:\\$value type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Authentication/Header.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Authentication\\\\Header\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: src/Authentication/Header.php
-
-		-
-			message: "#The Http\\\\Message\\\\Authentication\\\\Matching class is deprecated since version 1.2 and will be removed in 2.0.#"
-			count: 1
-			path: src/Authentication/Matching.php
-
-		-
 			message: "#^Property Http\\\\Message\\\\Authentication\\\\QueryParam\\:\\:\\$params type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Authentication/QueryParam.php
@@ -41,7 +26,7 @@ parameters:
 			path: src/Builder/ResponseBuilder.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:createWithoutValidation\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:createWithoutValidation\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Cookie.php
 
@@ -56,17 +41,17 @@ parameters:
 			path: src/Cookie.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateName\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateName\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Cookie.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateValue\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateValue\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Cookie.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateMaxAge\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:validateMaxAge\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Cookie.php
 
@@ -86,12 +71,12 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookie\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookie\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookie\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookie\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
@@ -101,22 +86,22 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:setCookies\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:setCookies\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookies\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:addCookies\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookies\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeCookies\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeMatchingCookies\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:removeMatchingCookies\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
@@ -126,7 +111,7 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:clear\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:clear\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
 
@@ -141,19 +126,9 @@ parameters:
 			path: src/CookieUtil.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Encoding/ChunkStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:filter\\(\\) has parameter \\$consumed with no typehint specified\\.$#"
-			count: 1
-			path: src/Encoding/Filter/Chunk.php
-
-		-
-			message: "#^Access to an undefined property Http\\\\Message\\\\Encoding\\\\Filter\\\\Chunk\\:\\:\\$stream\\.$#"
-			count: 2
-			path: src/Encoding/Filter/Chunk.php
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$datalen\\.$#"
@@ -161,17 +136,17 @@ parameters:
 			path: src/Encoding/Filter/Chunk.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Encoding/FilteredStream.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Encoding/FilteredStream.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Encoding/FilteredStream.php
 
@@ -206,11 +181,6 @@ parameters:
 			path: src/MessageFactory/SlimMessageFactory.php
 
 		-
-			message: "#The Http\\\\Message\\\\RequestMatcher\\\\RegexRequestMatcher class is deprecated since version 1.2 and will be removed in 2.0.#"
-			count: 1
-			path: src/RequestMatcher/RegexRequestMatcher.php
-
-		-
 			message: "#^Property Http\\\\Message\\\\RequestMatcher\\\\RequestMatcher\\:\\:\\$methods type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/RequestMatcher/RequestMatcher.php
@@ -236,7 +206,7 @@ parameters:
 			path: src/Stream/BufferedStream.php
 
 		-
-			message: "#^Dead catch \\- Exception is already caught by Throwable above\\.$#"
+			message: "#^Dead catch \\- Exception is already caught#"
 			count: 1
 			path: src/Stream/BufferedStream.php
 
@@ -266,12 +236,12 @@ parameters:
 			path: src/Stream/BufferedStream.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:seek\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:seek\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Stream/BufferedStream.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:rewind\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:rewind\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Stream/BufferedStream.php
 
@@ -294,4 +264,3 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/UriFactory/SlimUriFactory.php
-
