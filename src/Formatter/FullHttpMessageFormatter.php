@@ -75,7 +75,9 @@ class FullHttpMessageFormatter implements Formatter
     }
 
     /**
-     * {@inheritdoc}
+     * Formats a response in context of its request.
+     *
+     * @return string
      */
     public function formatResponseForRequest(ResponseInterface $response, RequestInterface $request)
     {
