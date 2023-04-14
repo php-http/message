@@ -2,27 +2,27 @@
 
 namespace spec\Http\Message\Authentication;
 
-use Psr\Http\Message\RequestInterface;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\RequestInterface;
 
 class BasicAuthSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('john.doe', 'secret');
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\BasicAuth');
     }
 
-    function it_is_an_authentication()
+    public function it_is_an_authentication()
     {
         $this->shouldImplement('Http\Message\Authentication');
     }
 
-    function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)
+    public function it_authenticates_a_request(RequestInterface $request, RequestInterface $newRequest)
     {
         $request->withHeader('Authorization', 'Basic '.base64_encode('john.doe:secret'))->willReturn($newRequest);
 

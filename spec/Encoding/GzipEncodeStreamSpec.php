@@ -2,33 +2,34 @@
 
 namespace spec\Http\Message\Encoding;
 
-use Psr\Http\Message\StreamInterface;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\StreamInterface;
 
 class GzipEncodeStreamSpec extends ObjectBehavior
 {
-    use StreamBehavior, ZlibStreamBehavior;
+    use StreamBehavior;
+    use ZlibStreamBehavior;
 
-    function let(StreamInterface $stream)
+    public function let(StreamInterface $stream)
     {
         $this->beConstructedWith($stream);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\GzipEncodeStream');
     }
 
-    function it_reads()
+    public function it_reads()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);
 
         $stream->rewind();
-        $this->read(4)->shouldReturn(substr(gzencode('This is a test stream'),0, 4));
+        $this->read(4)->shouldReturn(substr(gzencode('This is a test stream'), 0, 4));
     }
 
-    function it_gets_content()
+    public function it_gets_content()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);
@@ -37,7 +38,7 @@ class GzipEncodeStreamSpec extends ObjectBehavior
         $this->getContents()->shouldReturn(gzencode('This is a test stream'));
     }
 
-    function it_does_not_know_the_content_size()
+    public function it_does_not_know_the_content_size()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);

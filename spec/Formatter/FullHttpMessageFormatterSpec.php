@@ -9,22 +9,22 @@ use Psr\Http\Message\StreamInterface;
 
 class FullHttpMessageFormatterSpec extends ObjectBehavior
 {
-    function let($maxBodyLength)
+    public function let($maxBodyLength)
     {
         $this->beConstructedWith($maxBodyLength);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Formatter\FullHttpMessageFormatter');
     }
 
-    function it_is_a_formatter()
+    public function it_is_a_formatter()
     {
         $this->shouldImplement('Http\Message\Formatter');
     }
 
-    function it_formats_the_request_with_size_limit(RequestInterface $request, StreamInterface $stream)
+    public function it_formats_the_request_with_size_limit(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(18);
 
@@ -50,7 +50,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_formats_the_request_without_size_limit(RequestInterface $request, StreamInterface $stream)
+    public function it_formats_the_request_without_size_limit(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(null);
 
@@ -76,7 +76,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_does_not_format_the_request(RequestInterface $request, StreamInterface $stream)
+    public function it_does_not_format_the_request(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(0);
 
@@ -101,7 +101,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_does_not_format_no_seekable_request(RequestInterface $request, StreamInterface $stream)
+    public function it_does_not_format_no_seekable_request(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(1000);
 
@@ -126,7 +126,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_formats_the_response_with_size_limit(ResponseInterface $response, StreamInterface $stream, RequestInterface $request)
+    public function it_formats_the_response_with_size_limit(ResponseInterface $response, StreamInterface $stream, RequestInterface $request)
     {
         $this->beConstructedWith(18);
 
@@ -153,7 +153,7 @@ STR;
         $this->formatResponseForRequest($response, $request)->shouldReturn($expectedMessage);
     }
 
-    function it_formats_the_response_without_size_limit(ResponseInterface $response, StreamInterface $stream)
+    public function it_formats_the_response_without_size_limit(ResponseInterface $response, StreamInterface $stream)
     {
         $this->beConstructedWith(null);
 
@@ -179,7 +179,7 @@ STR;
         $this->formatResponse($response)->shouldReturn($expectedMessage);
     }
 
-    function it_does_not_format_the_response(ResponseInterface $response, StreamInterface $stream)
+    public function it_does_not_format_the_response(ResponseInterface $response, StreamInterface $stream)
     {
         $this->beConstructedWith(0);
 
@@ -204,7 +204,7 @@ STR;
         $this->formatResponse($response)->shouldReturn($expectedMessage);
     }
 
-    function it_does_not_format_no_seekable_response(ResponseInterface $response, StreamInterface $stream)
+    public function it_does_not_format_no_seekable_response(ResponseInterface $response, StreamInterface $stream)
     {
         $this->beConstructedWith(1000);
 
@@ -229,7 +229,7 @@ STR;
         $this->formatResponse($response)->shouldReturn($expectedMessage);
     }
 
-    function it_omits_body_with_null_bytes(RequestInterface $request, StreamInterface $stream)
+    public function it_omits_body_with_null_bytes(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(1);
 
@@ -250,7 +250,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_allows_to_change_binary_detection(RequestInterface $request, StreamInterface $stream)
+    public function it_allows_to_change_binary_detection(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(1, '/\x01/');
 
@@ -271,7 +271,7 @@ STR;
         $this->formatRequest($request)->shouldReturn($expectedMessage);
     }
 
-    function it_omits_body_with_line_break(RequestInterface $request, StreamInterface $stream)
+    public function it_omits_body_with_line_break(RequestInterface $request, StreamInterface $stream)
     {
         $this->beConstructedWith(7);
 

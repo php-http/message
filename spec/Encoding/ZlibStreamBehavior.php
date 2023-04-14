@@ -1,10 +1,9 @@
 <?php
 
 namespace spec\Http\Message\Encoding {
-
     trait ZlibStreamBehavior
     {
-        function it_throws_an_exception_when_zlib_is_not_enabled()
+        public function it_throws_an_exception_when_zlib_is_not_enabled()
         {
             ZlibExtensionLoadedMock::$enabled = true;
 
@@ -38,7 +37,6 @@ namespace spec\Http\Message\Encoding {
 }
 
 namespace Http\Message\Encoding {
-
     use spec\Http\Message\Encoding\ZlibExtensionLoadedMock;
 
     function extension_loaded($extension)

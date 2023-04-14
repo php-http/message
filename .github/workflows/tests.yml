@@ -1,7 +1,9 @@
-name: CI
+name: tests
 
 on:
   push:
+    branches:
+      - '*.x'
   pull_request:
 
 jobs:
@@ -10,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
+        php: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -22,12 +24,6 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: composer
           coverage: none
-
-      - name: Require PHPSpec 7.1 dependencies
-        run: |
-          composer require "phpspec/phpspec:^7.1@dev" --no-interaction --no-update
-          composer update --prefer-dist --no-interaction --no-progress --ignore-platform-req=php
-        if: "matrix.php == '8.1'"
 
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress
@@ -44,7 +40,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -67,7 +63,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

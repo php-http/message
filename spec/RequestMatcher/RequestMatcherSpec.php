@@ -2,24 +2,23 @@
 
 namespace spec\Http\Message\RequestMatcher;
 
-use Http\Message\RequestMatcher;
+use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
-use PhpSpec\ObjectBehavior;
 
 class RequestMatcherSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\RequestMatcher\RequestMatcher');
     }
 
-    function it_is_a_request_matcher()
+    public function it_is_a_request_matcher()
     {
         $this->shouldImplement('Http\Message\RequestMatcher');
     }
 
-    function it_matches_a_path(RequestInterface $request, UriInterface $uri)
+    public function it_matches_a_path(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith('^/tes?');
 
@@ -29,7 +28,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(true);
     }
 
-    function it_does_not_match_a_path(RequestInterface $request, UriInterface $uri)
+    public function it_does_not_match_a_path(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith('#^/tes?#');
 
@@ -39,8 +38,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(false);
     }
 
-
-    function it_matches_a_host(RequestInterface $request, UriInterface $uri)
+    public function it_matches_a_host(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith(null, 'php-htt?');
 
@@ -50,7 +48,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(true);
     }
 
-    function it_does_not_match_a_host(RequestInterface $request, UriInterface $uri)
+    public function it_does_not_match_a_host(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith(null, 'php-htt?');
 
@@ -60,7 +58,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(false);
     }
 
-    function it_matches_a_method(RequestInterface $request)
+    public function it_matches_a_method(RequestInterface $request)
     {
         $this->beConstructedWith(null, null, 'get');
 
@@ -69,7 +67,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(true);
     }
 
-    function it_does_not_match_a_method(RequestInterface $request)
+    public function it_does_not_match_a_method(RequestInterface $request)
     {
         $this->beConstructedWith(null, null, 'get');
 
@@ -78,8 +76,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(false);
     }
 
-
-    function it_matches_a_scheme(RequestInterface $request, UriInterface $uri)
+    public function it_matches_a_scheme(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith(null, null, null, 'http');
 
@@ -89,7 +86,7 @@ class RequestMatcherSpec extends ObjectBehavior
         $this->matches($request)->shouldReturn(true);
     }
 
-    function it_does_not_match_a_scheme(RequestInterface $request, UriInterface $uri)
+    public function it_does_not_match_a_scheme(RequestInterface $request, UriInterface $uri)
     {
         $this->beConstructedWith(null, null, null, 'http');
 

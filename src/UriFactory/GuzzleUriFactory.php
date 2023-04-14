@@ -2,9 +2,10 @@
 
 namespace Http\Message\UriFactory;
 
-use function GuzzleHttp\Psr7\uri_for;
 use GuzzleHttp\Psr7\Utils;
 use Http\Message\UriFactory;
+
+use function GuzzleHttp\Psr7\uri_for;
 
 /**
  * Creates Guzzle URI.

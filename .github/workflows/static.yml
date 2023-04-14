@@ -3,7 +3,7 @@ name: Static analysis
 on:
   push:
     branches:
-      - master
+      - '*.x'
   pull_request:
 
 jobs:
@@ -13,10 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install legacy zend diactoros as we reference that as well
-        run: composer require "zendframework/zend-diactoros:2.2.1" --no-interaction --no-update
+        uses: actions/checkout@v3
 
       - name: PHPStan
         uses: docker://oskarstark/phpstan-ga
@@ -31,9 +28,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: PHP-CS-Fixer
-        uses: docker://oskarstark/php-cs-fixer-ga:2.19.0
+        uses: docker://oskarstark/php-cs-fixer-ga
         with:
-          args: --dry-run --diff-format udiff
+          args: --dry-run --diff

@@ -2,24 +2,25 @@
 
 namespace spec\Http\Message\Encoding;
 
-use Psr\Http\Message\StreamInterface;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\StreamInterface;
 
 class CompressStreamSpec extends ObjectBehavior
 {
-    use StreamBehavior, ZlibStreamBehavior;
+    use StreamBehavior;
+    use ZlibStreamBehavior;
 
-    function let(StreamInterface $stream)
+    public function let(StreamInterface $stream)
     {
         $this->beConstructedWith($stream);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Encoding\CompressStream');
     }
 
-    function it_reads()
+    public function it_reads()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);
@@ -28,7 +29,7 @@ class CompressStreamSpec extends ObjectBehavior
         $this->read(4)->shouldReturn(substr(gzcompress('This is a test stream'), 0, 4));
     }
 
-    function it_gets_content()
+    public function it_gets_content()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);
@@ -37,7 +38,7 @@ class CompressStreamSpec extends ObjectBehavior
         $this->getContents()->shouldReturn(gzcompress('This is a test stream'));
     }
 
-    function it_does_not_know_the_content_size()
+    public function it_does_not_know_the_content_size()
     {
         $stream = new MemoryStream('This is a test stream');
         $this->beConstructedWith($stream);

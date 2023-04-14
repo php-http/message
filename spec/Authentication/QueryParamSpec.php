@@ -2,13 +2,13 @@
 
 namespace spec\Http\Message\Authentication;
 
+use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
-use PhpSpec\ObjectBehavior;
 
 class QueryParamSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith([
             'username' => 'username',
@@ -16,17 +16,17 @@ class QueryParamSpec extends ObjectBehavior
         ]);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\QueryParam');
     }
 
-    function it_is_an_authentication()
+    public function it_is_an_authentication()
     {
         $this->shouldImplement('Http\Message\Authentication');
     }
 
-    function it_authenticates_a_request(
+    public function it_authenticates_a_request(
         RequestInterface $request,
         UriInterface $uri,
         RequestInterface $newRequest,

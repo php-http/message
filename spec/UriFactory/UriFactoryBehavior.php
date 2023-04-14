@@ -6,22 +6,22 @@ use Psr\Http\Message\UriInterface;
 
 trait UriFactoryBehavior
 {
-    function it_is_a_uri_factory()
+    public function it_is_a_uri_factory()
     {
         $this->shouldImplement('Http\Message\UriFactory');
     }
 
-    function it_creates_a_uri_from_string()
+    public function it_creates_a_uri_from_string()
     {
         $this->createUri('http://php-http.org')->shouldHaveType('Psr\Http\Message\UriInterface');
     }
 
-    function it_creates_a_uri_from_uri(UriInterface $uri)
+    public function it_creates_a_uri_from_uri(UriInterface $uri)
     {
         $this->createUri($uri)->shouldReturn($uri);
     }
 
-    function it_throws_an_exception_when_uri_is_invalid()
+    public function it_throws_an_exception_when_uri_is_invalid()
     {
         $this->shouldThrow('InvalidArgumentException')->duringCreateUri(null);
     }
