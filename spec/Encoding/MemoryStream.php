@@ -12,7 +12,7 @@ class MemoryStream implements StreamInterface
 
     private $chunkSize;
 
-    public function __construct($body = "", $chunkSize = 8192)
+    public function __construct($body = '', $chunkSize = 8192)
     {
         $this->size = strlen($body);
         $this->resource = fopen('php://memory', 'rw+');

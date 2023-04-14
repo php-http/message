@@ -11,7 +11,7 @@ class SlimMessageFactorySpec extends ObjectBehavior
 {
     use MessageFactoryBehavior;
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\MessageFactory\SlimMessageFactory');
     }

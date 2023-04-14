@@ -3,38 +3,38 @@
 namespace spec\Http\Message\Authentication;
 
 use Http\Message\Authentication;
-use Psr\Http\Message\RequestInterface;
 use PhpSpec\ObjectBehavior;
+use Psr\Http\Message\RequestInterface;
 
 class MatchingSpec extends ObjectBehavior
 {
-    function let(Authentication $authentication)
+    public function let(Authentication $authentication)
     {
-        $matcher = function($request) { return true; };
+        $matcher = function ($request) { return true; };
 
         $this->beConstructedWith($authentication, $matcher);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Authentication\Matching');
     }
 
-    function it_is_an_authentication()
+    public function it_is_an_authentication()
     {
         $this->shouldImplement('Http\Message\Authentication');
     }
 
-    function it_authenticates_a_request(Authentication $authentication, RequestInterface $request, RequestInterface $newRequest)
+    public function it_authenticates_a_request(Authentication $authentication, RequestInterface $request, RequestInterface $newRequest)
     {
         $authentication->authenticate($request)->willReturn($newRequest);
 
         $this->authenticate($request)->shouldReturn($newRequest);
     }
 
-    function it_does_not_authenticate_a_request(Authentication $authentication, RequestInterface $request)
+    public function it_does_not_authenticate_a_request(Authentication $authentication, RequestInterface $request)
     {
-        $matcher = function($request) { return false; };
+        $matcher = function ($request) { return false; };
 
         $this->beConstructedWith($authentication, $matcher);
 
@@ -43,7 +43,7 @@ class MatchingSpec extends ObjectBehavior
         $this->authenticate($request)->shouldReturn($request);
     }
 
-    function it_creates_a_matcher_from_url(Authentication $authentication)
+    public function it_creates_a_matcher_from_url(Authentication $authentication)
     {
         $this->createUrlMatcher($authentication, 'url')->shouldHaveType('Http\Message\Authentication\Matching');
     }

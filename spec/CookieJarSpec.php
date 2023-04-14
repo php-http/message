@@ -7,17 +7,17 @@ use PhpSpec\ObjectBehavior;
 
 class CookieJarSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\CookieJar');
     }
 
-    function it_is_an_iterator_aggregate()
+    public function it_is_an_iterator_aggregate()
     {
         $this->getIterator()->shouldHaveType('Iterator');
     }
 
-    function it_has_a_cookie()
+    public function it_has_a_cookie()
     {
         $cookie = new Cookie('name', 'value');
 
@@ -27,7 +27,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->hasCookies()->shouldReturn(true);
     }
 
-    function it_accepts_a_cookie()
+    public function it_accepts_a_cookie()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name', 'value2');
@@ -39,7 +39,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->hasCookie($cookie2)->shouldReturn(true);
     }
 
-    function it_removes_a_cookie_with_an_empty_value()
+    public function it_removes_a_cookie_with_an_empty_value()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name');
@@ -51,7 +51,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->hasCookie($cookie2)->shouldReturn(false);
     }
 
-    function it_removes_a_cookie_with_a_lower_expiration_time()
+    public function it_removes_a_cookie_with_a_lower_expiration_time()
     {
         $cookie = new Cookie('name', 'value', 100);
         $cookie2 = new Cookie('name', 'value', 1000);
@@ -63,7 +63,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->hasCookie($cookie2)->shouldReturn(true);
     }
 
-    function it_removes_a_cookie()
+    public function it_removes_a_cookie()
     {
         $cookie = new Cookie('name', 'value', 100);
 
@@ -73,7 +73,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->hasCookie($cookie)->shouldReturn(false);
     }
 
-    function it_returns_all_cookies()
+    public function it_returns_all_cookies()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name2', 'value');
@@ -84,7 +84,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->getCookies()->shouldBeAnArrayOfInstance('Http\Message\Cookie');
     }
 
-    function it_returns_the_matching_cookies()
+    public function it_returns_the_matching_cookies()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name', 'value2');
@@ -94,7 +94,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->getMatchingCookies($cookie2)->shouldBeAnArrayOfInstance('Http\Message\Cookie');
     }
 
-    function it_sets_cookies()
+    public function it_sets_cookies()
     {
         $cookie = new Cookie('name', 'value');
 
@@ -105,7 +105,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->count()->shouldReturn(1);
     }
 
-    function it_accepts_cookies()
+    public function it_accepts_cookies()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name2', 'value');
@@ -119,7 +119,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->count()->shouldReturn(2);
     }
 
-    function it_removes_cookies()
+    public function it_removes_cookies()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name2', 'value');
@@ -133,7 +133,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->count()->shouldReturn(1);
     }
 
-    function it_removes_matching_cookies()
+    public function it_removes_matching_cookies()
     {
         $cookie = new Cookie('name', 'value');
         $cookie2 = new Cookie('name2', 'value', 0, 'php-http.org');
@@ -148,7 +148,7 @@ class CookieJarSpec extends ObjectBehavior
         $this->count()->shouldReturn(1);
     }
 
-    function it_clears_cookies()
+    public function it_clears_cookies()
     {
         $cookie = new Cookie('name', 'value', 0, 'php-http.org');
         $cookie2 = new Cookie('name2', 'value');

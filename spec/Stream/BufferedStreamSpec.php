@@ -17,8 +17,8 @@ class BufferedStreamSpec extends ObjectBehavior
     public function it_is_castable_to_string(StreamInterface $stream)
     {
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -42,8 +42,8 @@ class BufferedStreamSpec extends ObjectBehavior
         $this->getSize()->shouldReturn(null);
 
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -57,8 +57,8 @@ class BufferedStreamSpec extends ObjectBehavior
         $this->tell()->shouldReturn(0);
 
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -78,8 +78,8 @@ class BufferedStreamSpec extends ObjectBehavior
 
         // Case not sync but underlying is true
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -102,8 +102,8 @@ class BufferedStreamSpec extends ObjectBehavior
         $this->tell()->shouldReturn(0);
 
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -119,8 +119,8 @@ class BufferedStreamSpec extends ObjectBehavior
         $this->tell()->shouldReturn(0);
 
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');
@@ -145,8 +145,8 @@ class BufferedStreamSpec extends ObjectBehavior
     public function it_reads(StreamInterface $stream)
     {
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(3)->willReturn('foo');
@@ -165,8 +165,8 @@ class BufferedStreamSpec extends ObjectBehavior
     public function it_get_contents(StreamInterface $stream)
     {
         $eofCounter = 0;
-        $stream->eof()->will(function () use(&$eofCounter) {
-            return (++$eofCounter > 1);
+        $stream->eof()->will(function () use (&$eofCounter) {
+            return ++$eofCounter > 1;
         });
 
         $stream->read(8192)->willReturn('foo');

@@ -7,17 +7,17 @@ use PhpSpec\ObjectBehavior;
 
 class CookieSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('name', 'value');
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Cookie');
     }
 
-    function it_has_a_name()
+    public function it_has_a_name()
     {
         $this->getName()->shouldReturn('name');
     }
@@ -25,7 +25,7 @@ class CookieSpec extends ObjectBehavior
     /**
      * @dataProvider invalidCharacterExamples
      */
-    function it_throws_an_exception_when_the_name_contains_invalid_character()
+    public function it_throws_an_exception_when_the_name_contains_invalid_character()
     {
         foreach (self::invalidCharacterExamples() as $example) {
             $this->beConstructedWith($example[0]);
@@ -38,23 +38,22 @@ class CookieSpec extends ObjectBehavior
 
             $expectation->duringInstantiation();
         }
-
     }
 
-    function it_throws_an_expection_when_name_is_empty()
+    public function it_throws_an_expection_when_name_is_empty()
     {
         $this->beConstructedWith('');
 
         $this->shouldThrow('InvalidArgumentException')->duringInstantiation();
     }
 
-    function it_has_a_value()
+    public function it_has_a_value()
     {
         $this->getValue()->shouldReturn('value');
         $this->hasValue()->shouldReturn(true);
     }
 
-    function it_throws_an_exception_when_the_value_contains_invalid_character()
+    public function it_throws_an_exception_when_the_value_contains_invalid_character()
     {
         foreach (self::invalidCharacterExamples() as $example) {
             $this->beConstructedWith('name', $example[0]);
@@ -69,7 +68,7 @@ class CookieSpec extends ObjectBehavior
         }
     }
 
-    function it_accepts_a_value()
+    public function it_accepts_a_value()
     {
         $cookie = $this->withValue('value2');
 
@@ -77,7 +76,7 @@ class CookieSpec extends ObjectBehavior
         $cookie->getValue()->shouldReturn('value2');
     }
 
-    function it_throws_an_exception_when_the_new_value_contains_invalid_character()
+    public function it_throws_an_exception_when_the_new_value_contains_invalid_character()
     {
         foreach (self::invalidCharacterExamples() as $example) {
             if ($example[1]) {
@@ -90,7 +89,7 @@ class CookieSpec extends ObjectBehavior
         }
     }
 
-    function it_has_a_max_age_time()
+    public function it_has_a_max_age_time()
     {
         $this->beConstructedWith('name', 'value', 10);
 
@@ -98,7 +97,7 @@ class CookieSpec extends ObjectBehavior
         $this->hasMaxAge()->shouldReturn(true);
     }
 
-    function it_accepts_a_max_age()
+    public function it_accepts_a_max_age()
     {
         $cookie = $this->withMaxAge(1);
 
@@ -106,12 +105,12 @@ class CookieSpec extends ObjectBehavior
         $cookie->getMaxAge()->shouldReturn(1);
     }
 
-    function it_throws_an_exception_when_max_age_is_invalid()
+    public function it_throws_an_exception_when_max_age_is_invalid()
     {
         $this->shouldThrow('InvalidArgumentException')->duringWithMaxAge('-1');
     }
 
-    function it_has_an_expires_attribute()
+    public function it_has_an_expires_attribute()
     {
         $expires = new \DateTime('+10 seconds');
 
@@ -122,7 +121,7 @@ class CookieSpec extends ObjectBehavior
         $this->isExpired()->shouldReturn(false);
     }
 
-    function it_accepts_an_expires_attribute()
+    public function it_accepts_an_expires_attribute()
     {
         $expires = new \DateTime('+10 seconds');
 
@@ -132,7 +131,7 @@ class CookieSpec extends ObjectBehavior
         $cookie->getExpires()->shouldReturn($expires);
     }
 
-    function it_is_expired()
+    public function it_is_expired()
     {
         $this->beConstructedWith('name', 'value', null, null, null, false, false, new \DateTime('-2 minutes'));
 
@@ -141,13 +140,13 @@ class CookieSpec extends ObjectBehavior
         $this->isExpired()->shouldReturn(true);
     }
 
-    function it_has_a_domain()
+    public function it_has_a_domain()
     {
         $this->getDomain()->shouldReturn(null);
         $this->hasDomain()->shouldReturn(false);
     }
 
-    function it_has_a_valid_domain()
+    public function it_has_a_valid_domain()
     {
         $this->beConstructedWith('name', 'value', null, '.PhP-hTtP.oRg');
 
@@ -155,7 +154,7 @@ class CookieSpec extends ObjectBehavior
         $this->hasDomain()->shouldReturn(true);
     }
 
-    function it_accepts_a_domain()
+    public function it_accepts_a_domain()
     {
         $cookie = $this->withDomain('.PhP-hTtP.oRg');
 
@@ -163,7 +162,7 @@ class CookieSpec extends ObjectBehavior
         $cookie->getDomain()->shouldReturn('php-http.org');
     }
 
-    function it_matches_a_domain()
+    public function it_matches_a_domain()
     {
         $this->beConstructedWith('name', 'value', null, 'php-http.org');
 
@@ -172,12 +171,12 @@ class CookieSpec extends ObjectBehavior
         $this->matchDomain('wWw.PhP-hTtP.oRg')->shouldReturn(true);
     }
 
-    function it_has_a_path()
+    public function it_has_a_path()
     {
         $this->getPath()->shouldReturn('/');
     }
 
-    function it_accepts_a_path()
+    public function it_accepts_a_path()
     {
         $cookie = $this->withPath('/path');
 
@@ -185,7 +184,7 @@ class CookieSpec extends ObjectBehavior
         $cookie->getPath()->shouldReturn('/path');
     }
 
-    function it_matches_a_path()
+    public function it_matches_a_path()
     {
         $this->beConstructedWith('name', 'value', null, null, '/path/to/somewhere');
 
@@ -194,7 +193,7 @@ class CookieSpec extends ObjectBehavior
         $this->matchPath('/path/to/somewhereelse')->shouldReturn(false);
     }
 
-    function it_matches_the_root_path()
+    public function it_matches_the_root_path()
     {
         $this->beConstructedWith('name', 'value', null, null, '/');
 
@@ -203,12 +202,12 @@ class CookieSpec extends ObjectBehavior
         $this->matchPath('/cookies/')->shouldReturn(true);
     }
 
-    function it_is_secure()
+    public function it_is_secure()
     {
         $this->isSecure()->shouldReturn(false);
     }
 
-    function it_accepts_security()
+    public function it_accepts_security()
     {
         $cookie = $this->withSecure(true);
 
@@ -216,12 +215,12 @@ class CookieSpec extends ObjectBehavior
         $cookie->isSecure()->shouldReturn(true);
     }
 
-    function it_can_be_http_only()
+    public function it_can_be_http_only()
     {
         $this->isHttpOnly()->shouldReturn(false);
     }
 
-    function it_accepts_http_only()
+    public function it_accepts_http_only()
     {
         $cookie = $this->withHttpOnly(true);
 
@@ -229,7 +228,7 @@ class CookieSpec extends ObjectBehavior
         $cookie->isHttpOnly()->shouldReturn(true);
     }
 
-    function it_matches_other_cookies()
+    public function it_matches_other_cookies()
     {
         $this->beConstructedWith('name', 'value', null, 'php-http.org');
 
@@ -240,26 +239,26 @@ class CookieSpec extends ObjectBehavior
         $this->match($notMatches)->shouldReturn(false);
     }
 
-    function it_validates_itself()
+    public function it_validates_itself()
     {
         $this->isValid()->shouldReturn(true);
     }
 
-    function it_can_be_constructed_without_name_validation()
+    public function it_can_be_constructed_without_name_validation()
     {
         $this->beConstructedThrough('createWithoutValidation', ["\x20"]);
 
         $this->isValid()->shouldReturn(false);
     }
 
-    function it_can_be_constructed_without_value_validation()
+    public function it_can_be_constructed_without_value_validation()
     {
         $this->beConstructedThrough('createWithoutValidation', ['name', "\x20"]);
 
         $this->isValid()->shouldReturn(false);
     }
 
-    function it_can_be_constructed_without_max_age_validation()
+    public function it_can_be_constructed_without_max_age_validation()
     {
         $this->beConstructedThrough('createWithoutValidation', ['name', 'value', '-1']);
 
@@ -279,7 +278,7 @@ class CookieSpec extends ObjectBehavior
             ['z', false],
             ["\x20", true],
             ['0', false],
-            ["\x7F", true]
+            ["\x7F", true],
         ];
     }
 }

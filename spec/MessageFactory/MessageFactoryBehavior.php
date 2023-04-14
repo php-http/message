@@ -4,12 +4,12 @@ namespace spec\Http\Message\MessageFactory;
 
 trait MessageFactoryBehavior
 {
-    function it_is_a_message_factory()
+    public function it_is_a_message_factory()
     {
         $this->shouldImplement('Http\Message\MessageFactory');
     }
 
-    function it_creates_a_request()
+    public function it_creates_a_request()
     {
         $request = $this->createRequest('GET', '/', ['X-hello' => 'world'], 'lorem');
 
@@ -20,7 +20,7 @@ trait MessageFactoryBehavior
         $request->getHeaderLine('X-hello')->shouldReturn('world');
     }
 
-    function it_creates_a_response()
+    public function it_creates_a_response()
     {
         $response = $this->createResponse();
 

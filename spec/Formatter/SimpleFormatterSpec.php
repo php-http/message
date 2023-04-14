@@ -2,24 +2,24 @@
 
 namespace spec\Http\Message\Formatter;
 
+use PhpSpec\ObjectBehavior;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use PhpSpec\ObjectBehavior;
 
 class SimpleFormatterSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Http\Message\Formatter\SimpleFormatter');
     }
 
-    function it_is_a_formatter()
+    public function it_is_a_formatter()
     {
         $this->shouldImplement('Http\Message\Formatter');
     }
 
-    function it_formats_the_request(RequestInterface $request, UriInterface $uri)
+    public function it_formats_the_request(RequestInterface $request, UriInterface $uri)
     {
         $uri->__toString()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('GET');
@@ -29,7 +29,7 @@ class SimpleFormatterSpec extends ObjectBehavior
         $this->formatRequest($request)->shouldReturn('GET http://foo.com/bar 1.1');
     }
 
-    function it_formats_the_response(ResponseInterface $response, RequestInterface $request)
+    public function it_formats_the_response(ResponseInterface $response, RequestInterface $request)
     {
         $response->getReasonPhrase()->willReturn('OK');
         $response->getProtocolVersion()->willReturn('1.1');

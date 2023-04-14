@@ -7,13 +7,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class ResponseBuilderSpec extends ObjectBehavior
 {
-    function it_is_initializable(ResponseInterface $response)
+    public function it_is_initializable(ResponseInterface $response)
     {
         $this->beConstructedWith($response);
         $this->shouldHaveType('Http\Message\Builder\ResponseBuilder');
     }
 
-    function it_reads_headers_from_array(ResponseInterface $response)
+    public function it_reads_headers_from_array(ResponseInterface $response)
     {
         $response->withStatus(200, 'OK')->willReturn($response);
         $response->withProtocolVersion('1.1')->willReturn($response);
@@ -24,9 +24,9 @@ class ResponseBuilderSpec extends ObjectBehavior
     }
 
     /**
-     * @link https://github.com/php-http/message/issues/41
+     * @see https://github.com/php-http/message/issues/41
      */
-    function it_splits_headers_correctly(ResponseInterface $response)
+    public function it_splits_headers_correctly(ResponseInterface $response)
     {
         $response->withStatus(200, 'OK')->willReturn($response);
         $response->withProtocolVersion('1.1')->willReturn($response);
