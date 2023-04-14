@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.14.0] - 2023-04-14
+-
+- Allow installation with http-message (PSR-7) version 2 in addition to version 1.
+- Support for PHP 8.2
+
 ## [1.13.0] - 2022-02-11
 
 - Added `Formatter::formatResponseForRequest()` to allow the formatter to get context from the request to decide what of the response to output.
