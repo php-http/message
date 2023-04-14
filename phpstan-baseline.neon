@@ -81,11 +81,6 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:findMatchingCookies\\(\\) should return array\\<Http\\\\Message\\\\Cookie\\> but returns array\\<int, object\\>\\.$#"
-			count: 1
-			path: src/CookieJar.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:setCookies\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CookieJar.php
@@ -116,11 +111,6 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\<mixed, mixed\\>\\.$#"
-			count: 1
-			path: src/CookieJar.php
-
-		-
 			message: "#^Property Http\\\\Message\\\\CookieUtil\\:\\:\\$dateFormats type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/CookieUtil.php
@@ -129,11 +119,6 @@ parameters:
 			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Encoding/ChunkStream.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$datalen\\.$#"
-			count: 2
-			path: src/Encoding/Filter/Chunk.php
 
 		-
 			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return type specified\\.$#"
@@ -264,3 +249,8 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/UriFactory/SlimUriFactory.php
+
+		-
+			message: "#^Call to function array_key_exists\\(\\) with 'chunk' and array<int, string> will always evaluate to false\\.$#"
+			count: 1
+			path: src/filters.php

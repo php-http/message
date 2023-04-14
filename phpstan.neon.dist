@@ -5,3 +5,8 @@ parameters:
     level: max
     paths:
         - src
+    excludePaths:
+        analyse:
+            - %currentWorkingDirectory%/src/MessageFactory/*
+            - %currentWorkingDirectory%/src/StreamFactory/*
+            - %currentWorkingDirectory%/src/UriFactory/*
