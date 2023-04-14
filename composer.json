@@ -18,7 +18,7 @@
         "php": "^7.1 || ^8.0",
         "clue/stream-filter": "^1.5",
         "php-http/message-factory": "^1.0.2",
-        "psr/http-message": "^1.0"
+        "psr/http-message": "^1.0 || ^2.0"
     },
     "provide": {
         "php-http/message-factory-implementation": "1.0"
