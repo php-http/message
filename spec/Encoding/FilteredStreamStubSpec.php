@@ -57,12 +57,12 @@ class FilteredStreamStubSpec extends ObjectBehavior
 
 class FilteredStreamStub extends FilteredStream
 {
-    protected function readFilter()
+    protected function readFilter(): string
     {
         return 'convert.base64-encode';
     }
 
-    protected function writeFilter()
+    protected function writeFilter(): string
     {
         return 'convert.base64-encode';
     }

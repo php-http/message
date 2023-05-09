@@ -69,9 +69,9 @@ class MessageDecoratorSpec extends ObjectBehavior
 
     public function it_has_a_header(MessageInterface $message)
     {
-        $message->getHeader('Content-Type')->willReturn('application/xml');
+        $message->getHeader('Content-Type')->willReturn(['application/xml']);
 
-        $this->getHeader('Content-Type')->shouldReturn('application/xml');
+        $this->getHeader('Content-Type')->shouldReturn(['application/xml']);
     }
 
     public function it_has_a_header_line(MessageInterface $message)

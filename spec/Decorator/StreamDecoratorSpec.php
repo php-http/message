@@ -95,7 +95,7 @@ class StreamDecoratorSpec extends ObjectBehavior
 
     public function it_writes_to_the_stream(StreamInterface $stream)
     {
-        $stream->write('body')->shouldBeCalled();
+        $stream->write('body')->shouldBeCalled()->willReturn(4);
 
         $this->write('body');
     }

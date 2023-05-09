@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+        php: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
 
     steps:
       - name: Checkout code
@@ -31,12 +31,37 @@ jobs:
       - name: Execute tests
         run: composer test
 
+  psr-7_2:
+    name: PHP PSR-7 2.0
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          rm src/MessageFactory/SlimMessageFactory.php src/StreamFactory/SlimStreamFactory.php src/UriFactory/SlimUriFactory.php spec/MessageFactory/SlimMessageFactorySpec.php spec/StreamFactory/SlimStreamFactorySpec.php spec/UriFactory/SlimUriFactorySpec.php
+          composer remove --dev "slim/slim" --no-interaction --no-update
+          composer require "psr/http-message:^2.0" --no-interaction --no-update
+          composer update --prefer-dist --prefer-stable --no-interaction --no-progress
+
+      - name: Execute tests
+        run: composer test
+
   lowest:
     name: PHP ${{ matrix.php }} Lowest
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.1', '7.2', '7.3', '7.4']
+        php: ['7.2', '7.3', '7.4']
 
     steps:
       - name: Checkout code
