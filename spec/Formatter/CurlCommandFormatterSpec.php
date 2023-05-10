@@ -25,7 +25,8 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getUri()->willReturn($uri);
         $request->getBody()->willReturn($body);
 
-        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('GET');
         $request->getProtocolVersion()->willReturn('1.1');
 
@@ -43,9 +44,10 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $body->__toString()->willReturn('body " data'." test' bar");
         $body->getSize()->willReturn(1);
         $body->isSeekable()->willReturn(true);
-        $body->rewind()->willReturn(true);
+        $body->rewind()->shouldBeCalled();
 
-        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('2.0');
 
@@ -65,10 +67,10 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getUri()->willReturn($uri);
         $request->getBody()->willReturn($body);
 
-        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('GET');
         $request->getProtocolVersion()->willReturn('1.1');
-        $uri->withFragment('')->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getHeaders()->willReturn(['user-agent' => ['foobar-browser']]);
 
         $this->formatRequest($request)->shouldReturn("curl 'http://foo.com/bar' -A 'foobar-browser'");
@@ -82,9 +84,10 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $body->__toString()->willReturn("\0");
         $body->getSize()->willReturn(1);
         $body->isSeekable()->willReturn(true);
-        $body->rewind()->willReturn(true);
+        $body->rewind()->shouldBeCalled();
 
-        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('1.1');
         $request->getHeaders()->willReturn([]);
@@ -100,9 +103,10 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $body->__toString()->willReturn("foo\nbar");
         $body->getSize()->willReturn(1);
         $body->isSeekable()->willReturn(true);
-        $body->rewind()->willReturn(true);
+        $body->rewind()->shouldBeCalled();
 
-        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('1.1');
         $request->getHeaders()->willReturn([]);
@@ -120,7 +124,8 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $body->__toString()->shouldNotBeCalled();
         $body->rewind()->shouldNotBeCalled();
 
-        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('1.1');
         $request->getHeaders()->willReturn([]);
@@ -133,12 +138,13 @@ class CurlCommandFormatterSpec extends ObjectBehavior
         $request->getUri()->willReturn($uri);
         $request->getBody()->willReturn($body);
 
-        $body->__toString()->willReturn('a very long body');
+        $body->__toString()->shouldNotBeCalled();
         $body->getSize()->willReturn(2097153);
         $body->isSeekable()->willReturn(true);
-        $body->rewind()->willReturn(true);
+        $body->rewind()->shouldNotBeCalled();
 
-        $uri->withFragment('')->willReturn('http://foo.com/bar');
+        $uri->withFragment('')->shouldBeCalled()->willReturn($uri);
+        $uri->__toString()->shouldBeCalled()->willReturn('http://foo.com/bar');
         $request->getMethod()->willReturn('POST');
         $request->getProtocolVersion()->willReturn('1.1');
         $request->getHeaders()->willReturn([]);

@@ -23,6 +23,7 @@ final class GuzzleStreamFactory implements StreamFactory
             return Utils::streamFor($body);
         }
 
+        // legacy support for guzzle/psr7 1.*
         return \GuzzleHttp\Psr7\stream_for($body);
     }
 }

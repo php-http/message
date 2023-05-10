@@ -116,26 +116,6 @@ parameters:
 			path: src/CookieUtil.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\ChunkStream\\:\\:fill\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Encoding/ChunkStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:fill\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:rewind\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Encoding/FilteredStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Encoding\\\\FilteredStream\\:\\:seek\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Encoding/FilteredStream.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\DiactorosMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/MessageFactory/DiactorosMessageFactory.php
@@ -181,23 +161,8 @@ parameters:
 			path: src/RequestMatcher/RequestMatcher.php
 
 		-
-			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$size \\(int\\) does not accept int\\|null\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
 			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$resource \\(resource\\) does not accept resource\\|false\\.$#"
 			count: 2
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Dead catch \\- Exception is already caught#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:detach\\(\\) should return resource\\|null but empty return statement found\\.$#"
-			count: 1
 			path: src/Stream/BufferedStream.php
 
 		-
@@ -207,36 +172,6 @@ parameters:
 
 		-
 			message: "#^Property Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:\\$resource \\(resource\\) does not accept null\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:getSize\\(\\) should return int\\|null but empty return statement found\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:tell\\(\\) should return int but returns int\\|false\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:seek\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:rewind\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: src/Stream/BufferedStream.php
-
-		-
-			message: "#^Method Http\\\\Message\\\\Stream\\\\BufferedStream\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: src/Stream/BufferedStream.php
 
