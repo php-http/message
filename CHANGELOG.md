@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 
 All notable changes to this project will be documented in this file.
@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.15.0] - 2023-05-10
+
+**If you use the decorator classes, you might need to adjust your code to the parameter and return type declarations added in PSR-7**
 
 - Actually make compatible with PSR-7 1.1 and 2.0
 - Drop support for PHP 7.1
