@@ -6,9 +6,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.16.0] - 2023-XX-XX
+## [1.16.0] - 2023-05-17
 
-- Remove direct dependency on php-http/message-factory
+- Remove direct dependency on `php-http/message-factory` as it is only needed for the deprecated Httplug factories.
+  Upgrade to PSR-17 message factories provided by your HTTP client implementation.
+  If you need the Httplug factories for the time being, you can `composer require php-http/message-factory` in your application.
 
 ## [1.15.0] - 2023-05-10
 
