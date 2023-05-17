@@ -17,7 +17,6 @@
     "require": {
         "php": "^7.2 || ^8.0",
         "clue/stream-filter": "^1.5",
-        "php-http/message-factory": "^1.0.2",
         "psr/http-message": "^1.1 || ^2.0"
     },
     "provide": {
@@ -27,6 +26,7 @@
         "ext-zlib": "*",
         "ergebnis/composer-normalize": "^2.6",
         "guzzlehttp/psr7": "^1.0 || ^2.0",
+        "php-http/message-factory": "^1.0.2",
         "phpspec/phpspec": "^5.1 || ^6.3 || ^7.1",
         "slim/slim": "^3.0",
         "laminas/laminas-diactoros": "^2.0 || ^3.0"
