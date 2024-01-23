@@ -36,11 +36,11 @@ class DechunkStreamSpec extends ObjectBehavior
         $this->getContents()->shouldReturn('test');
     }
 
-        public function it_does_not_know_the_content_size()
-        {
-            $stream = new MemoryStream("4\r\ntest\r\n4\r\ntest\r\n0\r\n\r\n\0");
-            $this->beConstructedWith($stream);
+    public function it_does_not_know_the_content_size()
+    {
+        $stream = new MemoryStream("4\r\ntest\r\n4\r\ntest\r\n0\r\n\r\n\0");
+        $this->beConstructedWith($stream);
 
-            $this->getSize()->shouldReturn(null);
-        }
+        $this->getSize()->shouldReturn(null);
+    }
 }
