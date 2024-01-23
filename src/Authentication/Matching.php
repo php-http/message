@@ -39,9 +39,6 @@ final class Matching implements Authentication
         $this->matcher = new CallbackRequestMatcher($matcher);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function authenticate(RequestInterface $request)
     {
         if ($this->matcher->matches($request)) {
