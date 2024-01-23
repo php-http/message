@@ -28,7 +28,7 @@
         "guzzlehttp/psr7": "^1.0 || ^2.0",
         "php-http/message-factory": "^1.0.2",
         "phpspec/phpspec": "^5.1 || ^6.3 || ^7.1",
-        "slim/slim": "^3.0 || ^4.x-dev as 4.0",
+        "slim/slim": "^3.0 || 4.x-dev as 4.0",
         "laminas/laminas-diactoros": "^2.0 || ^3.0"
     },
     "suggest": {
