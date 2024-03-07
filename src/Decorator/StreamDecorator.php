@@ -86,6 +86,9 @@ trait StreamDecorator
         return $this->stream->getContents();
     }
 
+    /**
+     * @return mixed
+     */
     public function getMetadata(string $key = null)
     {
         return $this->stream->getMetadata($key);
