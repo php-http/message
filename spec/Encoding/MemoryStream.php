@@ -103,7 +103,7 @@ class MemoryStream implements StreamInterface
         return $this->read($this->size);
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(?string $key = null)
     {
         $metadata = stream_get_meta_data($this->resource);
 

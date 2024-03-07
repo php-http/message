@@ -209,7 +209,7 @@ class BufferedStream implements StreamInterface
         return $read;
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(?string $key = null)
     {
         if (null === $this->resource) {
             if (null === $key) {

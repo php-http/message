@@ -73,7 +73,7 @@ final class Cookie
         $path = null,
         $secure = false,
         $httpOnly = false,
-        \DateTime $expires = null
+        ?\DateTime $expires = null
     ) {
         $this->validateName($name);
         $this->validateValue($value);
@@ -109,7 +109,7 @@ final class Cookie
         $path = null,
         $secure = false,
         $httpOnly = false,
-        \DateTime $expires = null
+        ?\DateTime $expires = null
     ) {
         $cookie = new self('name', null, null, $domain, $path, $secure, $httpOnly, $expires);
         $cookie->name = $name;
@@ -228,7 +228,7 @@ final class Cookie
      *
      * @return Cookie
      */
-    public function withExpires(\DateTime $expires = null)
+    public function withExpires(?\DateTime $expires = null)
     {
         $new = clone $this;
         $new->expires = $expires;

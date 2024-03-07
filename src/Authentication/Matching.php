@@ -27,7 +27,7 @@ final class Matching implements Authentication
      */
     private $matcher;
 
-    public function __construct(Authentication $authentication, callable $matcher = null)
+    public function __construct(Authentication $authentication, ?callable $matcher = null)
     {
         if (is_null($matcher)) {
             $matcher = function () {
