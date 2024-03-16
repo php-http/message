@@ -61,11 +61,6 @@ parameters:
 			path: src/Cookie.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function rtrim expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Cookie.php
-
-		-
 			message: "#^Class Http\\\\Message\\\\CookieJar implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: src/CookieJar.php
