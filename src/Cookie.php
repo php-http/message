@@ -511,9 +511,8 @@ final class Cookie
      */
     private function normalizePath($path)
     {
-        if(null !== $path)
-        {
-         $path = rtrim($path, '/');
+        if (null !== $path) {
+            $path = rtrim($path, '/');
         }
 
         if (empty($path) or '/' !== substr($path, 0, 1)) {
