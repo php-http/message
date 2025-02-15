@@ -13,7 +13,7 @@
 Via Composer
 
 ``` bash
-$ composer require php-http/message
+composer require php-http/message
 ```
 
 
@@ -37,7 +37,7 @@ Please see the [official documentation](http://docs.php-http.org/en/latest/messa
 ## Testing
 
 ``` bash
-$ composer test
+composer test
 ```
 
 
