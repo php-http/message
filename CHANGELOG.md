@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.16.2] - 2024-10-02
+
+- Avoid error when reading 0 bytes from BufferedStream.
+- Test with PHP 8.3 and 8.4.
+
 ## [1.16.1] - 2024-03-07
 
 - Adjust phpdoc to avoid warnings about return types.
