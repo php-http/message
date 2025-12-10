@@ -10,7 +10,7 @@ final class CookieUtil
      * Handles dates as defined by RFC 2616 section 3.3.1, and also some other
      * non-standard, but common formats.
      *
-     * @var array
+     * @var string[]
      */
     private static $dateFormats = [
         'D, d M y H:i:s T',
@@ -34,6 +34,9 @@ final class CookieUtil
      */
     public static function parseDate($dateValue)
     {
+        if (!is_string($dateValue)) {
+            throw new \InvalidArgumentException('Date must be of type string, given '.gettype($dateValue));
+        }
         foreach (self::$dateFormats as $dateFormat) {
             if (false !== $date = \DateTime::createFromFormat($dateFormat, $dateValue, new \DateTimeZone('GMT'))) {
                 return $date;

@@ -12,12 +12,14 @@ class Chunk extends \php_user_filter
     public function filter($in, $out, &$consumed, $closing): int
     {
         while ($bucket = stream_bucket_make_writeable($in)) {
+            /* @phpstan-ignore argument.type */
             $lenbucket = stream_bucket_new($this->stream, dechex($bucket->datalen)."\r\n");
             stream_bucket_append($out, $lenbucket);
 
             $consumed += $bucket->datalen;
             stream_bucket_append($out, $bucket);
 
+            /* @phpstan-ignore argument.type */
             $lenbucket = stream_bucket_new($this->stream, "\r\n");
             stream_bucket_append($out, $lenbucket);
         }
