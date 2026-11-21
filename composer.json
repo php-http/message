@@ -26,10 +26,10 @@
         "ext-zlib": "*",
         "ergebnis/composer-normalize": "^2.6",
         "guzzlehttp/psr7": "^1.0 || ^2.0",
+        "laminas/laminas-diactoros": "^2.0 || ^3.0",
         "php-http/message-factory": "^1.0.2",
-        "phpspec/phpspec": "^5.1 || ^6.3 || ^7.1",
-        "slim/slim": "^3.0",
-        "laminas/laminas-diactoros": "^2.0 || ^3.0"
+        "phpunit/phpunit": "^8.5.40 || ^9.6.22 || ^10.5.45 || ^11.5.20 || ^12.4 || ^13.0",
+        "slim/slim": "^3.0"
     },
     "suggest": {
         "ext-zlib": "Used with compressor/decompressor streams",
@@ -53,11 +53,14 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "spec\\Http\\Message\\": "spec/"
-        }
+            "Http\\Message\\Tests\\": "tests/"
+        },
+        "files": [
+            "tests/functions.php"
+        ]
     },
     "scripts": {
-        "test": "vendor/bin/phpspec run",
-        "test-ci": "vendor/bin/phpspec run -c phpspec.ci.yml"
+        "test": "vendor/bin/phpunit",
+        "test-ci": "vendor/bin/phpunit --coverage-filter src --coverage-text --coverage-clover build/coverage.xml"
     }
 }

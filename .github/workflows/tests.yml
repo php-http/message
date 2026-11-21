@@ -11,6 +11,7 @@ jobs:
     name: PHP ${{ matrix.php }} Latest
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         php: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
 
@@ -26,6 +27,9 @@ jobs:
           coverage: none
 
       - name: Install dependencies
+        env:
+          # laminas/laminas-diactoros only has releases with known advisories for PHP < 8.1
+          COMPOSER_NO_SECURITY_BLOCKING: 1
         run: composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
@@ -48,7 +52,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          rm src/MessageFactory/SlimMessageFactory.php src/StreamFactory/SlimStreamFactory.php src/UriFactory/SlimUriFactory.php spec/MessageFactory/SlimMessageFactorySpec.php spec/StreamFactory/SlimStreamFactorySpec.php spec/UriFactory/SlimUriFactorySpec.php
+          rm src/MessageFactory/SlimMessageFactory.php src/StreamFactory/SlimStreamFactory.php src/UriFactory/SlimUriFactory.php tests/MessageFactory/SlimMessageFactoryTest.php tests/StreamFactory/SlimStreamFactoryTest.php tests/UriFactory/SlimUriFactoryTest.php
           composer remove --dev "slim/slim" --no-interaction --no-update
           composer require "psr/http-message:^2.0" --no-interaction --no-update
           composer update --prefer-dist --prefer-stable --no-interaction --no-progress
@@ -60,6 +64,7 @@ jobs:
     name: PHP ${{ matrix.php }} Lowest
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         php: ['7.2', '7.3', '7.4']
 
@@ -75,9 +80,9 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: |
-          composer require "sebastian/comparator:^3.0.2" --no-interaction --no-update
-          composer update --prefer-dist --prefer-stable --prefer-lowest --no-interaction --no-progress
+        env:
+          COMPOSER_NO_SECURITY_BLOCKING: 1
+        run: composer update --prefer-dist --prefer-stable --prefer-lowest --no-interaction --no-progress
 
       - name: Execute tests
         run: composer test
@@ -93,14 +98,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: 8.5
           tools: composer
-          coverage: xdebug
+          coverage: pcov
 
       - name: Install dependencies
-        run: |
-          composer require "friends-of-phpspec/phpspec-code-coverage:^4.3.2" --no-interaction --no-update
-          composer update --prefer-dist --no-interaction --no-progress
+        run: composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
         run: composer test-ci
