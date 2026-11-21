@@ -91,7 +91,7 @@ class ResponseBuilder
     }
 
     /**
-     * @param mixed $value
+     * @param mixed $value value whose type is described in error messages
      */
     private static function describeType($value): string
     {
