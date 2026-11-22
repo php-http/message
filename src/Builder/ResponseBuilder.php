@@ -64,7 +64,7 @@ class ResponseBuilder
     /**
      * Add headers represented by a single string.
      *
-     * @param string $headers response headers as single string
+     * @param string|\Stringable $headers response headers as single string
      *
      * @return $this
      *
@@ -80,14 +80,22 @@ class ResponseBuilder
                 sprintf(
                     '%s expects parameter 1 to be a string, %s given',
                     __METHOD__,
-                    is_object($headers) ? get_class($headers) : gettype($headers)
+                    self::describeType($headers)
                 )
             );
         }
 
-        $this->setHeadersFromArray(explode("\r\n", $headers));
+        $this->setHeadersFromArray(explode("\r\n", (string) $headers));
 
         return $this;
+    }
+
+    /**
+     * @param mixed $value value whose type is described in error messages
+     */
+    private static function describeType($value): string
+    {
+        return is_object($value) ? get_class($value) : gettype($value);
     }
 
     /**

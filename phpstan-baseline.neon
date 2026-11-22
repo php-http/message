@@ -16,16 +16,6 @@ parameters:
 			path: src/Builder/ResponseBuilder.php
 
 		-
-			message: "#^Result of \\|\\| is always true\\.$#"
-			count: 1
-			path: src/Builder/ResponseBuilder.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: src/Builder/ResponseBuilder.php
-
-		-
 			message: "#^Method Http\\\\Message\\\\Cookie\\:\\:createWithoutValidation\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Cookie.php
@@ -101,14 +91,14 @@ parameters:
 			path: src/CookieJar.php
 
 		-
-			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:clear\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Cannot call method .* on mixed\\.$#"
+			count: 4
 			path: src/CookieJar.php
 
 		-
-			message: "#^Property Http\\\\Message\\\\CookieUtil\\:\\:\\$dateFormats type has no value type specified in iterable type array\\.$#"
+			message: "#^Method Http\\\\Message\\\\CookieJar\\:\\:clear\\(\\) has no return type specified\\.$#"
 			count: 1
-			path: src/CookieUtil.php
+			path: src/CookieJar.php
 
 		-
 			message: "#^Method Http\\\\Message\\\\MessageFactory\\\\DiactorosMessageFactory\\:\\:createRequest\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
@@ -181,6 +171,4 @@ parameters:
 			path: src/UriFactory/SlimUriFactory.php
 
 		-
-			message: "#^Call to function array_key_exists\\(\\) with 'chunk' and array<int, string> will always evaluate to false\\.$#"
-			count: 1
-			path: src/filters.php
+			message: '#Trait .* is used zero times and is not analysed#'
